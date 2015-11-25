@@ -1,0 +1,4 @@
+C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\BL\bin\Debug\BL.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\BL\bin\Debug\BL.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\BL\obj\Debug\BL.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\BL\obj\Debug\BL.pdb
