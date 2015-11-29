@@ -14,6 +14,10 @@ namespace Entidades
         public int ID_Ciudad { get; set; }
         public int ID_Documento { get; set; }
         public string nombresApelldios { get; set; }
-
+        public string NumeroDocumento { get; set; }
+        public string Telefono { get; set; }
+        public string Celular { get; set; }
+        public string Email { get; set; }
+        public string Direccion { get; set; }
     }
 }

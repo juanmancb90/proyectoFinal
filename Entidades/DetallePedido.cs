@@ -8,5 +8,6 @@ namespace Entidades
 {
     class DetallePedido
     {
+        public int ID_DetallePedido { get; set; }
     }
 }
