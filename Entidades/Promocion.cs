@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Entidades
+    class Promocion
     {
     }
 }
