@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Promocion
+    public class Cobertura
     {
-        public int ID_Promocion { get; set; }
-        public string TipoPromocion { get; set; }
+        public int ID_Cobertura { get; set; }
+        public string TipoCobertura { get; set; }
         public string Descripcion { get; set; }
-        public DateTime FechaPromocion { get; set; }
     }
 }

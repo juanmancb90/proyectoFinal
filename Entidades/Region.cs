@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL
+namespace Entidades
 {
-    public class bl
+    public class Region
     {
+        public int ID_Region { get; set; }
+        public string TipoRegion { get; set; }
     }
 }
