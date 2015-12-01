@@ -10,7 +10,6 @@ namespace Entidades
     {
         public int ID_Pedido { get; set; }
         public int ID_Cliente { get; set; }
-        public int ID_Region { get; set; }
         public DateTime FechaRegistro { get; set; }
         public DateTime FechaEntrega { get; set; }
         public double TotalBruto { get; set; }

@@ -10,5 +10,6 @@ namespace Entidades
     {
         public int ID_Categorio { get; set; }
         public string TipoCategoria { get; set; }
+        public string Descripcion { get; set; }
     }
 }
