@@ -10,5 +10,6 @@ namespace Entidades
     {
         public int ID_Documento { get; set; }
         public string TipoDocumento { get; set; }
+    
     }
 }

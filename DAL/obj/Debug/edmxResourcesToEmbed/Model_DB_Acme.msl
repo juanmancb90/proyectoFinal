@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DB_AcmeModelStoreContainer" CdmEntityContainer="DB_AcmeEntities">
+  <EntityContainerMapping StorageEntityContainer="DB_AcmeModelStoreContainer" CdmEntityContainer="DB_AcmeEntities1">
     <EntitySetMapping Name="TB_Categoria">
       <EntityTypeMapping TypeName="DB_AcmeModel.TB_Categoria">
         <MappingFragment StoreEntitySet="TB_Categoria">
@@ -78,7 +78,6 @@
           <ScalarProperty Name="ID_Promocion" ColumnName="ID_Promocion" />
           <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
           <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Fabricante" ColumnName="Fabricante" />
           <ScalarProperty Name="Stock" ColumnName="Stock" />
@@ -101,28 +100,10 @@
       <EntityTypeMapping TypeName="DB_AcmeModel.TB_Vendedor">
         <MappingFragment StoreEntitySet="TB_Vendedor">
           <ScalarProperty Name="ID_Vendedor" ColumnName="ID_Vendedor" />
-          <ScalarProperty Name="ID_Ciudad" ColumnName="ID_Ciudad" />
           <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
           <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
-          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
-          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-          <ScalarProperty Name="Celular" ColumnName="Celular" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TB_Auditoria">
-      <EntityTypeMapping TypeName="DB_AcmeModel.TB_Auditoria">
-        <MappingFragment StoreEntitySet="TB_Auditoria">
-          <ScalarProperty Name="TiempoEvento" ColumnName="TiempoEvento" />
-          <ScalarProperty Name="NombreInicioSesion" ColumnName="NombreInicioSesion" />
           <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
-          <ScalarProperty Name="NombreBaseDatos" ColumnName="NombreBaseDatos" />
-          <ScalarProperty Name="NombreEsquema" ColumnName="NombreEsquema" />
-          <ScalarProperty Name="NombreObjeto" ColumnName="NombreObjeto" />
-          <ScalarProperty Name="TipoObjeto" ColumnName="TipoObjeto" />
-          <ScalarProperty Name="ComandoDDL" ColumnName="ComandoDDL" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

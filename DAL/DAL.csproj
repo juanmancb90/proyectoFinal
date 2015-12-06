@@ -47,75 +47,70 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model_DB_Acme.Context.cs">
+    <Compile Include="Model_DB_ACME.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model_DB_Acme.Context.tt</DependentUpon>
+      <DependentUpon>Model_DB_ACME.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model_DB_Acme.cs">
+    <Compile Include="Model_DB_ACME.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model_DB_Acme.tt</DependentUpon>
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model_DB_Acme.Designer.cs">
+    <Compile Include="Model_DB_ACME.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model_DB_Acme.edmx</DependentUpon>
+      <DependentUpon>Model_DB_ACME.edmx</DependentUpon>
     </Compile>
     <Compile Include="ProductosDAL.cs" />
-    <Compile Include="TB_Auditoria.cs">
-      <DependentUpon>Model_DB_Acme.tt</DependentUpon>
-    </Compile>
     <Compile Include="TB_Categoria.cs">
-      <DependentUpon>Model_DB_Acme.tt</DependentUpon>
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
     <Compile Include="TB_Ciudad.cs">
-      <DependentUpon>Model_DB_Acme.tt</DependentUpon>
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
     <Compile Include="TB_Cliente.cs">
-      <DependentUpon>Model_DB_Acme.tt</DependentUpon>
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
     <Compile Include="TB_DetallePedido.cs">
-      <DependentUpon>Model_DB_Acme.tt</DependentUpon>
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
     <Compile Include="TB_Documento.cs">
-      <DependentUpon>Model_DB_Acme.tt</DependentUpon>
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
     <Compile Include="TB_Pedido.cs">
-      <DependentUpon>Model_DB_Acme.tt</DependentUpon>
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
     <Compile Include="TB_Producto.cs">
-      <DependentUpon>Model_DB_Acme.tt</DependentUpon>
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
     <Compile Include="TB_Promocion.cs">
-      <DependentUpon>Model_DB_Acme.tt</DependentUpon>
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
     <Compile Include="TB_Vendedor.cs">
-      <DependentUpon>Model_DB_Acme.tt</DependentUpon>
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
     <Compile Include="VendedorDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Model_DB_Acme.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model_DB_Acme.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
-    <None Include="Model_DB_Acme.Context.tt">
+    <EntityDeploy Include="Model_DB_ACME.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_DB_ACME.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model_DB_ACME.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model_DB_Acme.edmx</DependentUpon>
-      <LastGenOutput>Model_DB_Acme.Context.cs</LastGenOutput>
+      <DependentUpon>Model_DB_ACME.edmx</DependentUpon>
+      <LastGenOutput>Model_DB_ACME.Context.cs</LastGenOutput>
     </None>
-    <None Include="Model_DB_Acme.edmx.diagram">
-      <DependentUpon>Model_DB_Acme.edmx</DependentUpon>
+    <None Include="Model_DB_ACME.edmx.diagram">
+      <DependentUpon>Model_DB_ACME.edmx</DependentUpon>
     </None>
-    <None Include="Model_DB_Acme.tt">
+    <None Include="Model_DB_ACME.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model_DB_Acme.edmx</DependentUpon>
-      <LastGenOutput>Model_DB_Acme.cs</LastGenOutput>
+      <DependentUpon>Model_DB_ACME.edmx</DependentUpon>
+      <LastGenOutput>Model_DB_ACME.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

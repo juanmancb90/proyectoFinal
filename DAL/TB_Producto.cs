@@ -24,7 +24,6 @@ namespace DAL
         public int ID_Promocion { get; set; }
         public string NombreProducto { get; set; }
         public string Codigo { get; set; }
-        public byte[] Imagen { get; set; }
         public string Descripcion { get; set; }
         public string Fabricante { get; set; }
         public int Stock { get; set; }

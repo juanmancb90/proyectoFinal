@@ -17,7 +17,6 @@ namespace DAL
         public TB_Ciudad()
         {
             this.TB_Cliente = new HashSet<TB_Cliente>();
-            this.TB_Vendedor = new HashSet<TB_Vendedor>();
         }
     
         public int ID_Ciudad { get; set; }
@@ -25,6 +24,5 @@ namespace DAL
         public string NombreRegion { get; set; }
     
         public virtual ICollection<TB_Cliente> TB_Cliente { get; set; }
-        public virtual ICollection<TB_Vendedor> TB_Vendedor { get; set; }
     }
 }

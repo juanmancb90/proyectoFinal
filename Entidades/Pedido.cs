@@ -10,11 +10,11 @@ namespace Entidades
     {
         public int ID_Pedido { get; set; }
         public int ID_Cliente { get; set; }
-        public DateTime FechaRegistro { get; set; }
-        public DateTime FechaEntrega { get; set; }
-        public double TotalBruto { get; set; }
-        public double Impuestos { get; set; }
-        public double ValorNeto { get; set; }
+        public System.DateTime FechaRegistro { get; set; }
+        public System.DateTime FechaEntrega { get; set; }
+        public decimal TotalBruto { get; set; }
+        public decimal Impuesto { get; set; }
+        public decimal ValorNeto { get; set; }
         public bool Estado { get; set; }
     }
 }

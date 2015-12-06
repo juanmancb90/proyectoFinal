@@ -5,28 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="DB_AcmeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="TB_Auditoria">
-          <Key>
-            <PropertyRef Name="TiempoEvento" />
-            <PropertyRef Name="NombreInicioSesion" />
-            <PropertyRef Name="NombreUsuario" />
-            <PropertyRef Name="NombreBaseDatos" />
-            <PropertyRef Name="NombreEsquema" />
-            <PropertyRef Name="NombreObjeto" />
-            <PropertyRef Name="TipoObjeto" />
-            <PropertyRef Name="ComandoDDL" />
-          </Key>
-          <Property Name="TiempoEvento" Type="datetime" Nullable="false" />
-          <Property Name="NombreInicioSesion" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="NombreUsuario" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="NombreBaseDatos" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="NombreEsquema" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="NombreObjeto" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="TipoObjeto" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ComandoDDL" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
         <EntityType Name="TB_Categoria">
           <Key>
             <PropertyRef Name="ID_Categoria" />
@@ -99,7 +77,6 @@ warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary 
           <Property Name="ID_Promocion" Type="int" Nullable="false" />
           <Property Name="NombreProducto" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="Codigo" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Imagen" Type="varbinary(max)" Nullable="false" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Fabricante" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Stock" Type="int" Nullable="false" />
@@ -120,14 +97,10 @@ warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary 
             <PropertyRef Name="ID_Vendedor" />
           </Key>
           <Property Name="ID_Vendedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_Ciudad" Type="int" Nullable="false" />
           <Property Name="NombreCompleto" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="NumeroDocumento" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="FechaNacimiento" Type="date" Nullable="false" />
-          <Property Name="Telefono" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Celular" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="80" Nullable="false" />
-          <Property Name="Direccion" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="NombreUsuario" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="Contrasenia" Type="nvarchar" MaxLength="300" Nullable="false" />
         </EntityType>
         <Association Name="FK_TB_Cliente_TB_Ciudad">
           <End Role="TB_Ciudad" Type="Self.TB_Ciudad" Multiplicity="1" />
@@ -225,18 +198,6 @@ warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TB_Vendedor_TB_Ciudad">
-          <End Role="TB_Ciudad" Type="Self.TB_Ciudad" Multiplicity="1" />
-          <End Role="TB_Vendedor" Type="Self.TB_Vendedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TB_Ciudad">
-              <PropertyRef Name="ID_Ciudad" />
-            </Principal>
-            <Dependent Role="TB_Vendedor">
-              <PropertyRef Name="ID_Ciudad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="DB_AcmeModelStoreContainer">
           <EntitySet Name="TB_Categoria" EntityType="Self.TB_Categoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_Ciudad" EntityType="Self.TB_Ciudad" Schema="dbo" store:Type="Tables" />
@@ -247,18 +208,6 @@ warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary 
           <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_Vendedor" EntityType="Self.TB_Vendedor" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TB_Auditoria].[TiempoEvento] AS [TiempoEvento], 
-[TB_Auditoria].[NombreInicioSesion] AS [NombreInicioSesion], 
-[TB_Auditoria].[NombreUsuario] AS [NombreUsuario], 
-[TB_Auditoria].[NombreBaseDatos] AS [NombreBaseDatos], 
-[TB_Auditoria].[NombreEsquema] AS [NombreEsquema], 
-[TB_Auditoria].[NombreObjeto] AS [NombreObjeto], 
-[TB_Auditoria].[TipoObjeto] AS [TipoObjeto], 
-[TB_Auditoria].[ComandoDDL] AS [ComandoDDL]
-FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_TB_Cliente_TB_Ciudad" Association="Self.FK_TB_Cliente_TB_Ciudad">
             <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
             <End Role="TB_Cliente" EntitySet="TB_Cliente" />
@@ -291,10 +240,6 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
             <End Role="TB_Promocion" EntitySet="TB_Promocion" />
             <End Role="TB_Producto" EntitySet="TB_Producto" />
           </AssociationSet>
-          <AssociationSet Name="FK_TB_Vendedor_TB_Ciudad" Association="Self.FK_TB_Vendedor_TB_Ciudad">
-            <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
-            <End Role="TB_Vendedor" EntitySet="TB_Vendedor" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -318,7 +263,6 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
           <Property Name="NombreCiudad" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NombreRegion" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Cliente_TB_Ciudad" FromRole="TB_Ciudad" ToRole="TB_Cliente" />
-          <NavigationProperty Name="TB_Vendedor" Relationship="Self.FK_TB_Vendedor_TB_Ciudad" FromRole="TB_Ciudad" ToRole="TB_Vendedor" />
         </EntityType>
         <EntityType Name="TB_Cliente">
           <Key>
@@ -385,7 +329,6 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
           <Property Name="ID_Promocion" Type="Int32" Nullable="false" />
           <Property Name="NombreProducto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Codigo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Fabricante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Stock" Type="Int32" Nullable="false" />
@@ -410,36 +353,11 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
             <PropertyRef Name="ID_Vendedor" />
           </Key>
           <Property Name="ID_Vendedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_Ciudad" Type="Int32" Nullable="false" />
           <Property Name="NombreCompleto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NumeroDocumento" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Celular" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Direccion" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="TB_Ciudad" Relationship="Self.FK_TB_Vendedor_TB_Ciudad" FromRole="TB_Vendedor" ToRole="TB_Ciudad" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contrasenia" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Cliente_TB_Vendedor" FromRole="TB_Vendedor" ToRole="TB_Cliente" />
-        </EntityType>
-        <EntityType Name="TB_Auditoria">
-          <Key>
-            <PropertyRef Name="TiempoEvento" />
-            <PropertyRef Name="NombreInicioSesion" />
-            <PropertyRef Name="NombreUsuario" />
-            <PropertyRef Name="NombreBaseDatos" />
-            <PropertyRef Name="NombreEsquema" />
-            <PropertyRef Name="NombreObjeto" />
-            <PropertyRef Name="TipoObjeto" />
-            <PropertyRef Name="ComandoDDL" />
-          </Key>
-          <Property Name="TiempoEvento" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="NombreInicioSesion" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NombreUsuario" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NombreBaseDatos" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NombreEsquema" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NombreObjeto" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TipoObjeto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ComandoDDL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <Association Name="FK_TB_Producto_TB_Categoria">
           <End Role="TB_Categoria" Type="Self.TB_Categoria" Multiplicity="1" />
@@ -461,18 +379,6 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
               <PropertyRef Name="ID_Ciudad" />
             </Principal>
             <Dependent Role="TB_Cliente">
-              <PropertyRef Name="ID_Ciudad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TB_Vendedor_TB_Ciudad">
-          <End Role="TB_Ciudad" Type="Self.TB_Ciudad" Multiplicity="1" />
-          <End Role="TB_Vendedor" Type="Self.TB_Vendedor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TB_Ciudad">
-              <PropertyRef Name="ID_Ciudad" />
-            </Principal>
-            <Dependent Role="TB_Vendedor">
               <PropertyRef Name="ID_Ciudad" />
             </Dependent>
           </ReferentialConstraint>
@@ -549,7 +455,7 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB_AcmeEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DB_AcmeEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TB_Categoria" EntityType="Self.TB_Categoria" />
           <EntitySet Name="TB_Ciudad" EntityType="Self.TB_Ciudad" />
           <EntitySet Name="TB_Cliente" EntityType="Self.TB_Cliente" />
@@ -559,7 +465,6 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
           <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" />
           <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" />
           <EntitySet Name="TB_Vendedor" EntityType="Self.TB_Vendedor" />
-          <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" />
           <AssociationSet Name="FK_TB_Producto_TB_Categoria" Association="Self.FK_TB_Producto_TB_Categoria">
             <End Role="TB_Categoria" EntitySet="TB_Categoria" />
             <End Role="TB_Producto" EntitySet="TB_Producto" />
@@ -567,10 +472,6 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
           <AssociationSet Name="FK_TB_Cliente_TB_Ciudad" Association="Self.FK_TB_Cliente_TB_Ciudad">
             <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
             <End Role="TB_Cliente" EntitySet="TB_Cliente" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TB_Vendedor_TB_Ciudad" Association="Self.FK_TB_Vendedor_TB_Ciudad">
-            <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
-            <End Role="TB_Vendedor" EntitySet="TB_Vendedor" />
           </AssociationSet>
           <AssociationSet Name="FK_TB_Cliente_TB_Documento" Association="Self.FK_TB_Cliente_TB_Documento">
             <End Role="TB_Documento" EntitySet="TB_Documento" />
@@ -602,7 +503,7 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DB_AcmeModelStoreContainer" CdmEntityContainer="DB_AcmeEntities">
+        <EntityContainerMapping StorageEntityContainer="DB_AcmeModelStoreContainer" CdmEntityContainer="DB_AcmeEntities1">
           <EntitySetMapping Name="TB_Categoria">
             <EntityTypeMapping TypeName="DB_AcmeModel.TB_Categoria">
               <MappingFragment StoreEntitySet="TB_Categoria">
@@ -680,7 +581,6 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
                 <ScalarProperty Name="ID_Promocion" ColumnName="ID_Promocion" />
                 <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Fabricante" ColumnName="Fabricante" />
                 <ScalarProperty Name="Stock" ColumnName="Stock" />
@@ -703,28 +603,10 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
             <EntityTypeMapping TypeName="DB_AcmeModel.TB_Vendedor">
               <MappingFragment StoreEntitySet="TB_Vendedor">
                 <ScalarProperty Name="ID_Vendedor" ColumnName="ID_Vendedor" />
-                <ScalarProperty Name="ID_Ciudad" ColumnName="ID_Ciudad" />
                 <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
                 <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
-                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Celular" ColumnName="Celular" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TB_Auditoria">
-            <EntityTypeMapping TypeName="DB_AcmeModel.TB_Auditoria">
-              <MappingFragment StoreEntitySet="TB_Auditoria">
-                <ScalarProperty Name="TiempoEvento" ColumnName="TiempoEvento" />
-                <ScalarProperty Name="NombreInicioSesion" ColumnName="NombreInicioSesion" />
                 <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
-                <ScalarProperty Name="NombreBaseDatos" ColumnName="NombreBaseDatos" />
-                <ScalarProperty Name="NombreEsquema" ColumnName="NombreEsquema" />
-                <ScalarProperty Name="NombreObjeto" ColumnName="NombreObjeto" />
-                <ScalarProperty Name="TipoObjeto" ColumnName="TipoObjeto" />
-                <ScalarProperty Name="ComandoDDL" ColumnName="ComandoDDL" />
+                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

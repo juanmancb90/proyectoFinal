@@ -17,7 +17,6 @@
     <Property Name="NombreCiudad" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NombreRegion" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Cliente_TB_Ciudad" FromRole="TB_Ciudad" ToRole="TB_Cliente" />
-    <NavigationProperty Name="TB_Vendedor" Relationship="Self.FK_TB_Vendedor_TB_Ciudad" FromRole="TB_Ciudad" ToRole="TB_Vendedor" />
   </EntityType>
   <EntityType Name="TB_Cliente">
     <Key>
@@ -84,7 +83,6 @@
     <Property Name="ID_Promocion" Type="Int32" Nullable="false" />
     <Property Name="NombreProducto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Codigo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
     <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Fabricante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Stock" Type="Int32" Nullable="false" />
@@ -109,36 +107,11 @@
       <PropertyRef Name="ID_Vendedor" />
     </Key>
     <Property Name="ID_Vendedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ID_Ciudad" Type="Int32" Nullable="false" />
     <Property Name="NombreCompleto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NumeroDocumento" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Celular" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Direccion" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="TB_Ciudad" Relationship="Self.FK_TB_Vendedor_TB_Ciudad" FromRole="TB_Vendedor" ToRole="TB_Ciudad" />
+    <Property Name="NombreUsuario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Contrasenia" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Cliente_TB_Vendedor" FromRole="TB_Vendedor" ToRole="TB_Cliente" />
-  </EntityType>
-  <EntityType Name="TB_Auditoria">
-    <Key>
-      <PropertyRef Name="TiempoEvento" />
-      <PropertyRef Name="NombreInicioSesion" />
-      <PropertyRef Name="NombreUsuario" />
-      <PropertyRef Name="NombreBaseDatos" />
-      <PropertyRef Name="NombreEsquema" />
-      <PropertyRef Name="NombreObjeto" />
-      <PropertyRef Name="TipoObjeto" />
-      <PropertyRef Name="ComandoDDL" />
-    </Key>
-    <Property Name="TiempoEvento" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="NombreInicioSesion" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NombreUsuario" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NombreBaseDatos" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NombreEsquema" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NombreObjeto" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="TipoObjeto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ComandoDDL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <Association Name="FK_TB_Producto_TB_Categoria">
     <End Role="TB_Categoria" Type="Self.TB_Categoria" Multiplicity="1" />
@@ -160,18 +133,6 @@
         <PropertyRef Name="ID_Ciudad" />
       </Principal>
       <Dependent Role="TB_Cliente">
-        <PropertyRef Name="ID_Ciudad" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TB_Vendedor_TB_Ciudad">
-    <End Role="TB_Ciudad" Type="Self.TB_Ciudad" Multiplicity="1" />
-    <End Role="TB_Vendedor" Type="Self.TB_Vendedor" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TB_Ciudad">
-        <PropertyRef Name="ID_Ciudad" />
-      </Principal>
-      <Dependent Role="TB_Vendedor">
         <PropertyRef Name="ID_Ciudad" />
       </Dependent>
     </ReferentialConstraint>
@@ -248,7 +209,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DB_AcmeEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DB_AcmeEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="TB_Categoria" EntityType="Self.TB_Categoria" />
     <EntitySet Name="TB_Ciudad" EntityType="Self.TB_Ciudad" />
     <EntitySet Name="TB_Cliente" EntityType="Self.TB_Cliente" />
@@ -258,7 +219,6 @@
     <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" />
     <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" />
     <EntitySet Name="TB_Vendedor" EntityType="Self.TB_Vendedor" />
-    <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" />
     <AssociationSet Name="FK_TB_Producto_TB_Categoria" Association="Self.FK_TB_Producto_TB_Categoria">
       <End Role="TB_Categoria" EntitySet="TB_Categoria" />
       <End Role="TB_Producto" EntitySet="TB_Producto" />
@@ -266,10 +226,6 @@
     <AssociationSet Name="FK_TB_Cliente_TB_Ciudad" Association="Self.FK_TB_Cliente_TB_Ciudad">
       <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
       <End Role="TB_Cliente" EntitySet="TB_Cliente" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TB_Vendedor_TB_Ciudad" Association="Self.FK_TB_Vendedor_TB_Ciudad">
-      <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
-      <End Role="TB_Vendedor" EntitySet="TB_Vendedor" />
     </AssociationSet>
     <AssociationSet Name="FK_TB_Cliente_TB_Documento" Association="Self.FK_TB_Cliente_TB_Documento">
       <End Role="TB_Documento" EntitySet="TB_Documento" />

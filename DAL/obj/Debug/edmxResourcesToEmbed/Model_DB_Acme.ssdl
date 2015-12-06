@@ -1,27 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DB_AcmeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="TB_Auditoria">
-    <Key>
-      <PropertyRef Name="TiempoEvento" />
-      <PropertyRef Name="NombreInicioSesion" />
-      <PropertyRef Name="NombreUsuario" />
-      <PropertyRef Name="NombreBaseDatos" />
-      <PropertyRef Name="NombreEsquema" />
-      <PropertyRef Name="NombreObjeto" />
-      <PropertyRef Name="TipoObjeto" />
-      <PropertyRef Name="ComandoDDL" />
-    </Key>
-    <Property Name="TiempoEvento" Type="datetime" Nullable="false" />
-    <Property Name="NombreInicioSesion" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="NombreUsuario" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="NombreBaseDatos" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="NombreEsquema" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="NombreObjeto" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="TipoObjeto" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ComandoDDL" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
   <EntityType Name="TB_Categoria">
     <Key>
       <PropertyRef Name="ID_Categoria" />
@@ -94,7 +72,6 @@ warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary 
     <Property Name="ID_Promocion" Type="int" Nullable="false" />
     <Property Name="NombreProducto" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="Codigo" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="Imagen" Type="varbinary(max)" Nullable="false" />
     <Property Name="Descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Fabricante" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Stock" Type="int" Nullable="false" />
@@ -115,14 +92,10 @@ warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary 
       <PropertyRef Name="ID_Vendedor" />
     </Key>
     <Property Name="ID_Vendedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ID_Ciudad" Type="int" Nullable="false" />
     <Property Name="NombreCompleto" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="NumeroDocumento" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="FechaNacimiento" Type="date" Nullable="false" />
-    <Property Name="Telefono" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="Celular" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="80" Nullable="false" />
-    <Property Name="Direccion" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="NombreUsuario" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Contrasenia" Type="nvarchar" MaxLength="300" Nullable="false" />
   </EntityType>
   <Association Name="FK_TB_Cliente_TB_Ciudad">
     <End Role="TB_Ciudad" Type="Self.TB_Ciudad" Multiplicity="1" />
@@ -220,18 +193,6 @@ warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_TB_Vendedor_TB_Ciudad">
-    <End Role="TB_Ciudad" Type="Self.TB_Ciudad" Multiplicity="1" />
-    <End Role="TB_Vendedor" Type="Self.TB_Vendedor" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TB_Ciudad">
-        <PropertyRef Name="ID_Ciudad" />
-      </Principal>
-      <Dependent Role="TB_Vendedor">
-        <PropertyRef Name="ID_Ciudad" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="DB_AcmeModelStoreContainer">
     <EntitySet Name="TB_Categoria" EntityType="Self.TB_Categoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Ciudad" EntityType="Self.TB_Ciudad" Schema="dbo" store:Type="Tables" />
@@ -242,18 +203,6 @@ warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary 
     <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Vendedor" EntityType="Self.TB_Vendedor" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[TB_Auditoria].[TiempoEvento] AS [TiempoEvento], 
-[TB_Auditoria].[NombreInicioSesion] AS [NombreInicioSesion], 
-[TB_Auditoria].[NombreUsuario] AS [NombreUsuario], 
-[TB_Auditoria].[NombreBaseDatos] AS [NombreBaseDatos], 
-[TB_Auditoria].[NombreEsquema] AS [NombreEsquema], 
-[TB_Auditoria].[NombreObjeto] AS [NombreObjeto], 
-[TB_Auditoria].[TipoObjeto] AS [TipoObjeto], 
-[TB_Auditoria].[ComandoDDL] AS [ComandoDDL]
-FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK_TB_Cliente_TB_Ciudad" Association="Self.FK_TB_Cliente_TB_Ciudad">
       <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
       <End Role="TB_Cliente" EntitySet="TB_Cliente" />
@@ -285,10 +234,6 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
     <AssociationSet Name="FK_TB_Producto_TB_Promocion" Association="Self.FK_TB_Producto_TB_Promocion">
       <End Role="TB_Promocion" EntitySet="TB_Promocion" />
       <End Role="TB_Producto" EntitySet="TB_Producto" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TB_Vendedor_TB_Ciudad" Association="Self.FK_TB_Vendedor_TB_Ciudad">
-      <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
-      <End Role="TB_Vendedor" EntitySet="TB_Vendedor" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

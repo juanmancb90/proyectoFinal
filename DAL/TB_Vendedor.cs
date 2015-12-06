@@ -20,16 +20,11 @@ namespace DAL
         }
     
         public int ID_Vendedor { get; set; }
-        public int ID_Ciudad { get; set; }
         public string NombreCompleto { get; set; }
         public string NumeroDocumento { get; set; }
-        public System.DateTime FechaNacimiento { get; set; }
-        public string Telefono { get; set; }
-        public string Celular { get; set; }
-        public string Email { get; set; }
-        public string Direccion { get; set; }
+        public string NombreUsuario { get; set; }
+        public string Contrasenia { get; set; }
     
-        public virtual TB_Ciudad TB_Ciudad { get; set; }
         public virtual ICollection<TB_Cliente> TB_Cliente { get; set; }
     }
 }

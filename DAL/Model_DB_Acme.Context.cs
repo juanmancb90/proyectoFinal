@@ -13,10 +13,10 @@ namespace DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DB_AcmeEntities : DbContext
+    public partial class DB_AcmeEntities1 : DbContext
     {
-        public DB_AcmeEntities()
-            : base("name=DB_AcmeEntities")
+        public DB_AcmeEntities1()
+            : base("name=DB_AcmeEntities1")
         {
         }
     
@@ -34,6 +34,5 @@ namespace DAL
         public DbSet<TB_Producto> TB_Producto { get; set; }
         public DbSet<TB_Promocion> TB_Promocion { get; set; }
         public DbSet<TB_Vendedor> TB_Vendedor { get; set; }
-        public DbSet<TB_Auditoria> TB_Auditoria { get; set; }
     }
 }
