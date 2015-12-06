@@ -8,6 +8,7 @@
     <DockPanel>
     <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
         <TextBox VerticalAlignment="Top" Text="Escriba el nombre" Height="Auto" Width="Auto" MinWidth="150" MaxHeight="25"></TextBox>
+            <Button VerticalAlignment="Top">Buscar</Button>
         <Grid Margin="20,0,0,0" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
