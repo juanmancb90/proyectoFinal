@@ -63,6 +63,9 @@
       <DependentUpon>Model_DB_ACME.edmx</DependentUpon>
     </Compile>
     <Compile Include="ProductosDAL.cs" />
+    <Compile Include="TB_Auditoria.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
     <Compile Include="TB_Categoria.cs">
       <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>

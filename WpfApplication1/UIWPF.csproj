@@ -56,9 +56,13 @@
     <Compile Include="Modelo\Empresa.cs" />
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Producto.cs" />
+    <Compile Include="ViewModel\RelayCommands.cs" />
     <Compile Include="ViewModel\YesNoToVisibilityConverter.cs" />
     <Compile Include="Views\Busqueda.xaml.cs">
       <DependentUpon>Busqueda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListadoPedidos.xaml.cs">
+      <DependentUpon>ListadoPedidos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ListadoProductos.xaml.cs">
       <DependentUpon>ListadoProductos.xaml</DependentUpon>
@@ -79,6 +83,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Busqueda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListadoPedidos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

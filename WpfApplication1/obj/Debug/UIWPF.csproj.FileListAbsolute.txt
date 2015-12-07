@@ -24,3 +24,5 @@ C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WpfApplication
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WpfApplication1\obj\Debug\UIWPF.csproj.GenerateResource.Cache
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WpfApplication1\obj\Debug\WpfApplication1.exe
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WpfApplication1\obj\Debug\WpfApplication1.pdb
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WpfApplication1\obj\Debug\Views\ListadoPedidos.baml
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WpfApplication1\obj\Debug\Views\ListadoPedidos.g.cs

@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace WpfApplication1.ViewModel
 {
-    public class VendedorDAL
+    public class RelayCommands
     {
-        private string con;
-
-        public VendedorDAL(string cs)
+        public RelayCommands()
         {
-            this.con = cs;
+
         }
     }
 }

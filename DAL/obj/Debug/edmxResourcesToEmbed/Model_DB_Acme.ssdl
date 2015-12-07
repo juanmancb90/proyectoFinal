@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DB_AcmeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TB_Auditoria">
+    <Key>
+      <PropertyRef Name="TiempoEvento" />
+      <PropertyRef Name="NombreUsuario" />
+      <PropertyRef Name="NombreBaseDatos" />
+      <PropertyRef Name="NombreObjeto" />
+      <PropertyRef Name="TipoObjeto" />
+      <PropertyRef Name="ComandoDML" />
+    </Key>
+    <Property Name="TiempoEvento" Type="datetime" Nullable="false" />
+    <Property Name="NombreUsuario" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="NombreBaseDatos" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="NombreObjeto" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="TipoObjeto" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ComandoDML" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
   <EntityType Name="TB_Categoria">
     <Key>
       <PropertyRef Name="ID_Categoria" />
@@ -95,7 +113,7 @@
     <Property Name="NombreCompleto" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="NumeroDocumento" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="NombreUsuario" Type="nvarchar" MaxLength="25" Nullable="false" />
-    <Property Name="Contrasenia" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Contrasenia" Type="nvarchar" MaxLength="25" Nullable="false" />
   </EntityType>
   <Association Name="FK_TB_Cliente_TB_Ciudad">
     <End Role="TB_Ciudad" Type="Self.TB_Ciudad" Multiplicity="1" />
@@ -203,6 +221,16 @@
     <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Vendedor" EntityType="Self.TB_Vendedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TB_Auditoria].[TiempoEvento] AS [TiempoEvento], 
+[TB_Auditoria].[NombreUsuario] AS [NombreUsuario], 
+[TB_Auditoria].[NombreBaseDatos] AS [NombreBaseDatos], 
+[TB_Auditoria].[NombreObjeto] AS [NombreObjeto], 
+[TB_Auditoria].[TipoObjeto] AS [TipoObjeto], 
+[TB_Auditoria].[ComandoDML] AS [ComandoDML]
+FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_TB_Cliente_TB_Ciudad" Association="Self.FK_TB_Cliente_TB_Ciudad">
       <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
       <End Role="TB_Cliente" EntitySet="TB_Cliente" />

@@ -110,8 +110,24 @@
     <Property Name="NombreCompleto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NumeroDocumento" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NombreUsuario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Contrasenia" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Contrasenia" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Cliente_TB_Vendedor" FromRole="TB_Vendedor" ToRole="TB_Cliente" />
+  </EntityType>
+  <EntityType Name="TB_Auditoria">
+    <Key>
+      <PropertyRef Name="TiempoEvento" />
+      <PropertyRef Name="NombreUsuario" />
+      <PropertyRef Name="NombreBaseDatos" />
+      <PropertyRef Name="NombreObjeto" />
+      <PropertyRef Name="TipoObjeto" />
+      <PropertyRef Name="ComandoDML" />
+    </Key>
+    <Property Name="TiempoEvento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NombreUsuario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NombreBaseDatos" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NombreObjeto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipoObjeto" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ComandoDML" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <Association Name="FK_TB_Producto_TB_Categoria">
     <End Role="TB_Categoria" Type="Self.TB_Categoria" Multiplicity="1" />
@@ -219,6 +235,7 @@
     <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" />
     <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" />
     <EntitySet Name="TB_Vendedor" EntityType="Self.TB_Vendedor" />
+    <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" />
     <AssociationSet Name="FK_TB_Producto_TB_Categoria" Association="Self.FK_TB_Producto_TB_Categoria">
       <End Role="TB_Categoria" EntitySet="TB_Categoria" />
       <End Role="TB_Producto" EntitySet="TB_Producto" />

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WpfApplication1\App.xaml
-41944753517
+52004100743
 
-12935628259
+14-149714615
 14-1937887132
-MainWindow.xaml;Views\Busqueda.xaml;Views\ListadoProductos.xaml;Views\Pedido.xaml;
+MainWindow.xaml;Views\Busqueda.xaml;Views\ListadoPedidos.xaml;Views\ListadoProductos.xaml;Views\Pedido.xaml;
 
 False
 

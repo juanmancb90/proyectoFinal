@@ -107,5 +107,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TB_Auditoria">
+      <EntityTypeMapping TypeName="DB_AcmeModel.TB_Auditoria">
+        <MappingFragment StoreEntitySet="TB_Auditoria">
+          <ScalarProperty Name="TiempoEvento" ColumnName="TiempoEvento" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="NombreBaseDatos" ColumnName="NombreBaseDatos" />
+          <ScalarProperty Name="NombreObjeto" ColumnName="NombreObjeto" />
+          <ScalarProperty Name="TipoObjeto" ColumnName="TipoObjeto" />
+          <ScalarProperty Name="ComandoDML" ColumnName="ComandoDML" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

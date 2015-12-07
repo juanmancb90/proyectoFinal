@@ -34,5 +34,6 @@ namespace DAL
         public DbSet<TB_Producto> TB_Producto { get; set; }
         public DbSet<TB_Promocion> TB_Promocion { get; set; }
         public DbSet<TB_Vendedor> TB_Vendedor { get; set; }
+        public DbSet<TB_Auditoria> TB_Auditoria { get; set; }
     }
 }
