@@ -1,16 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DB_AcmeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="TB_Auditoria">
     <Key>
-      <PropertyRef Name="TiempoEvento" />
-      <PropertyRef Name="NombreUsuario" />
-      <PropertyRef Name="NombreBaseDatos" />
-      <PropertyRef Name="NombreObjeto" />
-      <PropertyRef Name="TipoObjeto" />
-      <PropertyRef Name="ComandoDML" />
+      <PropertyRef Name="ID_Auditoria" />
     </Key>
+    <Property Name="ID_Auditoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TiempoEvento" Type="datetime" Nullable="false" />
     <Property Name="NombreUsuario" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="NombreBaseDatos" Type="nvarchar" MaxLength="25" Nullable="false" />
@@ -211,7 +205,19 @@ warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="AutenticarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+    <Parameter Name="Contrasenia" Type="nvarchar" Mode="In" />
+    <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+  </Function>
+  <Function Name="InsertarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreCompleto" Type="nvarchar" Mode="In" />
+    <Parameter Name="NumeroDocumento" Type="nvarchar" Mode="In" />
+    <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+    <Parameter Name="Contrasenia" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="DB_AcmeModelStoreContainer">
+    <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Categoria" EntityType="Self.TB_Categoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Ciudad" EntityType="Self.TB_Ciudad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Cliente" EntityType="Self.TB_Cliente" Schema="dbo" store:Type="Tables" />
@@ -221,16 +227,6 @@ warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary 
     <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Vendedor" EntityType="Self.TB_Vendedor" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-[TB_Auditoria].[TiempoEvento] AS [TiempoEvento], 
-[TB_Auditoria].[NombreUsuario] AS [NombreUsuario], 
-[TB_Auditoria].[NombreBaseDatos] AS [NombreBaseDatos], 
-[TB_Auditoria].[NombreObjeto] AS [NombreObjeto], 
-[TB_Auditoria].[TipoObjeto] AS [TipoObjeto], 
-[TB_Auditoria].[ComandoDML] AS [ComandoDML]
-FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK_TB_Cliente_TB_Ciudad" Association="Self.FK_TB_Cliente_TB_Ciudad">
       <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
       <End Role="TB_Cliente" EntitySet="TB_Cliente" />

@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DB_AcmeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TB_Auditoria">
+    <Key>
+      <PropertyRef Name="ID_Auditoria" />
+    </Key>
+    <Property Name="ID_Auditoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TiempoEvento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NombreUsuario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NombreBaseDatos" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NombreObjeto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TipoObjeto" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ComandoDML" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
   <EntityType Name="TB_Categoria">
     <Key>
       <PropertyRef Name="ID_Categoria" />
@@ -113,22 +125,6 @@
     <Property Name="Contrasenia" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Cliente_TB_Vendedor" FromRole="TB_Vendedor" ToRole="TB_Cliente" />
   </EntityType>
-  <EntityType Name="TB_Auditoria">
-    <Key>
-      <PropertyRef Name="TiempoEvento" />
-      <PropertyRef Name="NombreUsuario" />
-      <PropertyRef Name="NombreBaseDatos" />
-      <PropertyRef Name="NombreObjeto" />
-      <PropertyRef Name="TipoObjeto" />
-      <PropertyRef Name="ComandoDML" />
-    </Key>
-    <Property Name="TiempoEvento" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="NombreUsuario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NombreBaseDatos" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NombreObjeto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="TipoObjeto" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ComandoDML" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
   <Association Name="FK_TB_Producto_TB_Categoria">
     <End Role="TB_Categoria" Type="Self.TB_Categoria" Multiplicity="1" />
     <End Role="TB_Producto" Type="Self.TB_Producto" Multiplicity="*" />
@@ -225,7 +221,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DB_AcmeEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DB_AcmeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" />
     <EntitySet Name="TB_Categoria" EntityType="Self.TB_Categoria" />
     <EntitySet Name="TB_Ciudad" EntityType="Self.TB_Ciudad" />
     <EntitySet Name="TB_Cliente" EntityType="Self.TB_Cliente" />
@@ -235,7 +232,6 @@
     <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" />
     <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" />
     <EntitySet Name="TB_Vendedor" EntityType="Self.TB_Vendedor" />
-    <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" />
     <AssociationSet Name="FK_TB_Producto_TB_Categoria" Association="Self.FK_TB_Producto_TB_Categoria">
       <End Role="TB_Categoria" EntitySet="TB_Categoria" />
       <End Role="TB_Producto" EntitySet="TB_Producto" />
@@ -268,5 +264,16 @@
       <End Role="TB_Promocion" EntitySet="TB_Promocion" />
       <End Role="TB_Producto" EntitySet="TB_Producto" />
     </AssociationSet>
+    <FunctionImport Name="AutenticarVendedor">
+      <Parameter Name="NombreUsuario" Mode="In" Type="String" />
+      <Parameter Name="Contrasenia" Mode="In" Type="String" />
+      <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarVendedor">
+      <Parameter Name="NombreCompleto" Mode="In" Type="String" />
+      <Parameter Name="NumeroDocumento" Mode="In" Type="String" />
+      <Parameter Name="NombreUsuario" Mode="In" Type="String" />
+      <Parameter Name="Contrasenia" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

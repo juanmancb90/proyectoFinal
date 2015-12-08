@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DB_AcmeModelStoreContainer" CdmEntityContainer="DB_AcmeEntities1">
+  <EntityContainerMapping StorageEntityContainer="DB_AcmeModelStoreContainer" CdmEntityContainer="DB_AcmeEntities">
+    <EntitySetMapping Name="TB_Auditoria">
+      <EntityTypeMapping TypeName="DB_AcmeModel.TB_Auditoria">
+        <MappingFragment StoreEntitySet="TB_Auditoria">
+          <ScalarProperty Name="ID_Auditoria" ColumnName="ID_Auditoria" />
+          <ScalarProperty Name="TiempoEvento" ColumnName="TiempoEvento" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="NombreBaseDatos" ColumnName="NombreBaseDatos" />
+          <ScalarProperty Name="NombreObjeto" ColumnName="NombreObjeto" />
+          <ScalarProperty Name="TipoObjeto" ColumnName="TipoObjeto" />
+          <ScalarProperty Name="ComandoDML" ColumnName="ComandoDML" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TB_Categoria">
       <EntityTypeMapping TypeName="DB_AcmeModel.TB_Categoria">
         <MappingFragment StoreEntitySet="TB_Categoria">
@@ -107,17 +120,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TB_Auditoria">
-      <EntityTypeMapping TypeName="DB_AcmeModel.TB_Auditoria">
-        <MappingFragment StoreEntitySet="TB_Auditoria">
-          <ScalarProperty Name="TiempoEvento" ColumnName="TiempoEvento" />
-          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
-          <ScalarProperty Name="NombreBaseDatos" ColumnName="NombreBaseDatos" />
-          <ScalarProperty Name="NombreObjeto" ColumnName="NombreObjeto" />
-          <ScalarProperty Name="TipoObjeto" ColumnName="TipoObjeto" />
-          <ScalarProperty Name="ComandoDML" ColumnName="ComandoDML" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AutenticarVendedor" FunctionName="DB_AcmeModel.Store.AutenticarVendedor" />
+    <FunctionImportMapping FunctionImportName="InsertarVendedor" FunctionName="DB_AcmeModel.Store.InsertarVendedor" />
   </EntityContainerMapping>
 </Mapping>

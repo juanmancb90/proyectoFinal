@@ -14,6 +14,7 @@ namespace DAL
     
     public partial class TB_Auditoria
     {
+        public int ID_Auditoria { get; set; }
         public System.DateTime TiempoEvento { get; set; }
         public string NombreUsuario { get; set; }
         public string NombreBaseDatos { get; set; }

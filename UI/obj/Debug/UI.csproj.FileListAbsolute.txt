@@ -1,3 +1,4 @@
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\UI\obj\Debug\UI.csprojResolveAssemblyReference.cache
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\UI\bin\Debug\UI.exe.config
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\UI\bin\Debug\UI.exe
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\UI\bin\Debug\UI.pdb
@@ -5,6 +6,5 @@ C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\UI\bin\Debug\B
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\UI\bin\Debug\Entidades.dll
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\UI\bin\Debug\BL.pdb
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\UI\bin\Debug\Entidades.pdb
-C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\UI\obj\Debug\UI.csprojResolveAssemblyReference.cache
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\UI\obj\Debug\UI.exe
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\UI\obj\Debug\UI.pdb

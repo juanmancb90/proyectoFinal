@@ -12,11 +12,14 @@ namespace DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
-    public partial class DB_AcmeEntities1 : DbContext
+    public partial class DB_AcmeEntities : DbContext
     {
-        public DB_AcmeEntities1()
-            : base("name=DB_AcmeEntities1")
+        public DB_AcmeEntities()
+            : base("name=DB_AcmeEntities")
         {
         }
     
@@ -25,6 +28,7 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<TB_Auditoria> TB_Auditoria { get; set; }
         public DbSet<TB_Categoria> TB_Categoria { get; set; }
         public DbSet<TB_Ciudad> TB_Ciudad { get; set; }
         public DbSet<TB_Cliente> TB_Cliente { get; set; }
@@ -34,6 +38,39 @@ namespace DAL
         public DbSet<TB_Producto> TB_Producto { get; set; }
         public DbSet<TB_Promocion> TB_Promocion { get; set; }
         public DbSet<TB_Vendedor> TB_Vendedor { get; set; }
-        public DbSet<TB_Auditoria> TB_Auditoria { get; set; }
+    
+        public virtual int AutenticarVendedor(string nombreUsuario, string contrasenia, ObjectParameter resultado)
+        {
+            var nombreUsuarioParameter = nombreUsuario != null ?
+                new ObjectParameter("NombreUsuario", nombreUsuario) :
+                new ObjectParameter("NombreUsuario", typeof(string));
+    
+            var contraseniaParameter = contrasenia != null ?
+                new ObjectParameter("Contrasenia", contrasenia) :
+                new ObjectParameter("Contrasenia", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AutenticarVendedor", nombreUsuarioParameter, contraseniaParameter, resultado);
+        }
+    
+        public virtual int InsertarVendedor(string nombreCompleto, string numeroDocumento, string nombreUsuario, string contrasenia)
+        {
+            var nombreCompletoParameter = nombreCompleto != null ?
+                new ObjectParameter("NombreCompleto", nombreCompleto) :
+                new ObjectParameter("NombreCompleto", typeof(string));
+    
+            var numeroDocumentoParameter = numeroDocumento != null ?
+                new ObjectParameter("NumeroDocumento", numeroDocumento) :
+                new ObjectParameter("NumeroDocumento", typeof(string));
+    
+            var nombreUsuarioParameter = nombreUsuario != null ?
+                new ObjectParameter("NombreUsuario", nombreUsuario) :
+                new ObjectParameter("NombreUsuario", typeof(string));
+    
+            var contraseniaParameter = contrasenia != null ?
+                new ObjectParameter("Contrasenia", contrasenia) :
+                new ObjectParameter("Contrasenia", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarVendedor", nombreCompletoParameter, numeroDocumentoParameter, nombreUsuarioParameter, contraseniaParameter);
+        }
     }
 }

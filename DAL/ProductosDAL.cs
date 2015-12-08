@@ -20,7 +20,7 @@ namespace DAL
         public List<Productos> ObtenerProductos()
         {
             List<Productos> productos = new List<Productos>();
-            using (DB_AcmeEntities1 contexto = new DB_AcmeEntities1())
+            using (DB_AcmeEntities contexto = new DB_AcmeEntities())
             {
                 var productosEF = from pro in contexto.TB_Producto
                                   select pro;

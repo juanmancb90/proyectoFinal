@@ -5,17 +5,11 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="DB_AcmeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TB_Auditoria">
           <Key>
-            <PropertyRef Name="TiempoEvento" />
-            <PropertyRef Name="NombreUsuario" />
-            <PropertyRef Name="NombreBaseDatos" />
-            <PropertyRef Name="NombreObjeto" />
-            <PropertyRef Name="TipoObjeto" />
-            <PropertyRef Name="ComandoDML" />
+            <PropertyRef Name="ID_Auditoria" />
           </Key>
+          <Property Name="ID_Auditoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TiempoEvento" Type="datetime" Nullable="false" />
           <Property Name="NombreUsuario" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="NombreBaseDatos" Type="nvarchar" MaxLength="25" Nullable="false" />
@@ -216,7 +210,19 @@ warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="AutenticarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+          <Parameter Name="Contrasenia" Type="nvarchar" Mode="In" />
+          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="InsertarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreCompleto" Type="nvarchar" Mode="In" />
+          <Parameter Name="NumeroDocumento" Type="nvarchar" Mode="In" />
+          <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+          <Parameter Name="Contrasenia" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="DB_AcmeModelStoreContainer">
+          <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_Categoria" EntityType="Self.TB_Categoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_Ciudad" EntityType="Self.TB_Ciudad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_Cliente" EntityType="Self.TB_Cliente" Schema="dbo" store:Type="Tables" />
@@ -226,16 +232,6 @@ warning 6002: The table/view 'DB_Acme.dbo.TB_Auditoria' does not have a primary 
           <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_Vendedor" EntityType="Self.TB_Vendedor" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[TB_Auditoria].[TiempoEvento] AS [TiempoEvento], 
-[TB_Auditoria].[NombreUsuario] AS [NombreUsuario], 
-[TB_Auditoria].[NombreBaseDatos] AS [NombreBaseDatos], 
-[TB_Auditoria].[NombreObjeto] AS [NombreObjeto], 
-[TB_Auditoria].[TipoObjeto] AS [TipoObjeto], 
-[TB_Auditoria].[ComandoDML] AS [ComandoDML]
-FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_TB_Cliente_TB_Ciudad" Association="Self.FK_TB_Cliente_TB_Ciudad">
             <End Role="TB_Ciudad" EntitySet="TB_Ciudad" />
             <End Role="TB_Cliente" EntitySet="TB_Cliente" />
@@ -274,6 +270,18 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_AcmeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TB_Auditoria">
+          <Key>
+            <PropertyRef Name="ID_Auditoria" />
+          </Key>
+          <Property Name="ID_Auditoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TiempoEvento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreBaseDatos" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreObjeto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TipoObjeto" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ComandoDML" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="TB_Categoria">
           <Key>
             <PropertyRef Name="ID_Categoria" />
@@ -387,22 +395,6 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
           <Property Name="Contrasenia" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Cliente_TB_Vendedor" FromRole="TB_Vendedor" ToRole="TB_Cliente" />
         </EntityType>
-        <EntityType Name="TB_Auditoria">
-          <Key>
-            <PropertyRef Name="TiempoEvento" />
-            <PropertyRef Name="NombreUsuario" />
-            <PropertyRef Name="NombreBaseDatos" />
-            <PropertyRef Name="NombreObjeto" />
-            <PropertyRef Name="TipoObjeto" />
-            <PropertyRef Name="ComandoDML" />
-          </Key>
-          <Property Name="TiempoEvento" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="NombreUsuario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NombreBaseDatos" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NombreObjeto" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TipoObjeto" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ComandoDML" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
         <Association Name="FK_TB_Producto_TB_Categoria">
           <End Role="TB_Categoria" Type="Self.TB_Categoria" Multiplicity="1" />
           <End Role="TB_Producto" Type="Self.TB_Producto" Multiplicity="*" />
@@ -499,7 +491,8 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB_AcmeEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DB_AcmeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" />
           <EntitySet Name="TB_Categoria" EntityType="Self.TB_Categoria" />
           <EntitySet Name="TB_Ciudad" EntityType="Self.TB_Ciudad" />
           <EntitySet Name="TB_Cliente" EntityType="Self.TB_Cliente" />
@@ -509,7 +502,6 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
           <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" />
           <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" />
           <EntitySet Name="TB_Vendedor" EntityType="Self.TB_Vendedor" />
-          <EntitySet Name="TB_Auditoria" EntityType="Self.TB_Auditoria" />
           <AssociationSet Name="FK_TB_Producto_TB_Categoria" Association="Self.FK_TB_Producto_TB_Categoria">
             <End Role="TB_Categoria" EntitySet="TB_Categoria" />
             <End Role="TB_Producto" EntitySet="TB_Producto" />
@@ -542,13 +534,37 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
             <End Role="TB_Promocion" EntitySet="TB_Promocion" />
             <End Role="TB_Producto" EntitySet="TB_Producto" />
           </AssociationSet>
+          <FunctionImport Name="AutenticarVendedor">
+            <Parameter Name="NombreUsuario" Mode="In" Type="String" />
+            <Parameter Name="Contrasenia" Mode="In" Type="String" />
+            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarVendedor">
+            <Parameter Name="NombreCompleto" Mode="In" Type="String" />
+            <Parameter Name="NumeroDocumento" Mode="In" Type="String" />
+            <Parameter Name="NombreUsuario" Mode="In" Type="String" />
+            <Parameter Name="Contrasenia" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DB_AcmeModelStoreContainer" CdmEntityContainer="DB_AcmeEntities1">
+        <EntityContainerMapping StorageEntityContainer="DB_AcmeModelStoreContainer" CdmEntityContainer="DB_AcmeEntities">
+          <EntitySetMapping Name="TB_Auditoria">
+            <EntityTypeMapping TypeName="DB_AcmeModel.TB_Auditoria">
+              <MappingFragment StoreEntitySet="TB_Auditoria">
+                <ScalarProperty Name="ID_Auditoria" ColumnName="ID_Auditoria" />
+                <ScalarProperty Name="TiempoEvento" ColumnName="TiempoEvento" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="NombreBaseDatos" ColumnName="NombreBaseDatos" />
+                <ScalarProperty Name="NombreObjeto" ColumnName="NombreObjeto" />
+                <ScalarProperty Name="TipoObjeto" ColumnName="TipoObjeto" />
+                <ScalarProperty Name="ComandoDML" ColumnName="ComandoDML" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TB_Categoria">
             <EntityTypeMapping TypeName="DB_AcmeModel.TB_Categoria">
               <MappingFragment StoreEntitySet="TB_Categoria">
@@ -655,18 +671,8 @@ FROM [dbo].[TB_Auditoria] AS [TB_Auditoria]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TB_Auditoria">
-            <EntityTypeMapping TypeName="DB_AcmeModel.TB_Auditoria">
-              <MappingFragment StoreEntitySet="TB_Auditoria">
-                <ScalarProperty Name="TiempoEvento" ColumnName="TiempoEvento" />
-                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
-                <ScalarProperty Name="NombreBaseDatos" ColumnName="NombreBaseDatos" />
-                <ScalarProperty Name="NombreObjeto" ColumnName="NombreObjeto" />
-                <ScalarProperty Name="TipoObjeto" ColumnName="TipoObjeto" />
-                <ScalarProperty Name="ComandoDML" ColumnName="ComandoDML" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AutenticarVendedor" FunctionName="DB_AcmeModel.Store.AutenticarVendedor" />
+          <FunctionImportMapping FunctionImportName="InsertarVendedor" FunctionName="DB_AcmeModel.Store.InsertarVendedor" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

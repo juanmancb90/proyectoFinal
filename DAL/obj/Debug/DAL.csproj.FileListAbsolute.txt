@@ -1,3 +1,4 @@
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\DAL\bin\Debug\DAL.dll.config
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\DAL\bin\Debug\DAL.dll
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\DAL\bin\Debug\DAL.pdb
@@ -5,6 +6,5 @@ C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\DAL\bin\Debug\
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\DAL\bin\Debug\EntityFramework.dll
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\DAL\bin\Debug\Entidades.pdb
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\DAL\bin\Debug\EntityFramework.xml
-C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\DAL\obj\Debug\DAL.dll
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\DAL\obj\Debug\DAL.pdb
