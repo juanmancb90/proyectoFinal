@@ -30,6 +30,7 @@ namespace DAL
         public decimal Impuesto { get; set; }
         public decimal ValorUnitario { get; set; }
         public bool Estado { get; set; }
+        public byte[] Imagen { get; set; }
     
         public virtual TB_Categoria TB_Categoria { get; set; }
         public virtual ICollection<TB_DetallePedido> TB_DetallePedido { get; set; }

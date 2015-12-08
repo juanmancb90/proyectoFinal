@@ -104,6 +104,7 @@
     <NavigationProperty Name="TB_Categoria" Relationship="Self.FK_TB_Producto_TB_Categoria" FromRole="TB_Producto" ToRole="TB_Categoria" />
     <NavigationProperty Name="TB_DetallePedido" Relationship="Self.FK_TB_DetallePedido_TB_Producto" FromRole="TB_Producto" ToRole="TB_DetallePedido" />
     <NavigationProperty Name="TB_Promocion" Relationship="Self.FK_TB_Producto_TB_Promocion" FromRole="TB_Producto" ToRole="TB_Promocion" />
+    <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="TB_Promocion">
     <Key>

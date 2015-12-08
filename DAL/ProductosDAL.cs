@@ -17,7 +17,7 @@ namespace DAL
             this.con = cs;
         }
 
-        public List<Productos> ObtenerProductos()
+        public List<Productos> ObtenerProductosDAL()
         {
             List<Productos> productos = new List<Productos>();
             using (DB_AcmeEntities contexto = new DB_AcmeEntities())
@@ -37,11 +37,18 @@ namespace DAL
         private Productos MapearEmpleado(TB_Producto item)
         {
             Productos producto = new Productos();
-            /*producto.ID = item.ID;
-            producto.Nombre = item.Nombre;
-            producto.IDEmpresa = item.IDEmpresa;
-            producto.FechaNacimiento = item.FechaNacimiento;
-            producto.Numerodocumento = item.NombreProducto;*/
+            producto.ID_Producto = item.ID_Producto;
+            producto.ID_Categoria = item.ID_Categoria;
+            producto.ID_Promocion = item.ID_Promocion;
+            producto.NombreProducto = item.NombreProducto;
+            producto.Codigo = item.Codigo;
+            producto.Descripcion = item.Descripcion;
+            producto.Fabricante = item.Fabricante;
+            producto.Stock = item.Stock;
+            producto.Impuesto = item.Impuesto;
+            producto.ValorUnitario = item.ValorUnitario;
+            producto.Estado = item.Estado;
+            producto.Imagen = item.Imagen;
 
             return producto;
 

@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientesDAL.cs" />
+    <Compile Include="DetallePedidosDAL.cs" />
     <Compile Include="Model_DB_ACME.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -62,6 +64,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model_DB_ACME.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PedidosDAL.cs" />
     <Compile Include="ProductosDAL.cs" />
     <Compile Include="TB_Auditoria.cs">
       <DependentUpon>Model_DB_ACME.tt</DependentUpon>
@@ -93,7 +96,7 @@
     <Compile Include="TB_Vendedor.cs">
       <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
-    <Compile Include="VendedorDAL.cs" />
+    <Compile Include="VendedoresDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

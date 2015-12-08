@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB_AcmeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_AcmeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TB_Auditoria">
           <Key>
             <PropertyRef Name="ID_Auditoria" />
@@ -95,6 +95,7 @@
           <Property Name="Impuesto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="ValorUnitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Estado" Type="bit" Nullable="false" />
+          <Property Name="Imagen" Type="image" />
         </EntityType>
         <EntityType Name="TB_Promocion">
           <Key>
@@ -265,8 +266,7 @@
             <End Role="TB_Producto" EntitySet="TB_Producto" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_AcmeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -374,6 +374,7 @@
           <NavigationProperty Name="TB_Categoria" Relationship="Self.FK_TB_Producto_TB_Categoria" FromRole="TB_Producto" ToRole="TB_Categoria" />
           <NavigationProperty Name="TB_DetallePedido" Relationship="Self.FK_TB_DetallePedido_TB_Producto" FromRole="TB_Producto" ToRole="TB_DetallePedido" />
           <NavigationProperty Name="TB_Promocion" Relationship="Self.FK_TB_Producto_TB_Promocion" FromRole="TB_Producto" ToRole="TB_Promocion" />
+          <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TB_Promocion">
           <Key>
@@ -637,6 +638,7 @@
           <EntitySetMapping Name="TB_Producto">
             <EntityTypeMapping TypeName="DB_AcmeModel.TB_Producto">
               <MappingFragment StoreEntitySet="TB_Producto">
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
                 <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
                 <ScalarProperty Name="ID_Promocion" ColumnName="ID_Promocion" />

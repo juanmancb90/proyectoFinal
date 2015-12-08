@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class VendedorDAL
+    class PedidosDAL
     {
-        private string con;
-
-        public VendedorDAL(string cs)
-        {
-            this.con = cs;
-        }
     }
 }
