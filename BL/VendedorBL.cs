@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    public class bl
+    public class VendedorBL
     {
     }
 }

@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace WpfApplication1.ViewModel
 {
-    public class dal
+    public class RelayCommands
     {
+        public RelayCommands()
+        {
+
+        }
     }
 }

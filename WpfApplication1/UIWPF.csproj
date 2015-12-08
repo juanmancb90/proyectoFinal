@@ -56,9 +56,13 @@
     <Compile Include="Modelo\Empresa.cs" />
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Producto.cs" />
+    <Compile Include="ViewModel\RelayCommands.cs" />
     <Compile Include="ViewModel\YesNoToVisibilityConverter.cs" />
     <Compile Include="Views\Busqueda.xaml.cs">
       <DependentUpon>Busqueda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListadoPedidos.xaml.cs">
+      <DependentUpon>ListadoPedidos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ListadoProductos.xaml.cs">
       <DependentUpon>ListadoProductos.xaml</DependentUpon>
@@ -79,6 +83,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Busqueda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListadoPedidos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,6 +155,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\cancelar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{1302ae0e-4d28-476e-a2ba-cde9abfb4c5f}</Project>
+      <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{ab07f896-1b1d-46bd-a511-6721a4edc98b}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

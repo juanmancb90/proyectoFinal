@@ -30,8 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,8 +47,84 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dal.cs" />
+    <Compile Include="Model_DB_ACME.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_DB_ACME.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_DB_ACME.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model_DB_ACME.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_DB_ACME.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductosDAL.cs" />
+    <Compile Include="TB_Auditoria.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_Categoria.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_Ciudad.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_Cliente.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_DetallePedido.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_Documento.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_Pedido.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_Producto.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_Promocion.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_Vendedor.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VendedorDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Model_DB_ACME.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_DB_ACME.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model_DB_ACME.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_DB_ACME.edmx</DependentUpon>
+      <LastGenOutput>Model_DB_ACME.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model_DB_ACME.edmx.diagram">
+      <DependentUpon>Model_DB_ACME.edmx</DependentUpon>
+    </None>
+    <None Include="Model_DB_ACME.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_DB_ACME.edmx</DependentUpon>
+      <LastGenOutput>Model_DB_ACME.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{ab07f896-1b1d-46bd-a511-6721a4edc98b}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
