@@ -36,7 +36,17 @@ namespace DAL
         private Clientes MapearClientes(TB_Cliente item)
         {
             Clientes cliente = new Clientes();
-            
+            cliente.ID_Cliente = item.ID_Cliente;
+            cliente.ID_Vendedor = item.ID_Vendedor;
+            cliente.ID_Ciudad = item.ID_Ciudad;
+            cliente.ID_Documento = item.ID_Documento;
+            cliente.NombreCompleto = item.NombreCompleto;
+            cliente.NumeroDocumento = item.NumeroDocumento;
+            cliente.Telefono = item.Telefono;
+            cliente.Celular = item.Celular;
+            cliente.Email = item.Email;
+            cliente.Direccion = item.Direccion;
+
             return cliente;
         }
     }
