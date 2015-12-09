@@ -13,8 +13,9 @@
         <StackPanel Orientation="Horizontal" Grid.Row="0" >
             <Label Content="PRODUCTOS" FontSize="16" FontWeight="Bold"></Label>
         </StackPanel>
-        <ListView x:Name="listado" BorderThickness="0" Grid.Row="1" >
-            <ItemsControl.ItemTemplate>
+        <!--<ListView x:Name="listado" BorderThickness="0" Grid.Row="1" MouseDoubleClick="DoubleClickHandler"> -->
+        <ListView x:Name="listado" BorderThickness="0" Grid.Row="1">
+                <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Border x:Name="border" BorderBrush="#FF000000" BorderThickness="1" CornerRadius="4" Margin="5,0,0,0">
                         <Grid>
@@ -36,7 +37,7 @@
                             <Image Source="/WpfApplication1;component/productos/oferta.jpg" Height="15" Width="20" Grid.RowSpan="3" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="{Binding Oferta, Converter={StaticResource ynvConverter } }"></Image>
 
                             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                                <Button Command="{Binding AgregarCommand}" FontWeight="Bold"  FontSize="16" Style="{StaticResource LinkButtonStyle}" Content="{Binding Path=Nombre}" ></Button>
+                                <Button Command="{Binding AgregarCommand}" FontWeight="Bold"  FontSize="16" Style="{StaticResource LinkButtonStyle}" Content="{Binding Path=NombreProducto}" ></Button>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" >
@@ -45,7 +46,7 @@
 
                             <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1"  >
                                 <Label  FontSize="14" FontWeight="Bold" Content="$" ></Label>
-                                <Label  FontSize="14" FontWeight="Bold" Content="{Binding Precio}" ></Label>
+                                <Label  FontSize="14" FontWeight="Bold" Content="{Binding ValorUnitario}" ></Label>
                             </StackPanel>
 
                         </Grid>
