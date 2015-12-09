@@ -12,7 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApplication1.Modelo;
+using System.Configuration;
+using Entidades;
+using BL;
+//using WpfApplication1.Modelo;
 
 namespace WpfApplication1.Views
 {
@@ -24,18 +27,18 @@ namespace WpfApplication1.Views
         public ListadoProductos()
         {
             InitializeComponent();
-            List<Producto> productos = new List<Producto>();
-
-             productos.Add(new Producto { Descripcion = "Esto es un dorito", Nombre = "DORITOS", Imagen = "/WpfApplication1;component/productos/doritos.jpg", Oferta = true, Precio = 800 });
-
-             productos.Add(new Producto { Descripcion = "Esto es un cheeto", Nombre = "CHEETOS", Imagen = "/WpfApplication1;component/productos/cheetos.jpg", Oferta = false, Precio = 700 });
-
-             productos.Add(new Producto { Descripcion = "Esto es un margarita limon", Nombre = "MARGARITA LIMON", Imagen = "/WpfApplication1;component/productos/margaritalimon.jpg", Oferta = false, Precio = 700 });
-
-             productos.Add(new Producto { Descripcion = "Esto es un margarita natual", Nombre = "MARGARITA NATURAL", Imagen = "/WpfApplication1;component/productos/margaritanatural.jpg", Oferta = false, Precio = 700 });
-
-             productos.Add(new Producto { Descripcion = "Esto es un margarita pollo", Nombre = "MARGARITA POLLO", Imagen = "/WpfApplication1;component/productos/margaritapollo.jpg", Oferta = false, Precio = 700 });
+            string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
+            ProductosBL contexPro = new ProductosBL();
+            List<Productos> productos = contexPro.ObtenerProductosBL(cs);
             this.listado.ItemsSource = productos;
+            
+            /*
+             productos.Add(new Producto { Descripcion = "Esto es un dorito", Nombre = "DORITOS", Imagen = "/WpfApplication1;component/productos/doritos.jpg", Oferta = true, Precio = 800 });
+             productos.Add(new Producto { Descripcion = "Esto es un cheeto", Nombre = "CHEETOS", Imagen = "/WpfApplication1;component/productos/cheetos.jpg", Oferta = false, Precio = 700 });
+             productos.Add(new Producto { Descripcion = "Esto es un margarita limon", Nombre = "MARGARITA LIMON", Imagen = "/WpfApplication1;component/productos/margaritalimon.jpg", Oferta = false, Precio = 700 });
+             productos.Add(new Producto { Descripcion = "Esto es un margarita natual", Nombre = "MARGARITA NATURAL", Imagen = "/WpfApplication1;component/productos/margaritanatural.jpg", Oferta = false, Precio = 700 });
+             productos.Add(new Producto { Descripcion = "Esto es un margarita pollo", Nombre = "MARGARITA POLLO", Imagen = "/WpfApplication1;component/productos/margaritapollo.jpg", Oferta = false, Precio = 700 });*/
+            
         }
     }
 }

@@ -86,6 +86,7 @@
     <EntitySetMapping Name="TB_Producto">
       <EntityTypeMapping TypeName="DB_AcmeModel.TB_Producto">
         <MappingFragment StoreEntitySet="TB_Producto">
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
           <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
           <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
           <ScalarProperty Name="ID_Promocion" ColumnName="ID_Promocion" />

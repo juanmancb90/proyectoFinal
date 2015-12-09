@@ -39,7 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="VendedorBL.cs" />
+    <Compile Include="ClientesBL.cs" />
+    <Compile Include="DetallePedidosBL.cs" />
+    <Compile Include="PedidosBL.cs" />
+    <Compile Include="ProductosBL.cs" />
+    <Compile Include="VendedoresBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

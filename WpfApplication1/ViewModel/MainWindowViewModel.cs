@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL
+namespace WpfApplication1.ViewModel
 {
-    public class VendedorBL
+    public class MainWindowViewModel : BaseViewModel
     {
+
     }
 }

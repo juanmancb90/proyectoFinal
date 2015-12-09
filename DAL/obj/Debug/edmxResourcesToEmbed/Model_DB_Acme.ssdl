@@ -90,6 +90,7 @@
     <Property Name="Impuesto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="ValorUnitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Estado" Type="bit" Nullable="false" />
+    <Property Name="Imagen" Type="image" />
   </EntityType>
   <EntityType Name="TB_Promocion">
     <Key>

@@ -19,5 +19,6 @@ namespace Entidades
         public decimal Impuesto { get; set; }
         public decimal ValorUnitario { get; set; }
         public bool Estado { get; set; }
+        public byte[] Imagen { get; set; }
     }
 }

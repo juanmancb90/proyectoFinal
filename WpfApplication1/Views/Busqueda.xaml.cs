@@ -12,7 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfApplication1.Modelo;
+using System.Configuration;
+using Entidades;
+using BL;
+//using WpfApplication1.Modelo;
 
 namespace WpfApplication1.Views
 {
@@ -24,8 +27,11 @@ namespace WpfApplication1.Views
         public Busqueda()
         {
             InitializeComponent();
-            Empresa empresa = new Empresa { Barrio = "El viejo Barrrio", Descripcion = "Abarrotes Bastidas", Direccion = "UNIVALLE", NombreContacto = "Jaime Bastidas", Telefono = "3355705" };
-            this.DataContext = empresa;
+            string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
+            ClientesBL contextCl = new ClientesBL();
+            List<Clientes> clientes = contextCl.ObtenerClientesBL(cs);
+            //Empresa empresa = new Empresa { Barrio = "El viejo Barrrio", Descripcion = "Abarrotes Bastidas", Direccion = "UNIVALLE", NombreContacto = "Jaime Bastidas", Telefono = "3355705" };
+            this.DataContext = clientes;
         }
     }
 }
