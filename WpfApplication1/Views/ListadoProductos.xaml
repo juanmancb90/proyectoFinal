@@ -37,7 +37,8 @@
                             <Image Source="/WpfApplication1;component/productos/oferta.jpg" Height="15" Width="20" Grid.RowSpan="3" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="{Binding Oferta, Converter={StaticResource ynvConverter } }"></Image>
 
                             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                                <Button Command="{Binding AgregarCommand}" FontWeight="Bold"  FontSize="16" Style="{StaticResource LinkButtonStyle}" Content="{Binding Path=NombreProducto}" ></Button>
+                                <Label>Aqui</Label>
+                                <Button Command="{Binding AgregarCommand}" FontWeight="Bold"  FontSize="16" Style="{StaticResource LinkButtonStyle}" Content="{Binding Path=NombreProducto, UpdateSourceTrigger=PropertyChanged}" ></Button>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" >

@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Configuration;
 using Entidades;
 using BL;
+using WpfApplication1.ViewModel;
 //using WpfApplication1.Modelo;
 
 namespace WpfApplication1.Views
@@ -39,6 +40,34 @@ namespace WpfApplication1.Views
              productos.Add(new Producto { Descripcion = "Esto es un margarita natual", Nombre = "MARGARITA NATURAL", Imagen = "/WpfApplication1;component/productos/margaritanatural.jpg", Oferta = false, Precio = 700 });
              productos.Add(new Producto { Descripcion = "Esto es un margarita pollo", Nombre = "MARGARITA POLLO", Imagen = "/WpfApplication1;component/productos/margaritapollo.jpg", Oferta = false, Precio = 700 });*/
             
+        }
+
+        RelayCommand _agregarCommand;
+        public ICommand AgregarCommand
+        {
+            get
+            {
+                if (_agregarCommand == null)
+                    _agregarCommand = new RelayCommand(param => this.AgregarExecute(), param => this.CanAgregarExecute);
+                return _agregarCommand;
+            }
+
+        }
+
+        private void AgregarExecute()
+        {
+            //implementacion agregar
+            /*esNuevo = true;
+            EmpleadoViewModel empleadoNuevo = new EmpleadoViewModel();
+            this.Empleados.Add(empleadoNuevo);
+            this.EmpleadoActual = empleadoNuevo;
+            HabilitarEdicion();*/
+        }
+
+        public bool CanAgregarExecute
+        {
+            get
+            { return true; }
         }
     }
 }
