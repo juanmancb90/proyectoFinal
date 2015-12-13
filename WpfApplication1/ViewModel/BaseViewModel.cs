@@ -10,7 +10,7 @@ namespace WpfApplication1.ViewModel
     public class BaseViewModel : INotifyPropertyChanged, IDisposable
     {
         private bool estaOcupado;
-        ObservableCollection<String> error;
+        //ObservableCollection<String> error;
 
         public bool EstaOCupado
         {

@@ -28,46 +28,6 @@ namespace WpfApplication1.Views
         public ListadoProductos()
         {
             InitializeComponent();
-            string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
-            ProductosBL contexPro = new ProductosBL();
-            List<Productos> productos = contexPro.ObtenerProductosBL(cs);
-            this.listado.ItemsSource = productos;
-            
-            /*
-             productos.Add(new Producto { Descripcion = "Esto es un dorito", Nombre = "DORITOS", Imagen = "/WpfApplication1;component/productos/doritos.jpg", Oferta = true, Precio = 800 });
-             productos.Add(new Producto { Descripcion = "Esto es un cheeto", Nombre = "CHEETOS", Imagen = "/WpfApplication1;component/productos/cheetos.jpg", Oferta = false, Precio = 700 });
-             productos.Add(new Producto { Descripcion = "Esto es un margarita limon", Nombre = "MARGARITA LIMON", Imagen = "/WpfApplication1;component/productos/margaritalimon.jpg", Oferta = false, Precio = 700 });
-             productos.Add(new Producto { Descripcion = "Esto es un margarita natual", Nombre = "MARGARITA NATURAL", Imagen = "/WpfApplication1;component/productos/margaritanatural.jpg", Oferta = false, Precio = 700 });
-             productos.Add(new Producto { Descripcion = "Esto es un margarita pollo", Nombre = "MARGARITA POLLO", Imagen = "/WpfApplication1;component/productos/margaritapollo.jpg", Oferta = false, Precio = 700 });*/
-            
-        }
-
-        RelayCommand _agregarCommand;
-        public ICommand AgregarCommand
-        {
-            get
-            {
-                if (_agregarCommand == null)
-                    _agregarCommand = new RelayCommand(param => this.AgregarExecute(), param => this.CanAgregarExecute);
-                return _agregarCommand;
-            }
-
-        }
-
-        private void AgregarExecute()
-        {
-            //implementacion agregar
-            /*esNuevo = true;
-            EmpleadoViewModel empleadoNuevo = new EmpleadoViewModel();
-            this.Empleados.Add(empleadoNuevo);
-            this.EmpleadoActual = empleadoNuevo;
-            HabilitarEdicion();*/
-        }
-
-        public bool CanAgregarExecute
-        {
-            get
-            { return true; }
         }
     }
 }
