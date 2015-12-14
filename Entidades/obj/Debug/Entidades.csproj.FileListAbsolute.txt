@@ -1,4 +1,4 @@
-C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\Entidades\bin\Debug\Entidades.dll
-C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\Entidades\bin\Debug\Entidades.pdb
-C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\Entidades\obj\Debug\Entidades.dll
-C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\Entidades\obj\Debug\Entidades.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\Entidades\bin\Debug\Entidades.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\Entidades\bin\Debug\Entidades.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\Entidades\obj\Debug\Entidades.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\Entidades\obj\Debug\Entidades.pdb
