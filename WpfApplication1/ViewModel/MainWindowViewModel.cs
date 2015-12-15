@@ -11,21 +11,21 @@ namespace WpfApplication1.ViewModel
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        ObservableCollection<BaseViewModel> _viewModel;
+        ObservableCollection<BaseViewModel> _viewModelPantallaProducto, _viewModelPantallaCliente;
 
         public ObservableCollection<BaseViewModel> PantallaProducto
         {
             get
             {
-                if (_viewModel == null)
+                if (_viewModelPantallaProducto == null)
                 {
-                    _viewModel = new ObservableCollection<BaseViewModel>();
+                    _viewModelPantallaProducto = new ObservableCollection<BaseViewModel>();
                 }
-                return _viewModel;
+                return _viewModelPantallaProducto;
             }
             set
             {
-                _viewModel = value;
+                _viewModelPantallaProducto = value;
             }
         }
 
@@ -33,23 +33,33 @@ namespace WpfApplication1.ViewModel
         {
             get
             {
-                if (_viewModel == null)
+                if (_viewModelPantallaCliente == null)
                 {
-                    _viewModel = new ObservableCollection<BaseViewModel>();
+                    _viewModelPantallaCliente = new ObservableCollection<BaseViewModel>();
                 }
-                return _viewModel;
+                return _viewModelPantallaCliente;
             }
             set
             {
-                _viewModel = value;
+                _viewModelPantallaCliente = value;
             }
         }
 
         public MainWindowViewModel() 
         {
+            LoadViewProducto();
+            LoadViewCliente();
+        }
+
+        public void LoadViewProducto()
+        {
             ListadoProductosViewModel lpd = new ListadoProductosViewModel();
-            BusquedaViewModel bus = new BusquedaViewModel();
             PantallaProducto.Add(lpd);
+        }
+
+        public void LoadViewCliente()
+        {
+            BusquedaViewModel bus = new BusquedaViewModel();
             PantallaCliente.Add(bus);
         }
     }

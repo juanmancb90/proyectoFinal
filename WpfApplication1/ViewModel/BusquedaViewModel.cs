@@ -35,9 +35,6 @@ namespace WpfApplication1.ViewModel
 
         public void CargarCliente()
         {
-            /*ClientesBL contextCl = new ClientesBL();
-            List<Clientes> clientes = contextCl.ObtenerClientesBL(cs);
-            control.DataContext = clientes;*/
             ClientesBL contextCl = new ClientesBL();
             var clientesBL = contextCl.ObtenerClientesBL(cs);
             if (Clientes == null)

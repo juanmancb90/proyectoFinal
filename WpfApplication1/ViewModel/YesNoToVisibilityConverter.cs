@@ -8,7 +8,7 @@ using System.Windows.Data;
 
 namespace WpfApplication1.ViewModel
 {
-    public class YesNoToVisibilityConverter : IValueConverter
+    public class YesNoToVisibilityConverter : BaseViewModel, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {

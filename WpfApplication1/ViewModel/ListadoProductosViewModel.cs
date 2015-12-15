@@ -15,6 +15,7 @@ namespace WpfApplication1.ViewModel
     {
         string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
         ObservableCollection<ProductoViewModel> _productos;
+        private bool esNuevo;
 
         public ObservableCollection<ProductoViewModel> Productos
         {
@@ -35,9 +36,6 @@ namespace WpfApplication1.ViewModel
 
         public void CargarProductos()
         {
-            /*ProductosBL contexPro = new ProductosBL();
-            List<Productos> productos = contexPro.ObtenerProductosBL(cs);
-            control.listado.ItemsSource = productos;*/
             ProductosBL contexPro = new ProductosBL();
             var productosBL = contexPro.ObtenerProductosBL(cs);
             if (Productos == null)

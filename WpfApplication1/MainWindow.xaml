@@ -45,22 +45,20 @@
         </Grid>
         <Grid x:Name="Busqueda" Grid.Row="1" Grid.ColumnSpan="3">
             <Border BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="8,8,8,8">
-                <ItemsControl ItemsSource="{Binding PantallaCliente}"></ItemsControl>
-                <!--<views:Busqueda MinWidth="150" MinHeight="50"></views:Busqueda>-->
+                <ItemsControl ItemsSource="{Binding PantallaCliente}" MinWidth="150" MinHeight="50"></ItemsControl>
             </Border>
         </Grid>
         <Grid x:Name="Listado"  Grid.Row="3" Grid.Column="0">
             <Border BorderBrush="#FF000000" BorderThickness="2" CornerRadius="12,12,8,8">
-                <ItemsControl ItemsSource="{Binding PantallaProducto}"></ItemsControl>
-                <!--<views:ListadoProductos MinHeight="100" MinWidth="150" MaxWidth="350"  BorderThickness="0"></views:ListadoProductos>-->
+                <ItemsControl ItemsSource="{Binding PantallaProducto}" MinHeight="100" MinWidth="150" MaxWidth="350"  BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Auto"></ItemsControl>
             </Border>
         </Grid>
-        <Grid x:Name="Pedido"  Grid.Row="3" Grid.Column="2" >
+        <Grid x:Name="Pedido"  Grid.Row="3" Grid.Column="2">
             <Border BorderBrush="#FF000000" BorderThickness="2" CornerRadius="8,8,8,8">
-                <!--<views:Pedido MinHeight="100" MinWidth="150" BorderThickness="0" ></views:Pedido>-->
+                <views:Pedido MinHeight="100" MinWidth="150" BorderThickness="0" ></views:Pedido>
             </Border>
         </Grid>
-        <StackPanel Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Right" Orientation="Horizontal">
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" Orientation="Horizontal">
             <Label Content="13 de Diciembre de 2015 -"></Label>
             <Label Content="Software Pedidos 2015 @ UnivalleSoft"></Label>
         </StackPanel>
