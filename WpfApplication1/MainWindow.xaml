@@ -57,7 +57,7 @@
         </Grid>
         <Grid x:Name="Pedido"  Grid.Row="3" Grid.Column="2" >
             <Border BorderBrush="#FF000000" BorderThickness="2" CornerRadius="8,8,8,8">
-                <views:Pedido MinHeight="100" MinWidth="150" BorderThickness="0" ></views:Pedido>
+                <!--<views:Pedido MinHeight="100" MinWidth="150" BorderThickness="0" ></views:Pedido>-->
             </Border>
         </Grid>
         <StackPanel Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Right" Orientation="Horizontal">

@@ -6,9 +6,10 @@
              mc:Ignorable="d" MinWidth="150" MinHeight="50"
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" DataContext="{Binding StaticResource BusquedaViewModel}">
-        <TextBox VerticalAlignment="Top" Text="Escriba el nombre" Height="Auto" Width="Auto" MinWidth="150" MaxHeight="25"></TextBox>
-            <Button VerticalAlignment="Top">Buscar</Button>
+        <!--<StackPanel Orientation="Horizontal" VerticalAlignment="Top" DataContext="{Binding StaticResource BusquedaViewModel}">-->
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+            <TextBox VerticalAlignment="Top" Text="Escriba el nombre" Height="Auto" Width="Auto" MinWidth="150" MaxHeight="25"></TextBox>
+        <Button VerticalAlignment="Top">Buscar</Button>
         <Grid Margin="20,0,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -20,7 +21,7 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <ListView ItemsSource="{Binding Clientes}"></ListView>
+                <!--<ListView ItemsSource="{Binding Clientes}"></ListView>-->
                 <TextBlock Text="{Binding NombreCompleto}" Grid.Column="0" Grid.Row="0" MaxHeight="20" MaxWidth="200" MinHeight="25" FontWeight="Bold" FontSize="16" FontStyle="Italic" ></TextBlock>
                         <TextBlock Text="{Binding Direccion}" Grid.Column="0" Grid.Row="1" MinHeight="25"></TextBlock>
                         <!--<TextBlock Text="{Binding NombreContacto}" Grid.Column="0" Grid.Row="2" MinHeight="25"></TextBlock>-->
