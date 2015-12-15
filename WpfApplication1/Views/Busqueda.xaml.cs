@@ -27,11 +27,6 @@ namespace WpfApplication1.Views
         public Busqueda()
         {
             InitializeComponent();
-            string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
-            ClientesBL contextCl = new ClientesBL();
-            List<Clientes> clientes = contextCl.ObtenerClientesBL(cs);
-            //Empresa empresa = new Empresa { Barrio = "El viejo Barrrio", Descripcion = "Abarrotes Bastidas", Direccion = "UNIVALLE", NombreContacto = "Jaime Bastidas", Telefono = "3355705" };
-            this.DataContext = clientes;
         }
     }
 }

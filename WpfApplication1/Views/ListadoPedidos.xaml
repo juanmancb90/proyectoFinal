@@ -14,8 +14,8 @@
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
-            <DataGrid Height="229" Width="237"/>
+            <DataGrid Height="22" Width="237"/>
+            <Button Content="Button" Width="75"/>
         </ListView>
-
     </Grid>
 </Page>
