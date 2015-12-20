@@ -48,7 +48,7 @@ namespace DAL
             producto.Impuesto = item.Impuesto;
             producto.ValorUnitario = item.ValorUnitario;
             producto.Estado = item.Estado;
-            producto.Imagen = item.Imagen;
+            //producto.Imagen = item.Imagen;
 
             return producto;
 

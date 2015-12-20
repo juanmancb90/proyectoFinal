@@ -15,7 +15,7 @@
             <Label Content="Detalle Pedido" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left"></Label>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Label Content="Total: " FontSize="16" FontWeight="Bold" HorizontalAlignment="Left"></Label>
-                <Label Content="{Binding Total}" FontSize="16" FontWeight="Bold" Margin="2,0,0,0"></Label>
+                <!--<Label Content="{Binding Total}" FontSize="16" FontWeight="Bold" Margin="2,0,0,0"></Label>-->
                 <Button ToolTip="Guardar Pedido" Margin="2,0,0,0"  Height="30" Width="30" Click="Button_Click" >
                     <ContentControl>
                         <Image Source="/WpfApplication1;component/Imagenes/aceptar.jpg" Stretch="Fill"></Image>

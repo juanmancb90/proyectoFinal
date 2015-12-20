@@ -180,7 +180,7 @@ namespace WpfApplication1.ViewModel
             Impuesto = producto.Impuesto;
             ValorUnitario = producto.ValorUnitario;
             Estado = producto.Estado;
-            Imagen = producto.Imagen;
+            //Imagen = producto.Imagen;
         }
     }
 }

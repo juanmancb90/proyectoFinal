@@ -50,9 +50,12 @@
     <Property Name="ID_DetallePedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_Pedido" Type="int" Nullable="false" />
     <Property Name="ID_Producto" Type="int" Nullable="false" />
-    <Property Name="NombreProducto" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Codigo" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="NombreProducto" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Cantidad" Type="int" Nullable="false" />
     <Property Name="ValorUnitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Impuesto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="SubTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="TB_Documento">
@@ -69,7 +72,6 @@
     <Property Name="ID_Pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_Cliente" Type="int" Nullable="false" />
     <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
-    <Property Name="FechaEntrega" Type="date" Nullable="false" />
     <Property Name="TotalBruto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Impuesto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="ValorNeto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
@@ -90,7 +92,6 @@
     <Property Name="Impuesto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="ValorUnitario" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="Estado" Type="bit" Nullable="false" />
-    <Property Name="Imagen" Type="image" />
   </EntityType>
   <EntityType Name="TB_Promocion">
     <Key>

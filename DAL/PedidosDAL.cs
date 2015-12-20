@@ -39,7 +39,7 @@ namespace DAL
             pedido.ID_Pedido = item.ID_Pedido;
             pedido.ID_Cliente = item.ID_Cliente;
             pedido.FechaRegistro = item.FechaRegistro;
-            pedido.FechaEntrega = item.FechaEntrega;
+            //pedido.FechaEntrega = item.FechaEntrega;
             pedido.TotalBruto = item.TotalBruto;
             pedido.Impuesto = item.Impuesto;
             pedido.ValorNeto = item.ValorNeto;
