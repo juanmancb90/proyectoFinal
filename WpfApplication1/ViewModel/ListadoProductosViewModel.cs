@@ -15,7 +15,7 @@ namespace WpfApplication1.ViewModel
     {
         string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
         ObservableCollection<ProductoViewModel> _productos;
-        private bool esNuevo;
+        //private bool esNuevo;
 
         public ObservableCollection<ProductoViewModel> Productos
         {
