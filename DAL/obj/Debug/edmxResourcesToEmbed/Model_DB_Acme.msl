@@ -51,6 +51,9 @@
     <EntitySetMapping Name="TB_DetallePedido">
       <EntityTypeMapping TypeName="DB_AcmeModel.TB_DetallePedido">
         <MappingFragment StoreEntitySet="TB_DetallePedido">
+          <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
           <ScalarProperty Name="ID_DetallePedido" ColumnName="ID_DetallePedido" />
           <ScalarProperty Name="ID_Pedido" ColumnName="ID_Pedido" />
           <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
@@ -75,7 +78,6 @@
           <ScalarProperty Name="ID_Pedido" ColumnName="ID_Pedido" />
           <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
           <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
-          <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
           <ScalarProperty Name="TotalBruto" ColumnName="TotalBruto" />
           <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
           <ScalarProperty Name="ValorNeto" ColumnName="ValorNeto" />
@@ -86,7 +88,6 @@
     <EntitySetMapping Name="TB_Producto">
       <EntityTypeMapping TypeName="DB_AcmeModel.TB_Producto">
         <MappingFragment StoreEntitySet="TB_Producto">
-          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
           <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
           <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
           <ScalarProperty Name="ID_Promocion" ColumnName="ID_Promocion" />
