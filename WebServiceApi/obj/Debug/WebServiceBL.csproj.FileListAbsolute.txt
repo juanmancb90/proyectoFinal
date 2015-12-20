@@ -1,0 +1,14 @@
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\WebServiceApi.dll.config
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\WebServiceApi.dll
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\WebServiceApi.pdb
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\BL.dll
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\Entidades.dll
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\DAL.dll
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\EntityFramework.dll
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\BL.pdb
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\Entidades.pdb
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\DAL.pdb
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\EntityFramework.xml
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\obj\Debug\WebServiceBL.csprojResolveAssemblyReference.cache
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\obj\Debug\WebServiceApi.dll
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\obj\Debug\WebServiceApi.pdb
