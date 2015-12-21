@@ -17,6 +17,8 @@ namespace WebServiceApi
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
+        [OperationContract]
+        string GetHelloWorld(string name);
         // TODO: Add your service operations here
     }
 

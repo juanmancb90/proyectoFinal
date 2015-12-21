@@ -61,7 +61,7 @@
     <Compile Include="Modelo\Empresa.cs" />
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Producto.cs" />
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
+    <Compile Include="Service References\WebServiceApi\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -139,9 +139,18 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\ServiceReference1\WebServiceApi.wsdl" />
-    <None Include="Service References\ServiceReference1\WebServiceApi.xsd">
+    <None Include="Service References\WebServiceApi\WebServiceApi.wsdl" />
+    <None Include="Service References\WebServiceApi\WebServiceApi.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceApi\WebServiceApi1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceApi\WebServiceApi2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceApi\WpfApplication1.WebServiceApi.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -191,19 +200,19 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+    <WCFMetadataStorage Include="Service References\WebServiceApi\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\WebServiceApi.disco" />
+    <None Include="Service References\WebServiceApi\WebServiceApi.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceApi\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\WebServiceApi\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
+    <None Include="Service References\WebServiceApi\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

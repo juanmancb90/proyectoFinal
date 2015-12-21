@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApplication1.WebServiceApi;
 
 namespace WpfApplication1
 {
@@ -20,9 +21,25 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private WebServiceApiClient proxy = null;
         public MainWindow()
         {
             InitializeComponent();
+            this.proxy = new WebServiceApiClient("BasicHttpBinding_IWebServiceApi");
+            //this.proxy = new WebServiceApiClient("WSHttpBinding_IWebServiceApi");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Test Web service"+proxy.GetData(3), "Service", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var msn = "Juan";
+            MessageBox.Show("Test Web service "+ proxy.GetHelloWorld(msn), "Service", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

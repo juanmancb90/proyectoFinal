@@ -30,12 +30,12 @@
                             <Image Source="imagenes/string.jpg" Stretch="Fill"></Image>
                         </ContentControl>
                     </Button>
-                    <Button ToolTip="Opcion 1" Margin="5,0,0,0" Height="30" Width="30">
+                    <Button ToolTip="Opcion 1" Margin="5,0,0,0" Height="30" Width="30" Click="Button_Click_1">
                         <ContentControl>
                             <Image Source="imagenes/archivo.png" Stretch="Fill"></Image>
                         </ContentControl>
                     </Button>
-                    <Button ToolTip="Opcion 1" Margin="5,0,0,0"  Height="30" Width="30">
+                    <Button ToolTip="Opcion 1" Margin="5,0,0,0"  Height="30" Width="30" Click="Button_Click">
                         <ContentControl>
                             <Image Source="imagenes/hash.jpg" Stretch="Fill"></Image>
                         </ContentControl>

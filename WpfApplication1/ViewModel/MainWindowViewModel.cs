@@ -62,5 +62,7 @@ namespace WpfApplication1.ViewModel
             BusquedaViewModel bus = new BusquedaViewModel();
             PantallaCliente.Add(bus);
         }
+
+        
     }
 }
