@@ -15,6 +15,11 @@ namespace WebServiceApi
             return string.Format("You entered: {0}", value);
         }
 
+        public string GetHelloWorld(string name)
+        {
+            return string.Format("Hello World: {0}",name);
+        }
+
         public CompositeType GetDataUsingDataContract(CompositeType composite)
         {
             if (composite == null)

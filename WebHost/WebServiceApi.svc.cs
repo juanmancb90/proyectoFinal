@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Activation;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace WebHost
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "WebServiceApi" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select WebServiceApi.svc or WebServiceApi.svc.cs at the Solution Explorer and start debugging.
-    public class WebServiceApi : IWebServiceApi
+    [ServiceContract(Namespace = "")]
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
+    public class WebServiceApi
     {
-        public void DoWork()
-        {
-        }
+        // To use HTTP GET, add [WebGet] attribute. (Default ResponseFormat is WebMessageFormat.Json)
+        // To create an operation that returns XML,
+        //     add [WebGet(ResponseFormat=WebMessageFormat.Xml)],
+        //     and include the following line in the operation body:
+        //         WebOperationContext.Current.OutgoingResponse.ContentType = "text/xml";
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="44c61301-64ec-46c3-889b-0f23e3083dbb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="181417b1-ed27-4ea1-8a44-fab85db921aa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,9 +22,11 @@
     <MetadataSource Address="http://localhost:52289/WebServiceApi.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WebServiceApi.wsdl" MetadataType="Wsdl" ID="2d329bd7-4cc3-4e5a-92e8-4085592eb777" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?wsdl" />
-    <MetadataFile FileName="WebServiceApi.disco" MetadataType="Disco" ID="e225d37e-2b5d-4f39-ab60-558ba480365f" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?disco" />
-    <MetadataFile FileName="WebServiceApi.xsd" MetadataType="Schema" ID="4b0221ce-cbdc-4069-a1ee-389288b6f83c" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?xsd=xsd0" />
+    <MetadataFile FileName="WebServiceApi.xsd" MetadataType="Schema" ID="12747dda-debe-4c8c-9e58-a2ea4285700b" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?xsd=xsd1" />
+    <MetadataFile FileName="WebServiceApi1.xsd" MetadataType="Schema" ID="e77997f5-ed2a-4348-876b-14bc4cf21cda" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?xsd=xsd2" />
+    <MetadataFile FileName="WebServiceApi.wsdl" MetadataType="Wsdl" ID="63ee1adc-278d-4a31-83d5-c794ff539a45" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?wsdl" />
+    <MetadataFile FileName="WebServiceApi.disco" MetadataType="Disco" ID="7fb7c2a9-dfc7-4ff8-91a3-2388427423a2" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?disco" />
+    <MetadataFile FileName="WebServiceApi2.xsd" MetadataType="Schema" ID="2c42c9cb-e0c7-4ee7-a706-2d71634e4a88" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
