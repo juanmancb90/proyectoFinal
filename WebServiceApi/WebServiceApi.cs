@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using BL;
 
 namespace WebServiceApi
 {
@@ -31,6 +32,13 @@ namespace WebServiceApi
                 composite.StringValue += "Suffix";
             }
             return composite;
+        }
+
+        public string GetDataBL()
+        {
+            VendedoresBL context = new VendedoresBL();
+            var dataBL = context.test();
+            return dataBL;
         }
     }
 }

@@ -26,7 +26,6 @@ namespace WpfApplication1
         {
             InitializeComponent();
             this.proxy = new WebServiceApiClient("BasicHttpBinding_IWebServiceApi");
-            //this.proxy = new WebServiceApiClient("WSHttpBinding_IWebServiceApi");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,6 +39,11 @@ namespace WpfApplication1
         {
             var msn = "Juan";
             MessageBox.Show("Test Web service "+ proxy.GetHelloWorld(msn), "Service", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Test get Data BL Web Service" + proxy.GetDataBL(), "Service test", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

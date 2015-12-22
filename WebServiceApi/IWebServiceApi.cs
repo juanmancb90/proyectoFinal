@@ -20,6 +20,8 @@ namespace WebServiceApi
         [OperationContract]
         string GetHelloWorld(string name);
         // TODO: Add your service operations here
+        [OperationContract]
+        string GetDataBL();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

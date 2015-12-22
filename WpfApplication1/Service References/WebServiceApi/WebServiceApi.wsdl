@@ -210,6 +210,44 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWebServiceApi_GetDataBL_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWebServiceApi_GetDataBL_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:52289/WebServiceApi.svc?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -235,6 +273,12 @@
   <wsdl:message name="IWebServiceApi_GetHelloWorld_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetHelloWorldResponse" />
   </wsdl:message>
+  <wsdl:message name="IWebServiceApi_GetDataBL_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataBL" />
+  </wsdl:message>
+  <wsdl:message name="IWebServiceApi_GetDataBL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataBLResponse" />
+  </wsdl:message>
   <wsdl:portType name="IWebServiceApi">
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IWebServiceApi/GetData" message="tns:IWebServiceApi_GetData_InputMessage" />
@@ -247,6 +291,10 @@
     <wsdl:operation name="GetHelloWorld">
       <wsdl:input wsaw:Action="http://tempuri.org/IWebServiceApi/GetHelloWorld" message="tns:IWebServiceApi_GetHelloWorld_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWebServiceApi/GetHelloWorldResponse" message="tns:IWebServiceApi_GetHelloWorld_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataBL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebServiceApi/GetDataBL" message="tns:IWebServiceApi_GetDataBL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebServiceApi/GetDataBLResponse" message="tns:IWebServiceApi_GetDataBL_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IWebServiceApi" type="tns:IWebServiceApi">
@@ -285,6 +333,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetDataBL">
+      <soap12:operation soapAction="http://tempuri.org/IWebServiceApi/GetDataBL" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWebServiceApi_GetDataBL_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWebServiceApi_GetDataBL_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="BasicHttpBinding_IWebServiceApi" type="tns:IWebServiceApi">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -308,6 +367,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetHelloWorld">
       <soap:operation soapAction="http://tempuri.org/IWebServiceApi/GetHelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataBL">
+      <soap:operation soapAction="http://tempuri.org/IWebServiceApi/GetDataBL" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
