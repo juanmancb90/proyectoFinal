@@ -40,7 +40,7 @@ namespace WpfApplication1
             var msn = "Juan";
             MessageBox.Show("Test Web service "+ proxy.GetHelloWorld(msn), "Service", MessageBoxButton.OK, MessageBoxImage.Information);
         }
-
+        //data recover from bl and web service consuming
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Test get Data BL Web Service" + proxy.GetDataBL(), "Service test", MessageBoxButton.OK, MessageBoxImage.Information);
