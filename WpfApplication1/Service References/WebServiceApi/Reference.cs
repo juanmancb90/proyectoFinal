@@ -95,6 +95,12 @@ namespace WpfApplication1.WebServiceApi {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetHelloWorld", ReplyAction="http://tempuri.org/IWebServiceApi/GetHelloWorldResponse")]
         System.Threading.Tasks.Task<string> GetHelloWorldAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetDataBL", ReplyAction="http://tempuri.org/IWebServiceApi/GetDataBLResponse")]
+        string GetDataBL();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetDataBL", ReplyAction="http://tempuri.org/IWebServiceApi/GetDataBLResponse")]
+        System.Threading.Tasks.Task<string> GetDataBLAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -146,6 +152,14 @@ namespace WpfApplication1.WebServiceApi {
         
         public System.Threading.Tasks.Task<string> GetHelloWorldAsync(string name) {
             return base.Channel.GetHelloWorldAsync(name);
+        }
+        
+        public string GetDataBL() {
+            return base.Channel.GetDataBL();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetDataBLAsync() {
+            return base.Channel.GetDataBLAsync();
         }
     }
 }

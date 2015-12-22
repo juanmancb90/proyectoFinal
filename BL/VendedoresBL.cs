@@ -17,5 +17,11 @@ namespace BL
 
             return vendedor;
         }
+
+        public string test()
+        {
+            var msn = "Data BL";
+            return msn;
+        }
     }
 }
