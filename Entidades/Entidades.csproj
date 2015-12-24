@@ -39,15 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Auditorias.cs" />
-    <Compile Include="Categorias.cs" />
-    <Compile Include="Ciudades.cs" />
     <Compile Include="Clientes.cs" />
     <Compile Include="DetallePedidos.cs" />
-    <Compile Include="Documentos.cs" />
     <Compile Include="Pedidos.cs" />
     <Compile Include="Productos.cs" />
-    <Compile Include="Promociones.cs" />
     <Compile Include="Vendedores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

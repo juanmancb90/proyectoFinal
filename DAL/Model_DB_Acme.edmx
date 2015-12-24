@@ -212,10 +212,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ActualizarStockProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Producto" Type="int" Mode="In" />
+          <Parameter Name="Cantidad" Type="int" Mode="In" />
+        </Function>
         <Function Name="AutenticarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
           <Parameter Name="Contrasenia" Type="nvarchar" Mode="In" />
           <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="ConsultarIdentificadorPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Pedido" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="InsertarDetallePedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Pedido" Type="int" Mode="In" />
+          <Parameter Name="ID_Producto" Type="int" Mode="In" />
+          <Parameter Name="Cantidad" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertarPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Cliente" Type="int" Mode="In" />
+          <Parameter Name="TotalBruto" Type="decimal" Mode="In" />
+          <Parameter Name="Impuesto" Type="decimal" Mode="In" />
+          <Parameter Name="ValorNeto" Type="decimal" Mode="In" />
         </Function>
         <Function Name="InsertarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NombreCompleto" Type="nvarchar" Mode="In" />
@@ -548,6 +566,24 @@
             <Parameter Name="NombreUsuario" Mode="In" Type="String" />
             <Parameter Name="Contrasenia" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="ActualizarStockProducto">
+            <Parameter Name="ID_Producto" Mode="In" Type="Int32" />
+            <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ConsultarIdentificadorPedido">
+          <Parameter Name="ID_Pedido" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarDetallePedido">
+            <Parameter Name="ID_Pedido" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Producto" Mode="In" Type="Int32" />
+            <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarPedido">
+            <Parameter Name="ID_Cliente" Mode="In" Type="Int32" />
+            <Parameter Name="TotalBruto" Mode="In" Type="Decimal" />
+            <Parameter Name="Impuesto" Mode="In" Type="Decimal" />
+            <Parameter Name="ValorNeto" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -678,6 +714,10 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="AutenticarVendedor" FunctionName="DB_AcmeModel.Store.AutenticarVendedor" />
           <FunctionImportMapping FunctionImportName="InsertarVendedor" FunctionName="DB_AcmeModel.Store.InsertarVendedor" />
+          <FunctionImportMapping FunctionImportName="ActualizarStockProducto" FunctionName="DB_AcmeModel.Store.ActualizarStockProducto" />
+          <FunctionImportMapping FunctionImportName="ConsultarIdentificadorPedido" FunctionName="DB_AcmeModel.Store.ConsultarIdentificadorPedido" />
+          <FunctionImportMapping FunctionImportName="InsertarDetallePedido" FunctionName="DB_AcmeModel.Store.InsertarDetallePedido" />
+          <FunctionImportMapping FunctionImportName="InsertarPedido" FunctionName="DB_AcmeModel.Store.InsertarPedido" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

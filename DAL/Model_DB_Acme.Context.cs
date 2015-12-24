@@ -100,6 +100,79 @@ public partial class DB_AcmeEntities : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarVendedor", nombreCompletoParameter, numeroDocumentoParameter, nombreUsuarioParameter, contraseniaParameter);
     }
 
+
+    public virtual int ActualizarStockProducto(Nullable<int> iD_Producto, Nullable<int> cantidad)
+    {
+
+        var iD_ProductoParameter = iD_Producto.HasValue ?
+            new ObjectParameter("ID_Producto", iD_Producto) :
+            new ObjectParameter("ID_Producto", typeof(int));
+
+
+        var cantidadParameter = cantidad.HasValue ?
+            new ObjectParameter("Cantidad", cantidad) :
+            new ObjectParameter("Cantidad", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarStockProducto", iD_ProductoParameter, cantidadParameter);
+    }
+
+
+    public virtual int ConsultarIdentificadorPedido(ObjectParameter iD_Pedido)
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ConsultarIdentificadorPedido", iD_Pedido);
+    }
+
+
+    public virtual int InsertarDetallePedido(Nullable<int> iD_Pedido, Nullable<int> iD_Producto, Nullable<int> cantidad)
+    {
+
+        var iD_PedidoParameter = iD_Pedido.HasValue ?
+            new ObjectParameter("ID_Pedido", iD_Pedido) :
+            new ObjectParameter("ID_Pedido", typeof(int));
+
+
+        var iD_ProductoParameter = iD_Producto.HasValue ?
+            new ObjectParameter("ID_Producto", iD_Producto) :
+            new ObjectParameter("ID_Producto", typeof(int));
+
+
+        var cantidadParameter = cantidad.HasValue ?
+            new ObjectParameter("Cantidad", cantidad) :
+            new ObjectParameter("Cantidad", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarDetallePedido", iD_PedidoParameter, iD_ProductoParameter, cantidadParameter);
+    }
+
+
+    public virtual int InsertarPedido(Nullable<int> iD_Cliente, Nullable<decimal> totalBruto, Nullable<decimal> impuesto, Nullable<decimal> valorNeto)
+    {
+
+        var iD_ClienteParameter = iD_Cliente.HasValue ?
+            new ObjectParameter("ID_Cliente", iD_Cliente) :
+            new ObjectParameter("ID_Cliente", typeof(int));
+
+
+        var totalBrutoParameter = totalBruto.HasValue ?
+            new ObjectParameter("TotalBruto", totalBruto) :
+            new ObjectParameter("TotalBruto", typeof(decimal));
+
+
+        var impuestoParameter = impuesto.HasValue ?
+            new ObjectParameter("Impuesto", impuesto) :
+            new ObjectParameter("Impuesto", typeof(decimal));
+
+
+        var valorNetoParameter = valorNeto.HasValue ?
+            new ObjectParameter("ValorNeto", valorNeto) :
+            new ObjectParameter("ValorNeto", typeof(decimal));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarPedido", iD_ClienteParameter, totalBrutoParameter, impuestoParameter, valorNetoParameter);
+    }
+
 }
 
 }

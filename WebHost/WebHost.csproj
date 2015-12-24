@@ -79,17 +79,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BL\BL.csproj">
-      <Project>{1302ae0e-4d28-476e-a2ba-cde9abfb4c5f}</Project>
-      <Name>BL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{26adfc09-acf8-4d5a-8462-63a04b02bac5}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Entidades\Entidades.csproj">
-      <Project>{ab07f896-1b1d-46bd-a511-6721a4edc98b}</Project>
-      <Name>Entidades</Name>
+    <ProjectReference Include="..\WCFBL\WCFBL.csproj">
+      <Project>{12afcbe0-1404-45c2-bdb9-5d908af19866}</Project>
+      <Name>WCFBL</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebServiceApi\WebServiceApi.csproj">
       <Project>{f06537ab-1ac6-4dba-b18b-3ff5e2282e18}</Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using BL;
+using WCFBL;
 
 namespace WebServiceApi
 {
@@ -36,8 +36,8 @@ namespace WebServiceApi
 
         public string GetDataBL()
         {
-            VendedoresBL context = new VendedoresBL();
-            var dataBL = context.test();
+            BLWCF context = new BLWCF();
+            var dataBL = context.TestBLWcf();
             return dataBL;
         }
     }
