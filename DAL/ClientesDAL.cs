@@ -1,41 +1,74 @@
-﻿using System;
+﻿/*
+ * Nombre de la Clase: SQLClientes
+ * Descripcion: Establecer una conexión a la base de datos
+ * Autor: Equipo Makross - Grupo de Desarrollo
+ * Fecha: 14/12/2015
+ */
+
+/*
+ * Listado de Metodos:
+ * >> Counter getNumberClassMethods(string className)
+ * >> Counter getNumberClassLines(string className, int classNumber)
+ * >> Counter getNumberProgramLines()
+ */
+
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Entidades;
 
 namespace DAL
 {
     public class ClientesDAL
     {
-        private string con;
+        private string cs;
 
+        /* 
+         * Metodo
+         * Descripcion: Metodo constructor que recibe un parametro string
+         * Entrada: string
+         * Salida: void
+         */
         public ClientesDAL(string cs)
         {
-            this.con = cs;
+            this.cs = cs;
         }
 
-        public List<Clientes> ObtenerClientesDAL()
+        /* 
+         * Metodo
+         * Descripcion: Retorna un listado de clientes
+         * Entrada: void
+         * Salida: List<Clientes>
+         */
+        public List<Clientes> ObtenerCliente()
         {
             List<Clientes> clientes = new List<Clientes>();
-            using (DB_AcmeEntities contex = new DB_AcmeEntities())
-            {
-                var clientesEF = from cl in contex.TB_Cliente
-                                 select cl;
 
-                foreach (var item in clientesEF)
+            using (DB_AcmeEntities contexto = new DB_AcmeEntities())
+            {
+                var SQLCliente = from cliente in contexto.TB_Cliente select cliente;
+
+                foreach (var item in SQLCliente)
                 {
-                    Clientes clienteAct = MapearClientes(item);
-                    clientes.Add(clienteAct);
+                    Clientes clienteActual = MapearCliente(item);
+                    clientes.Add(clienteActual);
                 }
             }
-            return clientes;
+
+            return (clientes);
         }
 
-        private Clientes MapearClientes(TB_Cliente item)
+        /* 
+         * Metodo
+         * Descripcion: Mapea los atributos de un cliente
+         * Entrada: TB_Cliente
+         * Salida: Clientes
+         */
+        private Clientes MapearCliente(TB_Cliente item)
         {
             Clientes cliente = new Clientes();
+
             cliente.ID_Cliente = item.ID_Cliente;
             cliente.ID_Vendedor = item.ID_Vendedor;
             cliente.ID_Ciudad = item.ID_Ciudad;
@@ -47,7 +80,7 @@ namespace DAL
             cliente.Email = item.Email;
             cliente.Direccion = item.Direccion;
 
-            return cliente;
+            return (cliente);
         }
     }
 }

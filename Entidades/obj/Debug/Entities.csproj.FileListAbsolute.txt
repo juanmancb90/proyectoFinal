@@ -1,0 +1,10 @@
+C:\Users\juansebastian\Desktop\FinalProject\Entities\bin\Debug\Entities.dll
+C:\Users\juansebastian\Desktop\FinalProject\Entities\bin\Debug\Entities.pdb
+C:\Users\juansebastian\Desktop\FinalProject\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\juansebastian\Desktop\FinalProject\Entities\obj\Debug\Entities.dll
+C:\Users\juansebastian\Desktop\FinalProject\Entities\obj\Debug\Entities.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\FinalProject\Entities\bin\Debug\Entities.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\FinalProject\Entities\bin\Debug\Entities.pdb
+C:\Users\User\Documents\Visual Studio 2013\Projects\FinalProject\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2013\Projects\FinalProject\Entities\obj\Debug\Entities.dll
+C:\Users\User\Documents\Visual Studio 2013\Projects\FinalProject\Entities\obj\Debug\Entities.pdb

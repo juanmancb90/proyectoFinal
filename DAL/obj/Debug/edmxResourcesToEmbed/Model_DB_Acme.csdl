@@ -277,5 +277,23 @@
       <Parameter Name="NombreUsuario" Mode="In" Type="String" />
       <Parameter Name="Contrasenia" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="ActualizarStockProducto">
+      <Parameter Name="ID_Producto" Mode="In" Type="Int32" />
+      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ConsultarIdentificadorPedido">
+      <Parameter Name="ID_Pedido" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarDetallePedido">
+      <Parameter Name="ID_Pedido" Mode="In" Type="Int32" />
+      <Parameter Name="ID_Producto" Mode="In" Type="Int32" />
+      <Parameter Name="Cantidad" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarPedido">
+      <Parameter Name="ID_Cliente" Mode="In" Type="Int32" />
+      <Parameter Name="TotalBruto" Mode="In" Type="Decimal" />
+      <Parameter Name="Impuesto" Mode="In" Type="Decimal" />
+      <Parameter Name="ValorNeto" Mode="In" Type="Decimal" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

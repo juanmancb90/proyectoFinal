@@ -124,5 +124,9 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="AutenticarVendedor" FunctionName="DB_AcmeModel.Store.AutenticarVendedor" />
     <FunctionImportMapping FunctionImportName="InsertarVendedor" FunctionName="DB_AcmeModel.Store.InsertarVendedor" />
+    <FunctionImportMapping FunctionImportName="ActualizarStockProducto" FunctionName="DB_AcmeModel.Store.ActualizarStockProducto" />
+    <FunctionImportMapping FunctionImportName="ConsultarIdentificadorPedido" FunctionName="DB_AcmeModel.Store.ConsultarIdentificadorPedido" />
+    <FunctionImportMapping FunctionImportName="InsertarDetallePedido" FunctionName="DB_AcmeModel.Store.InsertarDetallePedido" />
+    <FunctionImportMapping FunctionImportName="InsertarPedido" FunctionName="DB_AcmeModel.Store.InsertarPedido" />
   </EntityContainerMapping>
 </Mapping>

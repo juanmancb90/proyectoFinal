@@ -1,11 +1,11 @@
-﻿using System;
+﻿using BL;
+using Entidades;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
-using BL;
-using Entidades;
+using UI.WebService;
 
 namespace UI
 {
@@ -14,53 +14,143 @@ namespace UI
         static void Main(string[] args)
         {
             string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
-            
+
             try
             {
-                /************ Productos **************/
-                ProductosBL contexPro = new ProductosBL();
-                List<Productos> productos = contexPro.ObtenerProductosBL(cs);
-                foreach (var pro in productos)
+                ClientesBL contexto = new ClientesBL();
+
+                List<Clientes> clientes = contexto.ObtenerClientes(cs);
+                foreach (var cliente in clientes)
                 {
-                    Console.WriteLine("Producto: ID = {0} - - - Nombre = {1}", pro.ID_Producto, pro.NombreProducto);
-                }
-                /************ Clientes ***********/
-                Console.WriteLine();
-                ClientesBL contextCl = new ClientesBL();
-                List<Clientes> clientes = contextCl.ObtenerClientesBL(cs);
-                foreach (var cl in clientes)
-                {
-                    Console.WriteLine("Cliente: ID = {0} - - - Nombre = {1}", cl.ID_Cliente, cl.NombreCompleto);
-                }
-                /******** Vendedores *******/
-                Console.WriteLine();
-                VendedoresBL contextVen = new VendedoresBL();
-                List<Vendedores> vendedores = contextVen.ObtenerVendedoresBL(cs);
-                foreach (var item in vendedores)
-                {
-                    Console.WriteLine("Vendedor: ID = {0} - - - Nombre = {1}", item.ID_Vendedor, item.NombreCompleto);
-                }
-                /********* Pedidos*******/
-                Console.WriteLine();
-                PedidosBL contextPed = new PedidosBL();
-                List<Pedidos> pedidos = contextPed.ObtenerPedidosBL(cs);
-                foreach (var ped in pedidos)
-                {
-                    Console.WriteLine("Pedido: ID = {0} - - - Cliente = {1} --- ValorNeto = {2}", ped.ID_Pedido, ped.ID_Cliente, ped.ValorNeto);
-                }
-                /******** Detalle Pedidos *******/
-                Console.WriteLine();
-                DetallePedidosBL contextDet = new DetallePedidosBL();
-                List<DetallePedidos> detallePedidos = contextDet.ObtenerDetallePedidosBL(cs);
-                foreach (var det in detallePedidos)
-                {
-                    Console.WriteLine("Detalle_Pedido: ID = {0} - - - Pedido = {1} - - - Producto = {2}", det.ID_DetallePedido, det.ID_Pedido, det.ID_Producto);
+                    Console.WriteLine("Cliente: ID = {0} -- Nombre = {1}", cliente.ID_Cliente, cliente.NombreCompleto);
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
+
+            Console.WriteLine("");
+            Console.WriteLine("=======================================================");
+            Console.WriteLine("");
+
+            try
+            {
+                VendedoresBL contexto = new VendedoresBL();
+
+                List<Vendedores> vendedores = contexto.ObtenerVendedores(cs);
+                foreach (var vendedor in vendedores)
+                {
+                    Console.WriteLine("Vendedore: ID = {0} -- Nombre = {1}", vendedor.ID_Vendedor, vendedor.NombreCompleto);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("=======================================================");
+            Console.WriteLine("");
+
+            VendedoresBL contexto2 = new VendedoresBL();
+
+            bool resultado = contexto2.AutenticarVendedores("Juansrt", "Juan3456");
+            Console.WriteLine("Autenticando al Vendedor: " + resultado);
+
+            Console.WriteLine("");
+            Console.WriteLine("=======================================================");
+            Console.WriteLine("");
+
+            try
+            {
+                ProductosBL contexto = new ProductosBL();
+
+                List<Productos> productos = contexto.ObtenerProductos(cs);
+                foreach (var producto in productos)
+                {
+                    Console.WriteLine("Producto: ID = {0} -- Stock = {1}", producto.ID_Producto, producto.Stock);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("=======================================================");
+            Console.WriteLine("");
+
+            try
+            {
+                PedidosBL contexto = new PedidosBL();
+
+                List<Pedidos> pedidos = contexto.ObtenerPedidos(cs);
+                foreach (var pedido in pedidos)
+                {
+                    Console.WriteLine("Pedido: ID = {0} -- FechaRegistro = {1}", pedido.ID_Pedido, pedido.FechaRegistro);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("=======================================================");
+            Console.WriteLine("");
+
+            try
+            {
+                DetallePedidosBL contexto = new DetallePedidosBL();
+
+                List<DetallePedidos> detallePedidos = contexto.ObtenerDetallePedidos(cs);
+                foreach (var detallePedido in detallePedidos)
+                {
+                    Console.WriteLine("DetallePedidos: ID = {0} -- NombreProducto = {1}", detallePedido.ID_DetallePedido, detallePedido.NombreProducto);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("=======================================================");
+            Console.WriteLine("");
+
+            try
+            {
+                PedidosBL contexto = new PedidosBL();
+
+                Console.WriteLine("ID_Pedido: " + contexto.ConsultarIdentificadorPedidos());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("=======================================================");
+            Console.WriteLine("");
+            
+            try
+            {
+                WebServiceApiClient proxy = new WebServiceApiClient("WSHttpBinding_IWebServiceApi");
+                var msn = proxy.State;
+                var msnBL = proxy.GetDataBL();
+                Console.WriteLine(msn + " --- " + msnBL);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                throw;
+            }
+            
+
+            //DetallePedidosBL contexto3 = new DetallePedidosBL();
+            //contexto3.ActualizarStockProductos(1, 50);
+
             Console.ReadLine();
         }
     }

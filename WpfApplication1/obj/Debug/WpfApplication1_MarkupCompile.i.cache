@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\WpfApplication1\App.xaml
-52004100743
+6-157188064
 
-26121612877
+271807147658
 19-346162193
-MainWindow.xaml;Views\Busqueda.xaml;Views\ListadoPedidos.xaml;Views\ListadoProductos.xaml;Views\Pedido.xaml;
+Login.xaml;MainWindow.xaml;Views\BuscarClienteView.xaml;Views\BuscarProductoView.xaml;Views\ListarDetallePedidoView.xaml;Views\PedidosView.xaml;
 
 False
 

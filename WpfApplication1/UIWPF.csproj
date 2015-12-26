@@ -58,35 +58,42 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Modelo\Empresa.cs" />
-    <Compile Include="Modelo\Pedido.cs" />
-    <Compile Include="Modelo\Producto.cs" />
-    <Compile Include="Service References\WebServiceApi\Reference.cs">
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\BusquedaViewModel.cs" />
-    <Compile Include="ViewModel\ClienteViewModel.cs" />
-    <Compile Include="ViewModel\IListadoProductosViewModel.cs" />
-    <Compile Include="ViewModel\ListadoProductosViewModel.cs" />
-    <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\ProductoViewModel.cs" />
-    <Compile Include="ViewModel\RelayCommands.cs" />
-    <Compile Include="ViewModel\YesNoToVisibilityConverter.cs" />
-    <Compile Include="Views\Busqueda.xaml.cs">
-      <DependentUpon>Busqueda.xaml</DependentUpon>
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\ClientesViewModel.cs" />
+    <Compile Include="ViewModels\ClienteViewModel.cs" />
+    <Compile Include="ViewModels\DetallePedidosViewModel.cs" />
+    <Compile Include="ViewModels\DetallePedidoViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\PedidosViewModel.cs" />
+    <Compile Include="ViewModels\PedidoViewModel.cs" />
+    <Compile Include="ViewModels\ProductoInject.cs" />
+    <Compile Include="ViewModels\ProductosViewModel.cs" />
+    <Compile Include="ViewModels\ProductoViewModel.cs" />
+    <Compile Include="ViewModels\RelayCommand.cs" />
+    <Compile Include="Views\BuscarClienteView.xaml.cs">
+      <DependentUpon>BuscarClienteView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ListadoPedidos.xaml.cs">
-      <DependentUpon>ListadoPedidos.xaml</DependentUpon>
+    <Compile Include="Views\BuscarProductoView.xaml.cs">
+      <DependentUpon>BuscarProductoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ListadoProductos.xaml.cs">
-      <DependentUpon>ListadoProductos.xaml</DependentUpon>
+    <Compile Include="Views\ListarDetallePedidoView.xaml.cs">
+      <DependentUpon>ListarDetallePedidoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pedido.xaml.cs">
-      <DependentUpon>Pedido.xaml</DependentUpon>
+    <Compile Include="Views\PedidosView.xaml.cs">
+      <DependentUpon>PedidosView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,21 +106,21 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\Busqueda.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\BuscarClienteView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\ListadoPedidos.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\BuscarProductoView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\ListadoProductos.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\ListarDetallePedidoView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Pedido.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\PedidosView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -139,52 +146,22 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\WebServiceApi\WebServiceApi.wsdl" />
-    <None Include="Service References\WebServiceApi\WebServiceApi.xsd">
+    <None Include="Service References\WebServiceReference\WebServiceApi.wsdl" />
+    <None Include="Service References\WebServiceReference\WebServiceApi.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WebServiceApi\WebServiceApi1.xsd">
+    <None Include="Service References\WebServiceReference\WebServiceApi1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WebServiceApi\WebServiceApi2.xsd">
+    <None Include="Service References\WebServiceReference\WebServiceApi2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WebServiceApi\WpfApplication1.WebServiceApi.CompositeType.datasource">
+    <None Include="Service References\WebServiceReference\WpfApplication1.WebServiceReference.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\string.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\hash.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\archivo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\aceptar.jpg" />
-    <Resource Include="Imagenes\enblanco.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\agregar.jpg" />
-    <Resource Include="Imagenes\eliminar.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="productos\cheetos.jpg" />
-    <Resource Include="productos\doritos.jpg" />
-    <Resource Include="productos\margaritalimon.jpg" />
-    <Resource Include="productos\margaritanatural.jpg" />
-    <Resource Include="productos\margaritapollo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="productos\oferta.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\cancelar.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BL\BL.csproj">
@@ -197,22 +174,30 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Archivo.png" />
+    <Resource Include="Images\Cancel.png" />
+    <Resource Include="Images\Hash.jpg" />
+    <Resource Include="Images\Login.png" />
+    <Resource Include="Images\Save.png" />
+    <Resource Include="Images\String.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WebServiceApi\" />
+    <WCFMetadataStorage Include="Service References\WebServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WebServiceApi\WebServiceApi.disco" />
+    <None Include="Service References\WebServiceReference\WebServiceApi.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WebServiceApi\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WebServiceApi\configuration.svcinfo" />
+    <None Include="Service References\WebServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WebServiceApi\Reference.svcmap">
+    <None Include="Service References\WebServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -207,10 +207,28 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="ActualizarStockProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Producto" Type="int" Mode="In" />
+    <Parameter Name="Cantidad" Type="int" Mode="In" />
+  </Function>
   <Function Name="AutenticarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
     <Parameter Name="Contrasenia" Type="nvarchar" Mode="In" />
     <Parameter Name="Resultado" Type="bit" Mode="InOut" />
+  </Function>
+  <Function Name="ConsultarIdentificadorPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Pedido" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertarDetallePedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Pedido" Type="int" Mode="In" />
+    <Parameter Name="ID_Producto" Type="int" Mode="In" />
+    <Parameter Name="Cantidad" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertarPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Cliente" Type="int" Mode="In" />
+    <Parameter Name="TotalBruto" Type="decimal" Mode="In" />
+    <Parameter Name="Impuesto" Type="decimal" Mode="In" />
+    <Parameter Name="ValorNeto" Type="decimal" Mode="In" />
   </Function>
   <Function Name="InsertarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NombreCompleto" Type="nvarchar" Mode="In" />
