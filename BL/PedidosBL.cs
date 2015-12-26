@@ -1,21 +1,64 @@
-﻿using System;
+﻿/*
+ * Nombre de la Clase: PedidosBL
+ * Descripcion: Toma objetos de tipo SQLPedidos creado desde la capa Data_Access_Layer y lo pasa a la capa User_Interface
+ * Autor: Equipo Makross - Grupo de Desarrollo
+ * Fecha: 14/12/2015
+ */
+
+/*
+ * Listado de Metodos:
+ * >> List<Pedidos> ObtenerPedidos(string cs)
+ * >> int ConsultarIdentificadorPedidos()
+ * >> void InsertarPedidos(int iD_Cliente, decimal totalBruto, decimal impuesto, decimal valorNeto)
+ */
+
+using DAL;
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Entidades;
-using DAL;
 
 namespace BL
 {
     public class PedidosBL
     {
-        public List<Pedidos> ObtenerPedidosBL(string cs)
+        /* 
+         * Metodo
+         * Descripcion: Retornar un listado de pedidos
+         * Entrada: string
+         * Salida: List<Pedidos>
+         */
+        public List<Pedidos> ObtenerPedidos(string cs)
         {
-            PedidosDAL context = new PedidosDAL(cs);
-            List<Pedidos> pedido = context.ObtenerPedidosDAL();
+            PedidosDAL contexto = new PedidosDAL(cs);
+            List<Pedidos> pedidos = contexto.ObtenerPedido();
+            return (pedidos);
+        }
 
-            return pedido;
+        /* 
+         * Metodo
+         * Descripcion: Retornar el identificador de un pedido
+         * Entrada: void
+         * Salida: int
+         */
+        public int ConsultarIdentificadorPedidos()
+        {
+            PedidosDAL contexto = new PedidosDAL();
+            int iD_Pedido = contexto.ConsultarIdentificadorPedido();
+            return (iD_Pedido);
+        }
+
+        /* 
+         * Metodo
+         * Descripcion: Inserta atributos de un pedido
+         * Entrada: int, decimal, decimal, decimal
+         * Salida: void
+         */
+        public void InsertarPedidos(int iD_Cliente, decimal totalBruto, decimal impuesto, decimal valorNeto)
+        {
+            PedidosDAL contexto = new PedidosDAL();
+            contexto.InsertarPedido(iD_Cliente, totalBruto, impuesto, valorNeto);
         }
     }
 }

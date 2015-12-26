@@ -1,42 +1,74 @@
-﻿using System;
+﻿/*
+ * Nombre de la Clase: SQLProductos
+ * Descripcion: Establecer una conexión a la base de datos
+ * Autor: Equipo Makross - Grupo de Desarrollo
+ * Fecha: 14/12/2015
+ */
+
+/*
+ * Listado de Metodos:
+ * >> SQLProductos(string cs)
+ * >> List<Productos> ObtenerProducto()
+ * >> Productos MapearProducto(TB_Producto item)
+ */
+
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using Entidades;
 
 namespace DAL
 {
     public class ProductosDAL
     {
-        private string con;
+        private string cs;
 
+        /* 
+         * Metodo
+         * Descripcion: Metodo constructor que recibe un parametro string
+         * Entrada: string
+         * Salida: void
+         */
         public ProductosDAL(string cs)
         {
-            this.con = cs;
+            this.cs = cs;
         }
 
-        public List<Productos> ObtenerProductosDAL()
+        /* 
+         * Metodo
+         * Descripcion: Retorna un listado de productos
+         * Entrada: void
+         * Salida: List<Productos>
+         */
+        public List<Productos> ObtenerProducto()
         {
             List<Productos> productos = new List<Productos>();
+
             using (DB_AcmeEntities contexto = new DB_AcmeEntities())
             {
-                var productosEF = from pro in contexto.TB_Producto
-                                  select pro;
+                var SQLProducto = from producto in contexto.TB_Producto select producto;
 
-                foreach (var item in productosEF)
+                foreach (var item in SQLProducto)
                 {
-                    Productos proActual = MapearEmpleado(item);
-                    productos.Add(proActual);
+                    Productos productoActual = MapearProducto(item);
+                    productos.Add(productoActual);
                 }
             }
-            return productos;
+
+            return (productos);
         }
 
-        private Productos MapearEmpleado(TB_Producto item)
+        /* 
+         * Metodo
+         * Descripcion: Mapea los atributos de un producto
+         * Entrada: TB_Producto
+         * Salida: Productos
+         */
+        private Productos MapearProducto(TB_Producto item)
         {
             Productos producto = new Productos();
+
             producto.ID_Producto = item.ID_Producto;
             producto.ID_Categoria = item.ID_Categoria;
             producto.ID_Promocion = item.ID_Promocion;
@@ -48,10 +80,8 @@ namespace DAL
             producto.Impuesto = item.Impuesto;
             producto.ValorUnitario = item.ValorUnitario;
             producto.Estado = item.Estado;
-            //producto.Imagen = item.Imagen;
 
-            return producto;
-
+            return (producto);
         }
     }
 }

@@ -1,37 +1,72 @@
-﻿using System;
+﻿/*
+ * Nombre de la Clase: SQLDetallePedidos
+ * Descripcion: Establecer una conexión a la base de datos
+ * Autor: Equipo Makross - Grupo de Desarrollo
+ * Fecha: 14/12/2015
+ */
+
+/*
+ * Listado de Metodos:
+ * >> Counter getNumberClassMethods(string className)
+ * >> Counter getNumberClassLines(string className, int classNumber)
+ * >> Counter getNumberProgramLines()
+ */
+
+using Entidades;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Entidades;
-using System.Collections.ObjectModel;
 
 namespace DAL
 {
     public class DetallePedidosDAL
     {
-        private string con;
+        private string cs;
 
+        /* 
+         * Metodo
+         * Descripcion: Metodo constructor por defecto
+         * Entrada: void
+         * Salida: void
+         */
+        public DetallePedidosDAL()
+        { }
+
+        /* 
+         * Metodo
+         * Descripcion: Metodo constructor que recibe un parametro string
+         * Entrada: string
+         * Salida: void
+         */
         public DetallePedidosDAL(string cs)
         {
-            this.con = cs;
+            this.cs = cs;
         }
 
-        public List<DetallePedidos> ObtenerDetallePedidosDAL()
+        /* 
+         * Metodo
+         * Descripcion: Retorna un listado de detalle de pedidos
+         * Entrada: void
+         * Salida: List<DetallePedidos>
+         */
+        public List<DetallePedidos> ObtenerDetallePedido()
         {
             List<DetallePedidos> detallePedidos = new List<DetallePedidos>();
 
-            using(DB_AcmeEntities context = new DB_AcmeEntities())
+            using (DB_AcmeEntities contexto = new DB_AcmeEntities())
             {
-                var detallePedidosEF = from det in context.TB_DetallePedido
-                                       select det;
-                foreach (var item in detallePedidosEF)
+                var SQLDetallePedidos = from detallePedido in contexto.TB_DetallePedido select detallePedido;
+
+                foreach (var item in SQLDetallePedidos)
                 {
-                    DetallePedidos detallePedidoAct = MapearDetallePedidos(item);
-                    detallePedidos.Add(detallePedidoAct);
+                    DetallePedidos detallePedidoActual = MapearDetallePedido(item);
+                    detallePedidos.Add(detallePedidoActual);
                 }
-                return detallePedidos;
             }
+
+            return (detallePedidos);
         }
 
         /* 
@@ -87,14 +122,20 @@ namespace DAL
             return (detallePedidos);
         }
 
-
-        private DetallePedidos MapearDetallePedidos(TB_DetallePedido item)
+        /* 
+         * Metodo
+         * Descripcion: Mapea los atributos de un detalle de pedido
+         * Entrada: TB_DetallePedido
+         * Salida: DetallePedidos
+         */
+        private DetallePedidos MapearDetallePedido(TB_DetallePedido item)
         {
             DetallePedidos detallePedido = new DetallePedidos();
 
             detallePedido.ID_DetallePedido = item.ID_DetallePedido;
             detallePedido.ID_Pedido = item.ID_Pedido;
             detallePedido.ID_Producto = item.ID_Producto;
+            detallePedido.Codigo = item.Codigo;
             detallePedido.NombreProducto = item.NombreProducto;
             detallePedido.Descripcion = item.Descripcion;
             detallePedido.Cantidad = item.Cantidad;
@@ -102,9 +143,7 @@ namespace DAL
             detallePedido.Impuesto = item.Impuesto;
             detallePedido.SubTotal = item.SubTotal;
 
-            return detallePedido;
+            return (detallePedido);
         }
-
-
     }
 }
