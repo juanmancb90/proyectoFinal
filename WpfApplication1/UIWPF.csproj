@@ -156,7 +156,13 @@
     <None Include="Service References\WebServiceReference\WebServiceApi2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\WebServiceReference\WebServiceApi3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\WebServiceReference\WpfApplication1.WebServiceReference.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceReference\WpfApplication1.WebServiceReference.Productos.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>

@@ -1,5 +1,4 @@
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFEntidades\bin\Debug\WCFEntidades.dll
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFEntidades\bin\Debug\WCFEntidades.pdb
-C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFEntidades\obj\Debug\WCFEntidades.csprojResolveAssemblyReference.cache
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFEntidades\obj\Debug\WCFEntidades.dll
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFEntidades\obj\Debug\WCFEntidades.pdb

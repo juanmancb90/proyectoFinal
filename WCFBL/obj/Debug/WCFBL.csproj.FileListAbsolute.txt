@@ -1,3 +1,4 @@
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFBL\obj\Debug\WCFBL.csprojResolveAssemblyReference.cache
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFBL\bin\Debug\WCFBL.dll
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFBL\bin\Debug\WCFBL.pdb
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFBL\bin\Debug\WCFDAL.dll
@@ -6,6 +7,5 @@ C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFBL\bin\Debu
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFBL\bin\Debug\WCFDAL.pdb
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFBL\bin\Debug\WCFEntidades.pdb
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFBL\bin\Debug\EntityFramework.xml
-C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFBL\obj\Debug\WCFBL.csprojResolveAssemblyReference.cache
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFBL\obj\Debug\WCFBL.dll
 C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WCFBL\obj\Debug\WCFBL.pdb
