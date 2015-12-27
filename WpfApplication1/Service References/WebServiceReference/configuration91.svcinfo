@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="tBdC8ktHXw0taWEQwvw1gc/EsX4=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="XPcoXD2IfzdE2wZzXgnXASbvdoA=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IWebServiceApi2">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IWebServiceApi">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IWebServiceApi2</serializedValue>
+          <serializedValue>BasicHttpBinding_IWebServiceApi</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -110,10 +110,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IWebServiceApi2">
+    <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IWebServiceApi">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSHttpBinding_IWebServiceApi2</serializedValue>
+          <serializedValue>WSHttpBinding_IWebServiceApi</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -236,7 +236,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IWebServiceApi2" contract="WebServiceReference.IWebServiceApi" bindingType="wsHttpBinding" address="http://localhost:52289/WebServiceApi.svc/wshttp" bindingConfiguration="WSHttpBinding_IWebServiceApi2">
+    <endpoint name="WSHttpBinding_IWebServiceApi" contract="WebServiceReference.IWebServiceApi" bindingType="wsHttpBinding" address="http://localhost:52289/WebServiceApi.svc/wshttp" bindingConfiguration="WSHttpBinding_IWebServiceApi">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:52289/WebServiceApi.svc/wshttp</serializedValue>
@@ -248,7 +248,7 @@
           <serializedValue>wsHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSHttpBinding_IWebServiceApi2</serializedValue>
+          <serializedValue>WSHttpBinding_IWebServiceApi</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>WebServiceReference.IWebServiceApi</serializedValue>
@@ -311,7 +311,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSHttpBinding_IWebServiceApi2</serializedValue>
+          <serializedValue>WSHttpBinding_IWebServiceApi</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -321,7 +321,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IWebServiceApi2" contract="WebServiceReference.IWebServiceApi" bindingType="basicHttpBinding" address="http://localhost:52289/WebServiceApi.svc/basic" bindingConfiguration="BasicHttpBinding_IWebServiceApi2">
+    <endpoint name="BasicHttpBinding_IWebServiceApi" contract="WebServiceReference.IWebServiceApi" bindingType="basicHttpBinding" address="http://localhost:52289/WebServiceApi.svc/basic" bindingConfiguration="BasicHttpBinding_IWebServiceApi">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:52289/WebServiceApi.svc/basic</serializedValue>
@@ -333,7 +333,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IWebServiceApi2</serializedValue>
+          <serializedValue>BasicHttpBinding_IWebServiceApi</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>WebServiceReference.IWebServiceApi</serializedValue>
@@ -396,7 +396,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IWebServiceApi2</serializedValue>
+          <serializedValue>BasicHttpBinding_IWebServiceApi</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

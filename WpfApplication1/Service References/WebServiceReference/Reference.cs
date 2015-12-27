@@ -74,6 +74,211 @@ namespace WpfApplication1.WebServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Productos", Namespace="http://schemas.datacontract.org/2004/07/WCFEntidades")]
+    [System.SerializableAttribute()]
+    public partial class Productos : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FabricanteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_CategoriaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_ProductoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_PromocionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal ImpuestoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreProductoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StockField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal ValorUnitarioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Codigo {
+            get {
+                return this.CodigoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
+                    this.CodigoField = value;
+                    this.RaisePropertyChanged("Codigo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion {
+            get {
+                return this.DescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((this.EstadoField.Equals(value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Fabricante {
+            get {
+                return this.FabricanteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FabricanteField, value) != true)) {
+                    this.FabricanteField = value;
+                    this.RaisePropertyChanged("Fabricante");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_Categoria {
+            get {
+                return this.ID_CategoriaField;
+            }
+            set {
+                if ((this.ID_CategoriaField.Equals(value) != true)) {
+                    this.ID_CategoriaField = value;
+                    this.RaisePropertyChanged("ID_Categoria");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_Producto {
+            get {
+                return this.ID_ProductoField;
+            }
+            set {
+                if ((this.ID_ProductoField.Equals(value) != true)) {
+                    this.ID_ProductoField = value;
+                    this.RaisePropertyChanged("ID_Producto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_Promocion {
+            get {
+                return this.ID_PromocionField;
+            }
+            set {
+                if ((this.ID_PromocionField.Equals(value) != true)) {
+                    this.ID_PromocionField = value;
+                    this.RaisePropertyChanged("ID_Promocion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Impuesto {
+            get {
+                return this.ImpuestoField;
+            }
+            set {
+                if ((this.ImpuestoField.Equals(value) != true)) {
+                    this.ImpuestoField = value;
+                    this.RaisePropertyChanged("Impuesto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreProducto {
+            get {
+                return this.NombreProductoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreProductoField, value) != true)) {
+                    this.NombreProductoField = value;
+                    this.RaisePropertyChanged("NombreProducto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Stock {
+            get {
+                return this.StockField;
+            }
+            set {
+                if ((this.StockField.Equals(value) != true)) {
+                    this.StockField = value;
+                    this.RaisePropertyChanged("Stock");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ValorUnitario {
+            get {
+                return this.ValorUnitarioField;
+            }
+            set {
+                if ((this.ValorUnitarioField.Equals(value) != true)) {
+                    this.ValorUnitarioField = value;
+                    this.RaisePropertyChanged("ValorUnitario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WebServiceReference.IWebServiceApi")]
     public interface IWebServiceApi {
@@ -101,6 +306,12 @@ namespace WpfApplication1.WebServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetDataBL", ReplyAction="http://tempuri.org/IWebServiceApi/GetDataBLResponse")]
         System.Threading.Tasks.Task<string> GetDataBLAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetProductosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/GetProductosWCFBLResponse")]
+        WpfApplication1.WebServiceReference.Productos[] GetProductosWCFBL();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetProductosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/GetProductosWCFBLResponse")]
+        System.Threading.Tasks.Task<WpfApplication1.WebServiceReference.Productos[]> GetProductosWCFBLAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -160,6 +371,14 @@ namespace WpfApplication1.WebServiceReference {
         
         public System.Threading.Tasks.Task<string> GetDataBLAsync() {
             return base.Channel.GetDataBLAsync();
+        }
+        
+        public WpfApplication1.WebServiceReference.Productos[] GetProductosWCFBL() {
+            return base.Channel.GetProductosWCFBL();
+        }
+        
+        public System.Threading.Tasks.Task<WpfApplication1.WebServiceReference.Productos[]> GetProductosWCFBLAsync() {
+            return base.Channel.GetProductosWCFBLAsync();
         }
     }
 }

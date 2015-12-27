@@ -50,10 +50,6 @@ namespace WebServiceApi
             ProductosBL contexto = new ProductosBL();
 
             List<Productos> productos = contexto.ObtenerProductos(cs);
-            foreach (var producto in productos)
-            {
-                Console.WriteLine("Producto: ID = {0} -- Stock = {1}", producto.ID_Producto, producto.Stock);
-            }
 
             return productos;
         }
