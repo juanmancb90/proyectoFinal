@@ -140,6 +140,14 @@ namespace UI
                 var msn = proxy.State;
                 var msnBL = proxy.GetDataBL();
                 Console.WriteLine(msn + " --- " + msnBL);
+                Console.WriteLine("");
+                Console.WriteLine("=======================================================");
+                Console.WriteLine("");
+                var productosWCF = proxy.GetProductosWCFBL();
+                foreach (var producto in productosWCF)
+                {
+                    Console.WriteLine("Producto: ID = {0} -- Stock = {1}", producto.ID_Producto, producto.Stock);
+                }
             }
             catch (Exception e)
             {

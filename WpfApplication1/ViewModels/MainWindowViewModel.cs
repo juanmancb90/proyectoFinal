@@ -86,8 +86,8 @@ namespace WpfApplication1.ViewModels
         private void TestConnectionWBExecute()
         {
             this.proxy = new WebServiceApiClient("BasicHttpBinding_IWebServiceApi");
-            var data = proxy.GetDataBL();
-            MessageBox.Show("Test Connection Web service: " + data, "Mensaje Test", MessageBoxButton.OK, MessageBoxImage.Information);
+            var data = proxy.GetProductosWCFBL(); //proxy.GetDataBL();
+            MessageBox.Show("Test list product WCFBL" + data, "Mensaje Test", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         /* 
