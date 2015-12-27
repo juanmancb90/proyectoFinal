@@ -1,8 +1,8 @@
-C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\WebServiceApi.dll.config
-C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\WebServiceApi.dll
-C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\WebServiceApi.pdb
-C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\WCFBL.dll
-C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\WCFBL.pdb
-C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\WebServiceApi\obj\Debug\WebServiceApi.csprojResolveAssemblyReference.cache
-C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\WebServiceApi\obj\Debug\WebServiceApi.dll
-C:\Users\User\Documents\Visual Studio 2013\Projects\ProyectoFinal\WebServiceApi\obj\Debug\WebServiceApi.pdb
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\WebServiceApi.dll.config
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\WebServiceApi.dll
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\WebServiceApi.pdb
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\WCFBL.dll
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\bin\Debug\WCFBL.pdb
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\obj\Debug\WebServiceApi.csprojResolveAssemblyReference.cache
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\obj\Debug\WebServiceApi.dll
+C:\Users\User\documents\visual studio 2013\Projects\ProyectoFinal\WebServiceApi\obj\Debug\WebServiceApi.pdb

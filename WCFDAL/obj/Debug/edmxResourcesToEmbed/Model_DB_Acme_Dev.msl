@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_Acme_DevModelStoreContainer" CdmEntityContainer="DB_Acme_DevEntities">
+    <EntitySetMapping Name="TB_Auditoria">
+      <EntityTypeMapping TypeName="DB_Acme_DevModel.TB_Auditoria">
+        <MappingFragment StoreEntitySet="TB_Auditoria">
+          <ScalarProperty Name="ID_Auditoria" ColumnName="ID_Auditoria" />
+          <ScalarProperty Name="TiempoEvento" ColumnName="TiempoEvento" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="NombreBaseDatos" ColumnName="NombreBaseDatos" />
+          <ScalarProperty Name="NombreObjeto" ColumnName="NombreObjeto" />
+          <ScalarProperty Name="TipoObjeto" ColumnName="TipoObjeto" />
+          <ScalarProperty Name="ComandoDML" ColumnName="ComandoDML" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Categoria">
+      <EntityTypeMapping TypeName="DB_Acme_DevModel.TB_Categoria">
+        <MappingFragment StoreEntitySet="TB_Categoria">
+          <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+          <ScalarProperty Name="TipoCategoria" ColumnName="TipoCategoria" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Ciudad">
+      <EntityTypeMapping TypeName="DB_Acme_DevModel.TB_Ciudad">
+        <MappingFragment StoreEntitySet="TB_Ciudad">
+          <ScalarProperty Name="ID_Ciudad" ColumnName="ID_Ciudad" />
+          <ScalarProperty Name="NombreCiudad" ColumnName="NombreCiudad" />
+          <ScalarProperty Name="NombreRegion" ColumnName="NombreRegion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Cliente">
+      <EntityTypeMapping TypeName="DB_Acme_DevModel.TB_Cliente">
+        <MappingFragment StoreEntitySet="TB_Cliente">
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="ID_Vendedor" ColumnName="ID_Vendedor" />
+          <ScalarProperty Name="ID_Ciudad" ColumnName="ID_Ciudad" />
+          <ScalarProperty Name="ID_Documento" ColumnName="ID_Documento" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_DetallePedido">
+      <EntityTypeMapping TypeName="DB_Acme_DevModel.TB_DetallePedido">
+        <MappingFragment StoreEntitySet="TB_DetallePedido">
+          <ScalarProperty Name="ID_DetallePedido" ColumnName="ID_DetallePedido" />
+          <ScalarProperty Name="ID_Pedido" ColumnName="ID_Pedido" />
+          <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="ValorUnitario" ColumnName="ValorUnitario" />
+          <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Documento">
+      <EntityTypeMapping TypeName="DB_Acme_DevModel.TB_Documento">
+        <MappingFragment StoreEntitySet="TB_Documento">
+          <ScalarProperty Name="ID_Documento" ColumnName="ID_Documento" />
+          <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Pedido">
+      <EntityTypeMapping TypeName="DB_Acme_DevModel.TB_Pedido">
+        <MappingFragment StoreEntitySet="TB_Pedido">
+          <ScalarProperty Name="ID_Pedido" ColumnName="ID_Pedido" />
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="TotalBruto" ColumnName="TotalBruto" />
+          <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+          <ScalarProperty Name="ValorNeto" ColumnName="ValorNeto" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Perfil">
+      <EntityTypeMapping TypeName="DB_Acme_DevModel.TB_Perfil">
+        <MappingFragment StoreEntitySet="TB_Perfil">
+          <ScalarProperty Name="ID_Perfil" ColumnName="ID_Perfil" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="NombrePerfil" ColumnName="NombrePerfil" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Producto">
+      <EntityTypeMapping TypeName="DB_Acme_DevModel.TB_Producto">
+        <MappingFragment StoreEntitySet="TB_Producto">
+          <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+          <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+          <ScalarProperty Name="ID_Promocion" ColumnName="ID_Promocion" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fabricante" ColumnName="Fabricante" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+          <ScalarProperty Name="ValorUnitario" ColumnName="ValorUnitario" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Promocion">
+      <EntityTypeMapping TypeName="DB_Acme_DevModel.TB_Promocion">
+        <MappingFragment StoreEntitySet="TB_Promocion">
+          <ScalarProperty Name="ID_Promocion" ColumnName="ID_Promocion" />
+          <ScalarProperty Name="TipoPromocion" ColumnName="TipoPromocion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Usuario">
+      <EntityTypeMapping TypeName="DB_Acme_DevModel.TB_Usuario">
+        <MappingFragment StoreEntitySet="TB_Usuario">
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ActualizarStockProducto" FunctionName="DB_Acme_DevModel.Store.ActualizarStockProducto" />
+    <FunctionImportMapping FunctionImportName="AutenticarUsuario" FunctionName="DB_Acme_DevModel.Store.AutenticarUsuario" />
+    <FunctionImportMapping FunctionImportName="ConsultarIdentificadorPedido" FunctionName="DB_Acme_DevModel.Store.ConsultarIdentificadorPedido" />
+    <FunctionImportMapping FunctionImportName="InsertarDetallePedido" FunctionName="DB_Acme_DevModel.Store.InsertarDetallePedido" />
+    <FunctionImportMapping FunctionImportName="InsertarPedido" FunctionName="DB_Acme_DevModel.Store.InsertarPedido" />
+    <FunctionImportMapping FunctionImportName="InsertarUsuario" FunctionName="DB_Acme_DevModel.Store.InsertarUsuario" />
+  </EntityContainerMapping>
+</Mapping>
