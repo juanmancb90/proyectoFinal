@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="DetallePedidosBL.cs" />
     <Compile Include="PedidosBL.cs" />
-    <Compile Include="Productos.cs" />
+    <Compile Include="ProductosBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

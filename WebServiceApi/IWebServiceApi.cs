@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using WCFEntidades;
 
 namespace WebServiceApi
 {
@@ -22,6 +23,9 @@ namespace WebServiceApi
         // TODO: Add your service operations here
         [OperationContract]
         string GetDataBL();
+
+        [OperationContract]
+        List<Productos> GetProductosWCFBL();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

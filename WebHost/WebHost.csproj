@@ -79,14 +79,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WCFBL\WCFBL.csproj">
-      <Project>{12afcbe0-1404-45c2-bdb9-5d908af19866}</Project>
-      <Name>WCFBL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WCFEntidades\WCFEntidades.csproj">
-      <Project>{c3711c8f-79a1-43f2-880f-34a5054bdf40}</Project>
-      <Name>WCFEntidades</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WebServiceApi\WebServiceApi.csproj">
       <Project>{f06537ab-1ac6-4dba-b18b-3ff5e2282e18}</Project>
       <Name>WebServiceApi</Name>
