@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WCFBL
 {
-    public class BLWCF
+    public class PedidosBL
     {
-        public BLWCF()
+        public PedidosBL()
         {
 
         }

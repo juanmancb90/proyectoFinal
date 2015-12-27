@@ -36,7 +36,7 @@ namespace WebServiceApi
 
         public string GetDataBL()
         {
-            BLWCF context = new BLWCF();
+            PedidosBL context = new PedidosBL();
             var dataBL = context.TestBLWcf();
             return dataBL;
         }

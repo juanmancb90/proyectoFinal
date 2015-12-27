@@ -39,8 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLWCF.cs" />
+    <Compile Include="DetallePedidosBL.cs" />
+    <Compile Include="PedidosBL.cs" />
+    <Compile Include="Productos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WCFDAL\WCFDAL.csproj">
+      <Project>{ea6cb0fe-69a4-4d12-9003-e96b82377365}</Project>
+      <Name>WCFDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WCFEntidades\WCFEntidades.csproj">
+      <Project>{c3711c8f-79a1-43f2-880f-34a5054bdf40}</Project>
+      <Name>WCFEntidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
