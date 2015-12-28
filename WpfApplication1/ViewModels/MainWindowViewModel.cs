@@ -20,6 +20,9 @@ using System.Windows.Input;
 using System.ServiceModel;
 using System.Windows;
 using WpfApplication1.WebServiceReference;
+using BL;
+using System.Configuration;
+
 
 namespace WpfApplication1.ViewModels
 {
@@ -66,14 +69,14 @@ namespace WpfApplication1.ViewModels
          * Entrada: void
          * Salida: ICommand
          */
-        RelayCommand _TestWebServiceCommand;
-        public ICommand TestWebServiceCommand
+        RelayCommand _ProductWebServiceCommand;
+        public ICommand ProductWebServiceCommand
         {
             get
             {
-                if (_TestWebServiceCommand == null)
-                    _TestWebServiceCommand = new RelayCommand(param => this.TestConnectionWBExecute(), param => this.TestConnectionWB);
-                return (_TestWebServiceCommand);
+                if (_ProductWebServiceCommand == null)
+                    _ProductWebServiceCommand = new RelayCommand(param => this.ProductConnectionWCFExecute(), param => this.ProductConnectionCanExecute);
+                return (_ProductWebServiceCommand);
             }
         }
 
@@ -83,11 +86,31 @@ namespace WpfApplication1.ViewModels
          * Entrada: void
          * Salida: void
          */
-        private void TestConnectionWBExecute()
+        private void ProductConnectionWCFExecute()
         {
+            string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
             this.proxy = new WebServiceApiClient("BasicHttpBinding_IWebServiceApi");
-            var data = proxy.GetDataBL();
-            MessageBox.Show("Test Connection Web service: " + data, "Mensaje Test", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBoxResult result = MessageBox.Show("Desea sincronizar el inventario de productos mediante el Sistema Central?", "Información", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                List<Productos> productosWCFBL = new List<Productos>(proxy.GetProductosWCFBL());
+                ActualizarInventario(productosWCFBL, cs);
+
+                
+                ActualizarStockInventario(cs);
+            }
+        }
+
+        private void ActualizarInventario(List<Productos> productos, string cs)
+        {
+            ProductosBL context = new ProductosBL();
+            
+        }
+
+        private void ActualizarStockInventario(string cs)
+        {
+            ProductosBL context = new ProductosBL();
+            this.proxy = new WebServiceApiClient("BasicHttpBinding_IWebServiceApi");
         }
 
         /* 
@@ -96,7 +119,7 @@ namespace WpfApplication1.ViewModels
          * Entrada: void
          * Salida: bool
          */
-        public bool TestConnectionWB
+        public bool ProductConnectionCanExecute
         {
             get
             {

@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace WCFEntidades
 {
-    public class Productos
+    public class DetallePedidosWCF
     {
+        public int ID_DetallePedido { get; set; }
+        public int ID_Pedido { get; set; }
         public int ID_Producto { get; set; }
-        public int ID_Categoria { get; set; }
-        public int ID_Promocion { get; set; }
-        public string NombreProducto { get; set; }
         public string Codigo { get; set; }
+        public string NombreProducto { get; set; }
         public string Descripcion { get; set; }
-        public string Fabricante { get; set; }
-        public int Stock { get; set; }
-        public decimal Impuesto { get; set; }
+        public int Cantidad { get; set; }
         public decimal ValorUnitario { get; set; }
-        public bool Estado { get; set; }
+        public decimal Impuesto { get; set; }
+        public decimal SubTotal { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using WCFDAL;
 
 namespace WCFBL
 {
-    public class ProductosBL
+    public class ProductosWCFBL
     {
         /* 
         * Metodo
@@ -16,10 +16,10 @@ namespace WCFBL
         * Entrada: string
         * Salida: List<Productos>
         */
-        public List<Productos> ObtenerProductos(string cs)
+        public List<ProductosWCF> ObtenerProductos(string cs)
         {
             SQLProductos contexto = new SQLProductos(cs);
-            List<Productos> productos = contexto.ObtenerProducto();
+            List<ProductosWCF> productos = contexto.ObtenerProducto();
             return (productos);
         }
     }

@@ -25,12 +25,12 @@
                             <Image Source="images/String.jpg" Stretch="Fill"></Image>
                         </ContentControl>
                     </Button>
-                    <Button ToolTip="Opcion 2" Margin="5,0,0,0" Height="30" Width="30">
+                    <Button ToolTip="Sincronizar Pedidos" Margin="5,0,0,0" Height="30" Width="30">
                         <ContentControl>
                             <Image Source="images/Archivo.png" Stretch="Fill"></Image>
                         </ContentControl>
                     </Button>
-                    <Button ToolTip="Opcion 3" Margin="5,0,0,0"  Height="30" Width="30" Command="{Binding TestWebServiceCommand}">
+                    <Button ToolTip="Sincronizar Productos" Margin="5,0,0,0"  Height="30" Width="30" Command="{Binding ProductWebServiceCommand}">
                         <ContentControl>
                             <Image Source="images/Hash.jpg" Stretch="Fill"></Image>
                         </ContentControl>

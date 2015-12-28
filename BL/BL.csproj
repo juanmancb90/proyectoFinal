@@ -55,6 +55,10 @@
       <Project>{ab07f896-1b1d-46bd-a511-6721a4edc98b}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebServiceApi\WebServiceApi.csproj">
+      <Project>{f06537ab-1ac6-4dba-b18b-3ff5e2282e18}</Project>
+      <Name>WebServiceApi</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

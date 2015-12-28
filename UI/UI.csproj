@@ -59,7 +59,7 @@
     <None Include="Service References\WebService\UI.WebService.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\WebService\UI.WebService.Productos.datasource">
+    <None Include="Service References\WebService\UI.WebService.ProductosWCF.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WebService\WebServiceApi.wsdl" />
@@ -70,9 +70,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\WebService\WebServiceApi2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WebService\WebServiceApi3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

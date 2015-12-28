@@ -6,7 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Configuration;
 using WCFBL;
-using WCFEntidades;
+//using WCFEntidades;
 
 namespace WebServiceApi
 {
@@ -40,17 +40,33 @@ namespace WebServiceApi
 
         public string GetDataBL()
         {
-            PedidosBL context = new PedidosBL();
+            PedidosWCFBL context = new PedidosWCFBL();
             var dataBL = context.TestBLWcf();
             return dataBL;
         }
 
-        public List<Productos> GetProductosWCFBL()
+        public List<ProductosWCF> GetProductosWCFBL()
         {
-            ProductosBL contexto = new ProductosBL();
-
-            List<Productos> productos = contexto.ObtenerProductos(cs);
-
+            ProductosWCFBL contexto = new ProductosWCFBL();
+            List<ProductosWCF> productos = new List<ProductosWCF>();
+            var productosWCFBL = contexto.ObtenerProductos(cs);
+            foreach (var item in productosWCFBL)
+            {
+                ProductosWCF productoAct = new ProductosWCF { 
+                    ID_Producto = item.ID_Producto, 
+                    ID_Categoria = item.ID_Categoria,
+                    ID_Promocion = item.ID_Promocion,
+                    NombreProducto = item.NombreProducto,
+                    Codigo = item.Codigo,
+                    Descripcion = item.Descripcion,
+                    Fabricante = item.Fabricante,
+                    Stock = item.Stock,
+                    Impuesto = item.Impuesto,
+                    ValorUnitario = item.ValorUnitario,
+                    Estado = item.Estado
+                };
+                productos.Add(productoAct);
+            }
             return productos;
         }
     }
