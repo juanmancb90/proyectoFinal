@@ -145,6 +145,7 @@ namespace UI
                 Console.WriteLine("");
                 Console.WriteLine("=======================================================");
                 Console.WriteLine("");
+<<<<<<< HEAD
                 var productosWCFBL = proxy.GetProductosWCFBL();
                 foreach (var producto in productosWCFBL)
                 {
@@ -153,6 +154,13 @@ namespace UI
                 contextox.ActualizarProducto(productosWCFBL, cs);
                
                 
+=======
+                var productosWCF = proxy.GetProductosWCFBL();
+                foreach (var producto in productosWCF)
+                {
+                    Console.WriteLine("Producto: ID = {0} -- Stock = {1}", producto.ID_Producto, producto.Stock);
+                }
+>>>>>>> origin/develop
             }
             catch (Exception e)
             {

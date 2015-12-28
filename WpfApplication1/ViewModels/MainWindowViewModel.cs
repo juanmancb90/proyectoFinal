@@ -111,6 +111,11 @@ namespace WpfApplication1.ViewModels
         {
             ProductosBL context = new ProductosBL();
             this.proxy = new WebServiceApiClient("BasicHttpBinding_IWebServiceApi");
+<<<<<<< HEAD
+=======
+            var data = proxy.GetProductosWCFBL(); //proxy.GetDataBL();
+            MessageBox.Show("Test list product WCFBL" + data, "Mensaje Test", MessageBoxButton.OK, MessageBoxImage.Information);
+>>>>>>> origin/develop
         }
 
         /* 

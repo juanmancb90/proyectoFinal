@@ -30,7 +30,11 @@
                             <Image Source="images/Archivo.png" Stretch="Fill"></Image>
                         </ContentControl>
                     </Button>
+<<<<<<< HEAD
                     <Button ToolTip="Sincronizar Productos" Margin="5,0,0,0"  Height="30" Width="30" Command="{Binding ProductWebServiceCommand}">
+=======
+                    <Button ToolTip="Sincronizar Productos" Margin="5,0,0,0"  Height="30" Width="30" Command="{Binding TestWebServiceCommand}">
+>>>>>>> origin/develop
                         <ContentControl>
                             <Image Source="images/Hash.jpg" Stretch="Fill"></Image>
                         </ContentControl>
