@@ -7,26 +7,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
-  <xs:complexType name="ArrayOfProductosWCF">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductosWCF" nillable="true" type="tns:ProductosWCF" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfProductosWCF" nillable="true" type="tns:ArrayOfProductosWCF" />
-  <xs:complexType name="ProductosWCF">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Estado" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Fabricante" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ID_Categoria" type="xs:int" />
-      <xs:element minOccurs="0" name="ID_Producto" type="xs:int" />
-      <xs:element minOccurs="0" name="ID_Promocion" type="xs:int" />
-      <xs:element minOccurs="0" name="Impuesto" type="xs:decimal" />
-      <xs:element minOccurs="0" name="NombreProducto" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Stock" type="xs:int" />
-      <xs:element minOccurs="0" name="ValorUnitario" type="xs:decimal" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ProductosWCF" nillable="true" type="tns:ProductosWCF" />
 </xs:schema>

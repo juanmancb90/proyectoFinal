@@ -20,9 +20,6 @@ using System.Windows.Input;
 using System.ServiceModel;
 using System.Windows;
 using WpfApplication1.WebServiceReference;
-using BL;
-using System.Configuration;
-
 
 namespace WpfApplication1.ViewModels
 {
@@ -69,14 +66,14 @@ namespace WpfApplication1.ViewModels
          * Entrada: void
          * Salida: ICommand
          */
-        RelayCommand _ProductWebServiceCommand;
-        public ICommand ProductWebServiceCommand
+        RelayCommand _TestWebServiceCommand;
+        public ICommand TestWebServiceCommand
         {
             get
             {
-                if (_ProductWebServiceCommand == null)
-                    _ProductWebServiceCommand = new RelayCommand(param => this.ProductConnectionWCFExecute(), param => this.ProductConnectionCanExecute);
-                return (_ProductWebServiceCommand);
+                if (_TestWebServiceCommand == null)
+                    _TestWebServiceCommand = new RelayCommand(param => this.TestConnectionWBExecute(), param => this.TestConnectionWB);
+                return (_TestWebServiceCommand);
             }
         }
 
@@ -86,36 +83,11 @@ namespace WpfApplication1.ViewModels
          * Entrada: void
          * Salida: void
          */
-        private void ProductConnectionWCFExecute()
+        private void TestConnectionWBExecute()
         {
-            string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
             this.proxy = new WebServiceApiClient("BasicHttpBinding_IWebServiceApi");
-            MessageBoxResult result = MessageBox.Show("Desea sincronizar el inventario de productos mediante el Sistema Central?", "Información", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
-            {
-                List<Productos> productosWCFBL = new List<Productos>(proxy.GetProductosWCFBL());
-                ActualizarInventario(productosWCFBL, cs);
-
-                
-                ActualizarStockInventario(cs);
-            }
-        }
-
-        private void ActualizarInventario(List<Productos> productos, string cs)
-        {
-            ProductosBL context = new ProductosBL();
-            
-        }
-
-        private void ActualizarStockInventario(string cs)
-        {
-            ProductosBL context = new ProductosBL();
-            this.proxy = new WebServiceApiClient("BasicHttpBinding_IWebServiceApi");
-<<<<<<< HEAD
-=======
             var data = proxy.GetProductosWCFBL(); //proxy.GetDataBL();
             MessageBox.Show("Test list product WCFBL" + data, "Mensaje Test", MessageBoxButton.OK, MessageBoxImage.Information);
->>>>>>> origin/develop
         }
 
         /* 
@@ -124,7 +96,7 @@ namespace WpfApplication1.ViewModels
          * Entrada: void
          * Salida: bool
          */
-        public bool ProductConnectionCanExecute
+        public bool TestConnectionWB
         {
             get
             {

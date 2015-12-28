@@ -4,8 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-//using WCFEntidades;
-
+using WCFEntidades;
 
 namespace WebServiceApi
 {
@@ -26,7 +25,7 @@ namespace WebServiceApi
         string GetDataBL();
 
         [OperationContract]
-        List<ProductosWCF> GetProductosWCFBL();
+        List<Productos> GetProductosWCFBL();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
@@ -50,32 +49,5 @@ namespace WebServiceApi
             get { return stringValue; }
             set { stringValue = value; }
         }
-    }
-    
-    [DataContract]
-    public class ProductosWCF
-    {
-        [DataMember]
-        public int ID_Producto { get; set; }
-        [DataMember]
-        public int ID_Categoria { get; set; }
-        [DataMember]
-        public int ID_Promocion { get; set; }
-        [DataMember]
-        public string NombreProducto { get; set; }
-        [DataMember]
-        public string Codigo { get; set; }
-        [DataMember]
-        public string Descripcion { get; set; }
-        [DataMember]
-        public string Fabricante { get; set; }
-        [DataMember]
-        public int Stock { get; set; }
-        [DataMember]
-        public decimal Impuesto { get; set; }
-        [DataMember]
-        public decimal ValorUnitario { get; set; }
-        [DataMember]
-        public bool Estado { get; set; }
     }
 }
