@@ -162,7 +162,7 @@
     <None Include="Service References\WebServiceReference\WpfApplication1.WebServiceReference.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\WebServiceReference\WpfApplication1.WebServiceReference.Productos.datasource">
+    <None Include="Service References\WebServiceReference\WpfApplication1.WebServiceReference.ProductosWCF.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>

@@ -76,9 +76,9 @@ namespace WpfApplication1.WebServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Productos", Namespace="http://schemas.datacontract.org/2004/07/WCFEntidades")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductosWCF", Namespace="http://schemas.datacontract.org/2004/07/WCFEntidades")]
     [System.SerializableAttribute()]
-    public partial class Productos : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ProductosWCF : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -308,10 +308,10 @@ namespace WpfApplication1.WebServiceReference {
         System.Threading.Tasks.Task<string> GetDataBLAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetProductosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/GetProductosWCFBLResponse")]
-        WpfApplication1.WebServiceReference.Productos[] GetProductosWCFBL();
+        WpfApplication1.WebServiceReference.ProductosWCF[] GetProductosWCFBL();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetProductosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/GetProductosWCFBLResponse")]
-        System.Threading.Tasks.Task<WpfApplication1.WebServiceReference.Productos[]> GetProductosWCFBLAsync();
+        System.Threading.Tasks.Task<WpfApplication1.WebServiceReference.ProductosWCF[]> GetProductosWCFBLAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -373,11 +373,11 @@ namespace WpfApplication1.WebServiceReference {
             return base.Channel.GetDataBLAsync();
         }
         
-        public WpfApplication1.WebServiceReference.Productos[] GetProductosWCFBL() {
+        public WpfApplication1.WebServiceReference.ProductosWCF[] GetProductosWCFBL() {
             return base.Channel.GetProductosWCFBL();
         }
         
-        public System.Threading.Tasks.Task<WpfApplication1.WebServiceReference.Productos[]> GetProductosWCFBLAsync() {
+        public System.Threading.Tasks.Task<WpfApplication1.WebServiceReference.ProductosWCF[]> GetProductosWCFBLAsync() {
             return base.Channel.GetProductosWCFBLAsync();
         }
     }

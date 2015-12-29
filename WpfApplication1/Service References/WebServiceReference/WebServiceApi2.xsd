@@ -64,7 +64,7 @@
   <xs:element name="GetProductosWCFBLResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFEntidades" minOccurs="0" name="GetProductosWCFBLResult" nillable="true" type="q3:ArrayOfProductos" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFEntidades" minOccurs="0" name="GetProductosWCFBLResult" nillable="true" type="q3:ArrayOfProductosWCF" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

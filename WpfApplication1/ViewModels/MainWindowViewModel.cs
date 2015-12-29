@@ -20,6 +20,8 @@ using System.Windows.Input;
 using System.ServiceModel;
 using System.Windows;
 using WpfApplication1.WebServiceReference;
+using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 namespace WpfApplication1.ViewModels
 {
@@ -66,14 +68,14 @@ namespace WpfApplication1.ViewModels
          * Entrada: void
          * Salida: ICommand
          */
-        RelayCommand _TestWebServiceCommand;
-        public ICommand TestWebServiceCommand
+        RelayCommand _ProductWebServiceCommand;
+        public ICommand ProductWebServiceCommand
         {
             get
             {
-                if (_TestWebServiceCommand == null)
-                    _TestWebServiceCommand = new RelayCommand(param => this.TestConnectionWBExecute(), param => this.TestConnectionWB);
-                return (_TestWebServiceCommand);
+                if (_ProductWebServiceCommand == null)
+                    _ProductWebServiceCommand = new RelayCommand(param => this.ProductWebServiceExecute(), param => this.ProductWebService);
+                return (_ProductWebServiceCommand);
             }
         }
 
@@ -83,11 +85,16 @@ namespace WpfApplication1.ViewModels
          * Entrada: void
          * Salida: void
          */
-        private void TestConnectionWBExecute()
+        private void ProductWebServiceExecute()
         {
             this.proxy = new WebServiceApiClient("BasicHttpBinding_IWebServiceApi");
-            var data = proxy.GetProductosWCFBL(); //proxy.GetDataBL();
-            MessageBox.Show("Test list product WCFBL" + data, "Mensaje Test", MessageBoxButton.OK, MessageBoxImage.Information);
+            
+            MessageBoxResult result = MessageBox.Show("Desea sincronizar el inventario de productos mediante el Sistema Central?", "Información", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                var data = proxy.GetDataBL();//proxy.GetProductosWCFBL(); //
+                MessageBox.Show("Test list product WCFBL" + data, "Mensaje Test", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         /* 
@@ -96,7 +103,7 @@ namespace WpfApplication1.ViewModels
          * Entrada: void
          * Salida: bool
          */
-        public bool TestConnectionWB
+        public bool ProductWebService
         {
             get
             {
