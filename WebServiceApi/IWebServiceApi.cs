@@ -25,7 +25,7 @@ namespace WebServiceApi
         string GetDataBL();
 
         [OperationContract]
-        List<Productos> GetProductosWCFBL();
+        List<ProductosWCF> GetProductosWCFBL();
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
@@ -50,4 +50,20 @@ namespace WebServiceApi
             set { stringValue = value; }
         }
     }
+    /*
+    [DataContract]
+    public class ProductosWCF
+    {
+        public int ID_Producto { get; set; }
+        public int ID_Categoria { get; set; }
+        public int ID_Promocion { get; set; }
+        public string NombreProducto { get; set; }
+        public string Codigo { get; set; }
+        public string Descripcion { get; set; }
+        public string Fabricante { get; set; }
+        public int Stock { get; set; }
+        public decimal Impuesto { get; set; }
+        public decimal ValorUnitario { get; set; }
+        public bool Estado { get; set; }
+    }*/
 }

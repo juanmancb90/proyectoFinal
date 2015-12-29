@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WCFEntidades
 {
-    public class Pedidos
+    public class PedidosWCF
     {
         public int ID_Pedido { get; set; }
         public int ID_Cliente { get; set; }

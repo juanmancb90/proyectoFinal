@@ -137,17 +137,25 @@ namespace UI
             try
             {
                 WebServiceApiClient proxy = new WebServiceApiClient("WSHttpBinding_IWebServiceApi");
+                ProductosBL contexto = new ProductosBL();
                 var msn = proxy.State;
                 var msnBL = proxy.GetDataBL();
                 Console.WriteLine(msn + " --- " + msnBL);
                 Console.WriteLine("");
                 Console.WriteLine("=======================================================");
                 Console.WriteLine("");
-                var productosWCF = proxy.GetProductosWCFBL();
-                foreach (var producto in productosWCF)
+                List<Productos> productoBL = contexto.ObtenerProductos(cs);
+                var productosWCFBL = proxy.GetProductosWCFBL();
+                //ProductosWCF productos;
+                Console.WriteLine(productosWCFBL);
+                foreach (var producto in productosWCFBL)
                 {
                     Console.WriteLine("Producto: ID = {0} -- Stock = {1}", producto.ID_Producto, producto.Stock);
+                    Console.WriteLine("Test BL send data from web service list"+contexto.actualizarProdcuto(producto.ID_Producto));
                 }
+
+                
+
             }
             catch (Exception e)
             {

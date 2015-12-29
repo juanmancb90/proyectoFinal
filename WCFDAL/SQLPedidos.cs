@@ -24,9 +24,9 @@ namespace WCFDAL
          * Entrada: void
          * Salida: List<Pedidos>
          */
-        public List<Pedidos> ObtenerPedido()
+        public List<PedidosWCF> ObtenerPedido()
         {
-            List<Pedidos> pedidos = new List<Pedidos>();
+            List<PedidosWCF> pedidos = new List<PedidosWCF>();
 
             using (DB_Acme_DevEntities contexto = new DB_Acme_DevEntities())
             {
@@ -34,7 +34,7 @@ namespace WCFDAL
 
                 foreach (var item in SQLPedido)
                 {
-                    Pedidos pedidoActual = MapearPedido(item);
+                    PedidosWCF pedidoActual = MapearPedido(item);
                     pedidos.Add(pedidoActual);
                 }
             }
@@ -48,9 +48,9 @@ namespace WCFDAL
          * Entrada: TB_Pedido
          * Salida: Pedidos
          */
-        private Pedidos MapearPedido(TB_Pedido item)
+        private PedidosWCF MapearPedido(TB_Pedido item)
         {
-            Pedidos pedido = new Pedidos();
+            PedidosWCF pedido = new PedidosWCF();
 
             pedido.ID_Pedido = item.ID_Pedido;
             pedido.ID_Cliente = item.ID_Cliente;

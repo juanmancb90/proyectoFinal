@@ -38,9 +38,9 @@ namespace WCFDAL
          * Entrada: void
          * Salida: List<DetallePedidos>
          */
-        public List<DetallePedidos> ObtenerDetallePedido()
+        public List<DetallePedidosWCF> ObtenerDetallePedido()
         {
-            List<DetallePedidos> detallePedidos = new List<DetallePedidos>();
+            List<DetallePedidosWCF> detallePedidos = new List<DetallePedidosWCF>();
 
             using (DB_Acme_DevEntities contexto = new DB_Acme_DevEntities())
             {
@@ -48,7 +48,7 @@ namespace WCFDAL
 
                 foreach (var item in SQLDetallePedidos)
                 {
-                    DetallePedidos detallePedidoActual = MapearDetallePedido(item);
+                    DetallePedidosWCF detallePedidoActual = MapearDetallePedido(item);
                     detallePedidos.Add(detallePedidoActual);
                 }
             }
@@ -62,9 +62,9 @@ namespace WCFDAL
          * Entrada: TB_DetallePedido
          * Salida: DetallePedidos
          */
-        private DetallePedidos MapearDetallePedido(TB_DetallePedido item)
+        private DetallePedidosWCF MapearDetallePedido(TB_DetallePedido item)
         {
-            DetallePedidos detallePedido = new DetallePedidos();
+            DetallePedidosWCF detallePedido = new DetallePedidosWCF();
 
             detallePedido.ID_DetallePedido = item.ID_DetallePedido;
             detallePedido.ID_Pedido = item.ID_Pedido;

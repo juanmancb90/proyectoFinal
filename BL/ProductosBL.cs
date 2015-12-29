@@ -33,5 +33,10 @@ namespace BL
             List<Productos> productos = contexto.ObtenerProducto();
             return (productos);
         }
+
+        public int actualizarProdcuto(int p)
+        {
+            return p;
+        }
     }
 }
