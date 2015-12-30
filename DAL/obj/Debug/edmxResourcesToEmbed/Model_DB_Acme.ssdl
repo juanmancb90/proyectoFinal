@@ -207,6 +207,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="ActualizarProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Producto" Type="int" Mode="In" />
+    <Parameter Name="ID_Categoria" Type="int" Mode="In" />
+    <Parameter Name="ID_Promocion" Type="int" Mode="In" />
+    <Parameter Name="NombreProducto" Type="nvarchar" Mode="In" />
+    <Parameter Name="Codigo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="Fabricante" Type="nvarchar" Mode="In" />
+    <Parameter Name="Stock" Type="int" Mode="In" />
+    <Parameter Name="Impuesto" Type="decimal" Mode="In" />
+    <Parameter Name="ValorUnitario" Type="decimal" Mode="In" />
+    <Parameter Name="Estado" Type="bit" Mode="In" />
+  </Function>
   <Function Name="ActualizarStockProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID_Producto" Type="int" Mode="In" />
     <Parameter Name="Cantidad" Type="int" Mode="In" />

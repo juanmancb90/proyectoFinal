@@ -24,6 +24,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using BL;
 using System.Configuration;
+using Entidades;
 
 namespace WpfApplication1.ViewModels
 {
@@ -98,22 +99,32 @@ namespace WpfApplication1.ViewModels
                 var data = proxy.GetProductosWCFBL();
                 ProductosBL contexto = new ProductosBL();
                 ProductoViewModel productoActual = new ProductoViewModel();
-                foreach (var item in data)
+                //List<Productos> productosBL = new List<Productos>();
+                if (data != null)
                 {
-                    productoActual.ID_Producto = item.ID_Producto;
-                    productoActual.ID_Categoria = item.ID_Categoria;
-                    productoActual.ID_Promocion = item.ID_Promocion;
-                    productoActual.NombreProducto = item.NombreProducto;
-                    productoActual.Codigo = item.Codigo;
-                    productoActual.Descripcion = item.Descripcion;
-                    productoActual.Fabricante = item.Fabricante;
-                    productoActual.Stock = item.Stock;
-                    productoActual.Impuesto = item.Impuesto;
-                    productoActual.ValorUnitario = item.ValorUnitario;
-                    productoActual.Estado = item.Estado;
-                    contexto.insertarProductoBl(cs, productoActual.ObtenerEntidad());
+                    foreach (var item in data)
+                    {
+                        productoActual.ID_Producto = item.ID_Producto;
+                        productoActual.ID_Categoria = item.ID_Categoria;
+                        productoActual.ID_Promocion = item.ID_Promocion;
+                        productoActual.NombreProducto = item.NombreProducto;
+                        productoActual.Codigo = item.Codigo;
+                        productoActual.Descripcion = item.Descripcion;
+                        productoActual.Fabricante = item.Fabricante;
+                        productoActual.Stock = item.Stock;
+                        productoActual.Impuesto = item.Impuesto;
+                        productoActual.ValorUnitario = item.ValorUnitario;
+                        productoActual.Estado = item.Estado;
+                        //productosBL.Add(productoActual.ObtenerEntidad());
+                        contexto.SincronizarProductosBL(cs, productoActual.ObtenerEntidad());
+                    }
+                    MessageBox.Show("Se ha sincronizado los prodcutos del inventario con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                MessageBox.Show("Se ha sincronizado los prodcutos del inventario con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                else
+                {
+                    MessageBox.Show("No se ha podido sincronizar los prodcutos del inventario con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                
             }
         }
 

@@ -245,6 +245,24 @@ namespace WpfApplication1.WebServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetProductosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/GetProductosWCFBLResponse")]
         System.Threading.Tasks.Task<WpfApplication1.WebServiceReference.ProductosWCF[]> GetProductosWCFBLAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetStockProductosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetStockProductosWCFBLResponse")]
+        bool SetStockProductosWCFBL();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetStockProductosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetStockProductosWCFBLResponse")]
+        System.Threading.Tasks.Task<bool> SetStockProductosWCFBLAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetPedidosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetPedidosWCFBLResponse")]
+        bool SetPedidosWCFBL();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetPedidosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetPedidosWCFBLResponse")]
+        System.Threading.Tasks.Task<bool> SetPedidosWCFBLAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetDetallePedidosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetDetallePedidosWCFBLResponse")]
+        bool SetDetallePedidosWCFBL();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetDetallePedidosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetDetallePedidosWCFBLResponse")]
+        System.Threading.Tasks.Task<bool> SetDetallePedidosWCFBLAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -304,6 +322,30 @@ namespace WpfApplication1.WebServiceReference {
         
         public System.Threading.Tasks.Task<WpfApplication1.WebServiceReference.ProductosWCF[]> GetProductosWCFBLAsync() {
             return base.Channel.GetProductosWCFBLAsync();
+        }
+        
+        public bool SetStockProductosWCFBL() {
+            return base.Channel.SetStockProductosWCFBL();
+        }
+        
+        public System.Threading.Tasks.Task<bool> SetStockProductosWCFBLAsync() {
+            return base.Channel.SetStockProductosWCFBLAsync();
+        }
+        
+        public bool SetPedidosWCFBL() {
+            return base.Channel.SetPedidosWCFBL();
+        }
+        
+        public System.Threading.Tasks.Task<bool> SetPedidosWCFBLAsync() {
+            return base.Channel.SetPedidosWCFBLAsync();
+        }
+        
+        public bool SetDetallePedidosWCFBL() {
+            return base.Channel.SetDetallePedidosWCFBL();
+        }
+        
+        public System.Threading.Tasks.Task<bool> SetDetallePedidosWCFBLAsync() {
+            return base.Channel.SetDetallePedidosWCFBLAsync();
         }
     }
 }

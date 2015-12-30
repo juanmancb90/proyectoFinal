@@ -212,6 +212,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ActualizarProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_Producto" Type="int" Mode="In" />
+          <Parameter Name="ID_Categoria" Type="int" Mode="In" />
+          <Parameter Name="ID_Promocion" Type="int" Mode="In" />
+          <Parameter Name="NombreProducto" Type="nvarchar" Mode="In" />
+          <Parameter Name="Codigo" Type="nvarchar" Mode="In" />
+          <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="Fabricante" Type="nvarchar" Mode="In" />
+          <Parameter Name="Stock" Type="int" Mode="In" />
+          <Parameter Name="Impuesto" Type="decimal" Mode="In" />
+          <Parameter Name="ValorUnitario" Type="decimal" Mode="In" />
+          <Parameter Name="Estado" Type="bit" Mode="In" />
+        </Function>
         <Function Name="ActualizarStockProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID_Producto" Type="int" Mode="In" />
           <Parameter Name="Cantidad" Type="int" Mode="In" />
@@ -610,6 +623,19 @@
             <Parameter Name="ValorUnitario" Mode="In" Type="Decimal" />
             <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="ActualizarProducto">
+            <Parameter Name="ID_Producto" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Categoria" Mode="In" Type="Int32" />
+            <Parameter Name="ID_Promocion" Mode="In" Type="Int32" />
+            <Parameter Name="NombreProducto" Mode="In" Type="String" />
+            <Parameter Name="Codigo" Mode="In" Type="String" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="Fabricante" Mode="In" Type="String" />
+            <Parameter Name="Stock" Mode="In" Type="Int32" />
+            <Parameter Name="Impuesto" Mode="In" Type="Decimal" />
+            <Parameter Name="ValorUnitario" Mode="In" Type="Decimal" />
+            <Parameter Name="Estado" Mode="In" Type="Boolean" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -745,6 +771,7 @@
           <FunctionImportMapping FunctionImportName="InsertarDetallePedido" FunctionName="DB_AcmeModel.Store.InsertarDetallePedido" />
           <FunctionImportMapping FunctionImportName="InsertarPedido" FunctionName="DB_AcmeModel.Store.InsertarPedido" />
           <FunctionImportMapping FunctionImportName="InsertarProducto" FunctionName="DB_AcmeModel.Store.InsertarProducto" />
+          <FunctionImportMapping FunctionImportName="ActualizarProducto" FunctionName="DB_AcmeModel.Store.ActualizarProducto" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

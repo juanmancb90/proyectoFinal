@@ -34,14 +34,10 @@ namespace BL
             return (productos);
         }
 
-        public int actualizarProdcuto(int p)
-        {
-            return p;
-        }
-
-        public void insertarProductoBl(String cs, Productos producto = null)
+        public void SincronizarProductosBL(String cs, Productos producto = null)
         {
             ProductosDAL contexto = new ProductosDAL(cs);
+            //bool rst = false;
             if (producto == null)
             {
                 producto = new Productos();
@@ -57,7 +53,22 @@ namespace BL
                 producto.ValorUnitario = 800;
                 producto.Estado = true;
             }
-            contexto.insertarProducto(producto);
+            else
+            {
+                List<Productos> productosBL = contexto.ObtenerProducto();
+                foreach (var item in productosBL)
+                {
+                    if (item.ID_Producto == producto.ID_Producto)
+                    {
+                        contexto.actualizarProducto(producto);
+                    }
+                    else
+                    {
+                        contexto.insertarProducto(producto);
+                    }
+                }
+            }
+           
         }
     }
 }

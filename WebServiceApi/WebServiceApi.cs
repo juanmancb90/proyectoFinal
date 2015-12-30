@@ -38,5 +38,25 @@ namespace WebServiceApi
             List<ProductosWCF> productos = context.ObtenerProductos(cs);
             return productos;
         }
+
+        public bool SetStockProductosWCFBL()
+        {
+            bool rst = false;
+
+            return rst;
+        }
+
+        public bool SetPedidosWCFBL()
+        {
+            bool rst = false;
+            return rst;
+        }
+
+        public bool SetDetallePedidosWCFBL()
+        {
+            bool rst = false;
+
+            return rst;
+        }
     }
 }
