@@ -134,44 +134,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IWebServiceApi_GetDataUsingDataContract_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_IWebServiceApi_GetDataUsingDataContract_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IWebServiceApi_GetHelloWorld_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -290,8 +252,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:52289/WebServiceApi.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:52289/WebServiceApi.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:52289/WebServiceApi.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WebServiceApi" />
-      <xsd:import schemaLocation="http://localhost:52289/WebServiceApi.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WCFEntidades" />
+      <xsd:import schemaLocation="http://localhost:52289/WebServiceApi.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFEntidades" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IWebServiceApi_GetData_InputMessage">
@@ -299,12 +260,6 @@
   </wsdl:message>
   <wsdl:message name="IWebServiceApi_GetData_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDataResponse" />
-  </wsdl:message>
-  <wsdl:message name="IWebServiceApi_GetDataUsingDataContract_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
-  </wsdl:message>
-  <wsdl:message name="IWebServiceApi_GetDataUsingDataContract_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
   </wsdl:message>
   <wsdl:message name="IWebServiceApi_GetHelloWorld_InputMessage">
     <wsdl:part name="parameters" element="tns:GetHelloWorld" />
@@ -328,10 +283,6 @@
     <wsdl:operation name="GetData">
       <wsdl:input wsaw:Action="http://tempuri.org/IWebServiceApi/GetData" message="tns:IWebServiceApi_GetData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWebServiceApi/GetDataResponse" message="tns:IWebServiceApi_GetData_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <wsdl:input wsaw:Action="http://tempuri.org/IWebServiceApi/GetDataUsingDataContract" message="tns:IWebServiceApi_GetDataUsingDataContract_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IWebServiceApi/GetDataUsingDataContractResponse" message="tns:IWebServiceApi_GetDataUsingDataContract_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetHelloWorld">
       <wsdl:input wsaw:Action="http://tempuri.org/IWebServiceApi/GetHelloWorld" message="tns:IWebServiceApi_GetHelloWorld_InputMessage" />
@@ -357,17 +308,6 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSHttpBinding_IWebServiceApi_GetData_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <soap12:operation soapAction="http://tempuri.org/IWebServiceApi/GetDataUsingDataContract" style="document" />
-      <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_IWebServiceApi_GetDataUsingDataContract_Input_policy" />
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_IWebServiceApi_GetDataUsingDataContract_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -409,15 +349,6 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetData">
       <soap:operation soapAction="http://tempuri.org/IWebServiceApi/GetData" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <soap:operation soapAction="http://tempuri.org/IWebServiceApi/GetDataUsingDataContract" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

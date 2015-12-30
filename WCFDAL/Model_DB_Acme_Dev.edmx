@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB_Acme_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_Acme_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TB_Auditoria">
           <Key>
             <PropertyRef Name="ID_Auditoria" />
@@ -311,8 +311,7 @@
             <End Role="TB_Producto" EntitySet="TB_Producto" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_Acme_DevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -620,7 +619,7 @@
             <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="ConsultarIdentificadorPedido">
-            <Parameter Name="ID_Pedido" Mode="InOut" Type="Int32" />
+          <Parameter Name="ID_Pedido" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="InsertarDetallePedido">
             <Parameter Name="ID_Pedido" Mode="In" Type="Int32" />

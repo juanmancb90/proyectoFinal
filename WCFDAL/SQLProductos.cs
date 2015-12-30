@@ -22,9 +22,9 @@ namespace WCFDAL
          * Entrada: void
          * Salida: List<Productos>
          */
-        public List<Productos> ObtenerProducto()
+        public List<ProductosWCF> ObtenerProducto()
         {
-            List<Productos> productos = new List<Productos>();
+            List<ProductosWCF> productos = new List<ProductosWCF>();
 
             using (DB_Acme_DevEntities contexto = new DB_Acme_DevEntities())
             {
@@ -32,7 +32,7 @@ namespace WCFDAL
 
                 foreach (var item in SQLProducto)
                 {
-                    Productos productoActual = MapearProducto(item);
+                    ProductosWCF productoActual = MapearProducto(item);
                     productos.Add(productoActual);
                 }
             }
@@ -46,9 +46,9 @@ namespace WCFDAL
          * Entrada: TB_Producto
          * Salida: Productos
          */
-        private Productos MapearProducto(TB_Producto item)
+        private ProductosWCF MapearProducto(TB_Producto item)
         {
-            Productos producto = new Productos();
+            ProductosWCF producto = new ProductosWCF();
 
             producto.ID_Producto = item.ID_Producto;
             producto.ID_Categoria = item.ID_Categoria;

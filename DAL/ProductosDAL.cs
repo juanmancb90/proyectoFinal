@@ -15,6 +15,7 @@
 using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Objects;
 using System.Linq;
 using System.Text;
 
@@ -82,6 +83,35 @@ namespace DAL
             producto.Estado = item.Estado;
 
             return (producto);
+        }
+
+        //procedimiento almacenado
+        public void insertarProducto(Productos producto)
+        {
+            using (DB_AcmeEntities contexto = new DB_AcmeEntities())
+            {
+                TB_Producto Producto = mapearProducto(producto);
+                ObjectParameter id = new ObjectParameter("ID_Producto", 1);
+                contexto.InsertarProducto(id, Producto.ID_Categoria, Producto.ID_Promocion, Producto.NombreProducto, Producto.Codigo, Producto.Descripcion, Producto.Fabricante, Producto.Stock, Producto.Impuesto, Producto.ValorUnitario, Producto.Estado);
+                contexto.SaveChanges();
+            }
+        }
+
+        private TB_Producto mapearProducto(Productos item)
+        {
+            TB_Producto Producto = new TB_Producto();
+            Producto.ID_Producto = item.ID_Producto;
+            Producto.ID_Categoria = item.ID_Categoria;
+            Producto.ID_Promocion = item.ID_Promocion;
+            Producto.NombreProducto = item.NombreProducto;
+            Producto.Codigo = item.Codigo;
+            Producto.Descripcion = item.Descripcion;
+            Producto.Fabricante = item.Fabricante;
+            Producto.Stock = item.Stock;
+            Producto.Impuesto = item.Impuesto;
+            Producto.ValorUnitario = item.ValorUnitario;
+            Producto.Estado = item.Estado;
+            return Producto;
         }
     }
 }

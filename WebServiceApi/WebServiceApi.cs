@@ -25,32 +25,17 @@ namespace WebServiceApi
             return string.Format("Hello World: {0}",name);
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
-        }
-
         public string GetDataBL()
         {
-            PedidosBL context = new PedidosBL();
+            PedidosWCFBL context = new PedidosWCFBL();
             var dataBL = context.TestBLWcf();
             return dataBL;
         }
 
-        public List<Productos> GetProductosWCFBL()
+        public List<ProductosWCF> GetProductosWCFBL()
         {
-            ProductosBL contexto = new ProductosBL();
-
-            List<Productos> productos = contexto.ObtenerProductos(cs);
-
+            ProductosWCFBL context = new ProductosWCFBL();
+            List<ProductosWCF> productos = context.ObtenerProductos(cs);
             return productos;
         }
     }
