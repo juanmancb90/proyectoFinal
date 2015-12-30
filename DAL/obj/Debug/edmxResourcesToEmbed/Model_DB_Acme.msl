@@ -128,5 +128,6 @@
     <FunctionImportMapping FunctionImportName="ConsultarIdentificadorPedido" FunctionName="DB_AcmeModel.Store.ConsultarIdentificadorPedido" />
     <FunctionImportMapping FunctionImportName="InsertarDetallePedido" FunctionName="DB_AcmeModel.Store.InsertarDetallePedido" />
     <FunctionImportMapping FunctionImportName="InsertarPedido" FunctionName="DB_AcmeModel.Store.InsertarPedido" />
+    <FunctionImportMapping FunctionImportName="InsertarProducto" FunctionName="DB_AcmeModel.Store.InsertarProducto" />
   </EntityContainerMapping>
 </Mapping>

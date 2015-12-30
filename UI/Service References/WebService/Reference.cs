@@ -15,67 +15,6 @@ namespace UI.WebService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WebServiceApi")]
-    [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
-            get {
-                return this.BoolValueField;
-            }
-            set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
-                return this.StringValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductosWCF", Namespace="http://schemas.datacontract.org/2004/07/WCFEntidades")]
     [System.SerializableAttribute()]
     public partial class ProductosWCF : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -289,12 +228,6 @@ namespace UI.WebService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetData", ReplyAction="http://tempuri.org/IWebServiceApi/GetDataResponse")]
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IWebServiceApi/GetDataUsingDataContractResponse")]
-        UI.WebService.CompositeType GetDataUsingDataContract(UI.WebService.CompositeType composite);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IWebServiceApi/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<UI.WebService.CompositeType> GetDataUsingDataContractAsync(UI.WebService.CompositeType composite);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetHelloWorld", ReplyAction="http://tempuri.org/IWebServiceApi/GetHelloWorldResponse")]
         string GetHelloWorld(string name);
         
@@ -347,14 +280,6 @@ namespace UI.WebService {
         
         public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
             return base.Channel.GetDataAsync(value);
-        }
-        
-        public UI.WebService.CompositeType GetDataUsingDataContract(UI.WebService.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
-        }
-        
-        public System.Threading.Tasks.Task<UI.WebService.CompositeType> GetDataUsingDataContractAsync(UI.WebService.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
         public string GetHelloWorld(string name) {

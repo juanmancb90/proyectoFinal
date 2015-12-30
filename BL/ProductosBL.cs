@@ -38,5 +38,26 @@ namespace BL
         {
             return p;
         }
+
+        public void insertarProductoBl(String cs, Productos producto = null)
+        {
+            ProductosDAL contexto = new ProductosDAL(cs);
+            if (producto == null)
+            {
+                producto = new Productos();
+                producto.ID_Producto = 1;
+                producto.ID_Categoria = 1;
+                producto.ID_Promocion = 1;
+                producto.NombreProducto = "prueba";
+                producto.Codigo = "1234567";
+                producto.Descripcion = "esto es un aprueba";
+                producto.Fabricante = "prueba1";
+                producto.Stock = 5;
+                producto.Impuesto = (decimal)0.16;
+                producto.ValorUnitario = 800;
+                producto.Estado = true;
+            }
+            contexto.insertarProducto(producto);
+        }
     }
 }

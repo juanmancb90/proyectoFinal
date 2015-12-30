@@ -22,6 +22,8 @@ using System.Windows;
 using WpfApplication1.WebServiceReference;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
+using BL;
+using System.Configuration;
 
 namespace WpfApplication1.ViewModels
 {
@@ -33,6 +35,7 @@ namespace WpfApplication1.ViewModels
          * Entrada: void
          * Salida: ObservableCollection<BaseViewModel>
          */
+        private string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
         ObservableCollection<BaseViewModel> _viewModels;
         private WebServiceApiClient proxy = null;
         public ObservableCollection<BaseViewModel> Pantallas
@@ -89,11 +92,28 @@ namespace WpfApplication1.ViewModels
         {
             this.proxy = new WebServiceApiClient("BasicHttpBinding_IWebServiceApi");
             
-            MessageBoxResult result = MessageBox.Show("Desea sincronizar el inventario de productos mediante el Sistema Central?", "Información", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("¿Desea sincronizar el inventario de productos mediante el Sistema Central?", "Alerta Actualización", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                var data = proxy.GetDataBL();//proxy.GetProductosWCFBL(); //
-                MessageBox.Show("Test list product WCFBL" + data, "Mensaje Test", MessageBoxButton.OK, MessageBoxImage.Information);
+                var data = proxy.GetProductosWCFBL();
+                ProductosBL contexto = new ProductosBL();
+                ProductoViewModel productoActual = new ProductoViewModel();
+                foreach (var item in data)
+                {
+                    productoActual.ID_Producto = item.ID_Producto;
+                    productoActual.ID_Categoria = item.ID_Categoria;
+                    productoActual.ID_Promocion = item.ID_Promocion;
+                    productoActual.NombreProducto = item.NombreProducto;
+                    productoActual.Codigo = item.Codigo;
+                    productoActual.Descripcion = item.Descripcion;
+                    productoActual.Fabricante = item.Fabricante;
+                    productoActual.Stock = item.Stock;
+                    productoActual.Impuesto = item.Impuesto;
+                    productoActual.ValorUnitario = item.ValorUnitario;
+                    productoActual.Estado = item.Estado;
+                    contexto.insertarProductoBl(cs, productoActual.ObtenerEntidad());
+                }
+                MessageBox.Show("Se ha sincronizado los prodcutos del inventario con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

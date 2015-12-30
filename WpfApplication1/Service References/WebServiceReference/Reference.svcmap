@@ -22,12 +22,11 @@
     <MetadataSource Address="http://localhost:52289/WebServiceApi.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WebServiceApi2.xsd" MetadataType="Schema" ID="a651f1af-4176-44d3-9adf-f94464a33101" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?xsd=xsd0" />
     <MetadataFile FileName="WebServiceApi.xsd" MetadataType="Schema" ID="c6f9bfc5-381f-4c9c-818d-a8df3f83309f" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?xsd=xsd1" />
     <MetadataFile FileName="WebServiceApi1.xsd" MetadataType="Schema" ID="95f9b3b5-7def-4c22-b292-e76baf3584d5" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?xsd=xsd2" />
-    <MetadataFile FileName="WebServiceApi3.xsd" MetadataType="Schema" ID="f82f225c-6281-4c44-83c7-6927a2346cb5" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?xsd=xsd3" />
-    <MetadataFile FileName="WebServiceApi.disco" MetadataType="Disco" ID="b6081621-62a6-4c8b-a10c-5573cecfe523" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?disco" />
     <MetadataFile FileName="WebServiceApi.wsdl" MetadataType="Wsdl" ID="c1e62e44-2bc8-4400-844f-2359ad121479" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?wsdl" />
+    <MetadataFile FileName="WebServiceApi.disco" MetadataType="Disco" ID="b6081621-62a6-4c8b-a10c-5573cecfe523" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?disco" />
+    <MetadataFile FileName="WebServiceApi2.xsd" MetadataType="Schema" ID="a651f1af-4176-44d3-9adf-f94464a33101" SourceId="1" SourceUrl="http://localhost:52289/WebServiceApi.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

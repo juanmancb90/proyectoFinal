@@ -25,19 +25,6 @@ namespace WebServiceApi
             return string.Format("Hello World: {0}",name);
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
-        }
-
         public string GetDataBL()
         {
             PedidosWCFBL context = new PedidosWCFBL();
@@ -47,29 +34,8 @@ namespace WebServiceApi
 
         public List<ProductosWCF> GetProductosWCFBL()
         {
-            /*ProductosWCFBL contexto = new ProductosWCFBL();
-            List<ProductosWCF> productos = new List<ProductosWCF>();
-            var productosWCFBL = contexto.ObtenerProductos(cs);
-            foreach (var item in productosWCFBL)
-            {
-                ProductosWCF productoAct = new ProductosWCF {
-                    ID_Producto = item.ID_Producto, 
-                    ID_Categoria = item.ID_Categoria,
-                    ID_Promocion = item.ID_Promocion,
-                    NombreProducto = item.NombreProducto,
-                    Codigo = item.Codigo,
-                    Descripcion = item.Descripcion,
-                    Fabricante = item.Fabricante,
-                    Stock = item.Stock,
-                    Impuesto = item.Impuesto,
-                    ValorUnitario = item.ValorUnitario,
-                    Estado = item.Estado
-                };
-                productos.Add(productoAct);
-             }*/
             ProductosWCFBL context = new ProductosWCFBL();
-            var productos = context.ObtenerProductos(cs);
-
+            List<ProductosWCF> productos = context.ObtenerProductos(cs);
             return productos;
         }
     }
