@@ -244,7 +244,6 @@
     <Parameter Name="ValorNeto" Type="decimal" Mode="In" />
   </Function>
   <Function Name="InsertarProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID_Producto" Type="int" Mode="InOut" />
     <Parameter Name="ID_Categoria" Type="int" Mode="In" />
     <Parameter Name="ID_Promocion" Type="int" Mode="In" />
     <Parameter Name="NombreProducto" Type="nvarchar" Mode="In" />

@@ -296,7 +296,6 @@
       <Parameter Name="ValorNeto" Mode="In" Type="Decimal" />
     </FunctionImport>
     <FunctionImport Name="InsertarProducto">
-      <Parameter Name="ID_Producto" Mode="InOut" Type="Int32" />
       <Parameter Name="ID_Categoria" Mode="In" Type="Int32" />
       <Parameter Name="ID_Promocion" Mode="In" Type="Int32" />
       <Parameter Name="NombreProducto" Mode="In" Type="String" />

@@ -174,7 +174,7 @@ public partial class DB_AcmeEntities : DbContext
     }
 
 
-    public virtual int InsertarProducto(ObjectParameter iD_Producto, Nullable<int> iD_Categoria, Nullable<int> iD_Promocion, string nombreProducto, string codigo, string descripcion, string fabricante, Nullable<int> stock, Nullable<decimal> impuesto, Nullable<decimal> valorUnitario, Nullable<bool> estado)
+    public virtual int InsertarProducto(Nullable<int> iD_Categoria, Nullable<int> iD_Promocion, string nombreProducto, string codigo, string descripcion, string fabricante, Nullable<int> stock, Nullable<decimal> impuesto, Nullable<decimal> valorUnitario, Nullable<bool> estado)
     {
 
         var iD_CategoriaParameter = iD_Categoria.HasValue ?
@@ -227,7 +227,7 @@ public partial class DB_AcmeEntities : DbContext
             new ObjectParameter("Estado", typeof(bool));
 
 
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarProducto", iD_Producto, iD_CategoriaParameter, iD_PromocionParameter, nombreProductoParameter, codigoParameter, descripcionParameter, fabricanteParameter, stockParameter, impuestoParameter, valorUnitarioParameter, estadoParameter);
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarProducto", iD_CategoriaParameter, iD_PromocionParameter, nombreProductoParameter, codigoParameter, descripcionParameter, fabricanteParameter, stockParameter, impuestoParameter, valorUnitarioParameter, estadoParameter);
     }
 
 

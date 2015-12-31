@@ -63,14 +63,13 @@ namespace DAL
       
 
         //procedimiento almacenado
-        public void insertarProducto(Productos producto)
+        public void insertarProductos(Productos producto)
         {
             using (DB_AcmeEntities contexto = new DB_AcmeEntities())
             {
                 TB_Producto Producto = mapearProducto(producto);
-                ObjectParameter id = new ObjectParameter("ID_Producto", 1);
                 contexto.InsertarProducto(
-                    id, Producto.ID_Categoria, 
+                    Producto.ID_Categoria, 
                     Producto.ID_Promocion, 
                     Producto.NombreProducto, 
                     Producto.Codigo, 
@@ -86,7 +85,7 @@ namespace DAL
         }
 
         //procedimiento almacenado
-        public void actualizarProducto(Productos producto)
+        public void actualizarProductos(Productos producto)
         {
             using (DB_AcmeEntities contexto = new DB_AcmeEntities())
             {

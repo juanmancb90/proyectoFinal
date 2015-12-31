@@ -39,20 +39,13 @@ namespace WebServiceApi
             return productos;
         }
 
-        public bool SetStockProductosWCFBL()
-        {
-            bool rst = false;
-
-            return rst;
-        }
-
-        public bool SetPedidosWCFBL()
+        public bool SetPedidosWCFBL(List<PedidosWCF> pedidos)
         {
             bool rst = false;
             return rst;
         }
 
-        public bool SetDetallePedidosWCFBL()
+        public bool SetDetallePedidosWCFBL(DetallePedidosWCF[] detallePedidos)
         {
             bool rst = false;
 

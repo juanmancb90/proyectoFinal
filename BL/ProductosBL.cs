@@ -55,17 +55,15 @@ namespace BL
             }
             else
             {
-                List<Productos> productosBL = contexto.ObtenerProducto();
-                foreach (var item in productosBL)
+                List<Productos> productosDAL = contexto.ObtenerProducto();
+
+                if (productosDAL.Exists(x => x.ID_Producto == producto.ID_Producto))
                 {
-                    if (item.ID_Producto == producto.ID_Producto)
-                    {
-                        contexto.actualizarProducto(producto);
-                    }
-                    else
-                    {
-                        contexto.insertarProducto(producto);
-                    }
+                    contexto.actualizarProductos(producto);
+                }
+                else if (productosDAL.Exists(x => x.ID_Producto == producto.ID_Producto) == false)
+                {
+                    contexto.insertarProductos(producto);
                 }
             }
            

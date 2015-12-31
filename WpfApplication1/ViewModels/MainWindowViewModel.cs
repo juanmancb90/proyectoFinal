@@ -30,15 +30,15 @@ namespace WpfApplication1.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
+        private string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
+        ObservableCollection<BaseViewModel> _viewModels;
+        private WebServiceApiClient proxy = null;
         /* 
          * Metodo
          * Descripcion: Metodo descriptor de acceso que declara una propiedad de tipo ObservableCollection<BaseViewModel> - Propiedad que entiende nuestro negocio
          * Entrada: void
          * Salida: ObservableCollection<BaseViewModel>
          */
-        private string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
-        ObservableCollection<BaseViewModel> _viewModels;
-        private WebServiceApiClient proxy = null;
         public ObservableCollection<BaseViewModel> Pantallas
         {
             get
@@ -83,6 +83,105 @@ namespace WpfApplication1.ViewModels
             }
         }
 
+
+        RelayCommand _PedidosWebServiceCommand;
+        public ICommand PedidosWebServiceCommand
+        {
+            get
+            {
+                if(_PedidosWebServiceCommand == null)
+                    _PedidosWebServiceCommand = new RelayCommand(param => this.PedidosWebServiceExecute(), param => this.PedidoWebService);
+                return _PedidosWebServiceCommand;
+            }
+        }
+
+        private void PedidosWebServiceExecute()
+        {
+            this.proxy = new WebServiceApiClient("WSHttpBinding_IWebServiceApi");
+            MessageBoxResult result = MessageBox.Show("¿Desea sincronizar los pedidos con el Sistema Central?", "Alerta Actualización", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                
+                PedidosBL contexto = new PedidosBL();
+                DetallePedidosBL context = new DetallePedidosBL();
+                List<Pedidos> pedidosBL = contexto.ObtenerPedidos(cs);
+                List<DetallePedidos> detallePedidosBL = context.ObtenerDetallePedidos(cs);
+                if (pedidosBL != null && detallePedidosBL != null)
+                {
+                    List<PedidosWCF> pedidosWS = TransformarDatosPedidos(pedidosBL).ToList();
+                    //var detallePedidosWS = TransformarDatosDetallePedidos(detallePedidosBL).ToArray(); 
+                    //bool rst1 = proxy.SetPedidosWCFBL(pedidosWS);
+                    //bool rst2 = proxy.SetDetallePedidosWCFBL(detallePedidosWS);
+                    MessageBox.Show("Se ha sincronizado los pedidos con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido sincronizar los pedidos con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+
+            }
+        }
+
+        private List<DetallePedidosWCF> TransformarDatosDetallePedidos(List<DetallePedidos> detallePedidosBL)
+        {
+            List<DetallePedidosWCF> DetallePedidos = new List<DetallePedidosWCF>();
+            foreach (var item in detallePedidosBL)
+            {
+                DetallePedidosWCF detallePedidoActual = MapearDetallePedidos(item);
+                DetallePedidos.Add(detallePedidoActual);
+            }
+
+            return DetallePedidos;
+        }
+
+        private List<PedidosWCF> TransformarDatosPedidos(List<Pedidos> pedidosBL)
+        {
+            List<PedidosWCF> pedidos = new List<PedidosWCF>();
+            foreach (var item in pedidosBL)
+            {
+                PedidosWCF pedidoActual = MapearPedido(item);
+                pedidos.Add(pedidoActual);
+            }
+
+            return pedidos;
+        }
+
+
+        private DetallePedidosWCF MapearDetallePedidos(DetallePedidos item)
+        {
+            DetallePedidosWCF detallePedido = new DetallePedidosWCF();
+            detallePedido.ID_DetallePedido = item.ID_DetallePedido;
+            detallePedido.ID_Pedido = item.ID_Pedido;
+            detallePedido.ID_Producto = item.ID_Producto;
+            detallePedido.Codigo = item.Codigo;
+            detallePedido.NombreProducto = item.NombreProducto;
+            detallePedido.Descripcion = item.Descripcion;
+            detallePedido.Cantidad = item.Cantidad;
+            detallePedido.ValorUnitario = item.ValorUnitario;
+            detallePedido.Impuesto = item.Impuesto;
+            detallePedido.SubTotal = item.SubTotal;
+
+            return detallePedido;
+        }
+
+
+        private PedidosWCF MapearPedido(Pedidos item)
+        {
+            
+            PedidosWCF pedido = new PedidosWCF();
+            pedido.ID_Pedido = item.ID_Pedido;
+            pedido.ID_Cliente = item.ID_Cliente;
+            pedido.FechaRegistro = item.FechaRegistro;
+            pedido.TotalBruto = item.TotalBruto;
+            pedido.Impuesto = item.Impuesto;
+            pedido.ValorNeto = item.ValorNeto;
+            pedido.Estado = item.Estado;
+
+            return pedido;
+        }
+
+        
+
         /* 
          * Metodo
          * Descripcion: Especifica la implementacion del comando BuscarProductoCommand - Busca un producto en particular
@@ -99,7 +198,6 @@ namespace WpfApplication1.ViewModels
                 var data = proxy.GetProductosWCFBL();
                 ProductosBL contexto = new ProductosBL();
                 ProductoViewModel productoActual = new ProductoViewModel();
-                //List<Productos> productosBL = new List<Productos>();
                 if (data != null)
                 {
                     foreach (var item in data)
@@ -115,7 +213,6 @@ namespace WpfApplication1.ViewModels
                         productoActual.Impuesto = item.Impuesto;
                         productoActual.ValorUnitario = item.ValorUnitario;
                         productoActual.Estado = item.Estado;
-                        //productosBL.Add(productoActual.ObtenerEntidad());
                         contexto.SincronizarProductosBL(cs, productoActual.ObtenerEntidad());
                     }
                     MessageBox.Show("Se ha sincronizado los prodcutos del inventario con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -130,7 +227,7 @@ namespace WpfApplication1.ViewModels
 
         /* 
          * Metodo
-         * Descripcion: Especifica que se puede ejecutar el comando BuscarProductoCommand
+         * Descripcion: Especifica que se puede ejecutar el comando ProductWebServiceCommand
          * Entrada: void
          * Salida: bool
          */
@@ -139,6 +236,14 @@ namespace WpfApplication1.ViewModels
             get
             {
                 return (true);
+            }
+        }
+    
+        public bool PedidoWebService 
+        {
+            get
+            {
+                return true;
             }
         }
     }
