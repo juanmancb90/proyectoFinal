@@ -39,16 +39,17 @@ namespace WebServiceApi
             return productos;
         }
 
-        public bool SetPedidosWCFBL(List<PedidosWCF> pedidos)
+        public bool SetPedidosWCFBL(PedidosWCF[] pedidos)
         {
             bool rst = false;
+            var data = pedidos;
             return rst;
         }
 
         public bool SetDetallePedidosWCFBL(DetallePedidosWCF[] detallePedidos)
         {
             bool rst = false;
-
+            var data = detallePedidos;
             return rst;
         }
     }

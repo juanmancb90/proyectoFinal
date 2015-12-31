@@ -108,11 +108,11 @@ namespace WpfApplication1.ViewModels
                 List<DetallePedidos> detallePedidosBL = context.ObtenerDetallePedidos(cs);
                 if (pedidosBL != null && detallePedidosBL != null)
                 {
-                    List<PedidosWCF> pedidosWS = TransformarDatosPedidos(pedidosBL).ToList();
-                    //var detallePedidosWS = TransformarDatosDetallePedidos(detallePedidosBL).ToArray(); 
-                    //bool rst1 = proxy.SetPedidosWCFBL(pedidosWS);
-                    //bool rst2 = proxy.SetDetallePedidosWCFBL(detallePedidosWS);
-                    MessageBox.Show("Se ha sincronizado los pedidos con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var pedidosWS = TransformarDatosPedidos(pedidosBL).ToArray();
+                    var detallePedidosWS = TransformarDatosDetallePedidos(detallePedidosBL).ToArray(); 
+                    bool rst1 = proxy.SetPedidosWCFBL(pedidosWS);
+                    bool rst2 = proxy.SetDetallePedidosWCFBL(detallePedidosWS);
+                    MessageBox.Show("Se ha sincronizado los pedidos con el sistema Central" + rst2 + "--" + rst1, "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
