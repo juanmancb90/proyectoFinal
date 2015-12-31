@@ -25,7 +25,7 @@ namespace WebServiceApi
         List<ProductosWCF> GetProductosWCFBL();
 
         [OperationContract]
-        bool SetPedidosWCFBL(List<PedidosWCF> pedidos);
+        bool SetPedidosWCFBL(PedidosWCF[] pedidos);
 
         [OperationContract]
         bool SetDetallePedidosWCFBL(DetallePedidosWCF[] detallePedidos);

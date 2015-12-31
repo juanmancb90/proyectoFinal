@@ -218,6 +218,336 @@ namespace UI.WebService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PedidosWCF", Namespace="http://schemas.datacontract.org/2004/07/WCFEntidades")]
+    [System.SerializableAttribute()]
+    public partial class PedidosWCF : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FechaRegistroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_ClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_PedidoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal ImpuestoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal TotalBrutoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal ValorNetoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((this.EstadoField.Equals(value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime FechaRegistro {
+            get {
+                return this.FechaRegistroField;
+            }
+            set {
+                if ((this.FechaRegistroField.Equals(value) != true)) {
+                    this.FechaRegistroField = value;
+                    this.RaisePropertyChanged("FechaRegistro");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_Cliente {
+            get {
+                return this.ID_ClienteField;
+            }
+            set {
+                if ((this.ID_ClienteField.Equals(value) != true)) {
+                    this.ID_ClienteField = value;
+                    this.RaisePropertyChanged("ID_Cliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_Pedido {
+            get {
+                return this.ID_PedidoField;
+            }
+            set {
+                if ((this.ID_PedidoField.Equals(value) != true)) {
+                    this.ID_PedidoField = value;
+                    this.RaisePropertyChanged("ID_Pedido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Impuesto {
+            get {
+                return this.ImpuestoField;
+            }
+            set {
+                if ((this.ImpuestoField.Equals(value) != true)) {
+                    this.ImpuestoField = value;
+                    this.RaisePropertyChanged("Impuesto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal TotalBruto {
+            get {
+                return this.TotalBrutoField;
+            }
+            set {
+                if ((this.TotalBrutoField.Equals(value) != true)) {
+                    this.TotalBrutoField = value;
+                    this.RaisePropertyChanged("TotalBruto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ValorNeto {
+            get {
+                return this.ValorNetoField;
+            }
+            set {
+                if ((this.ValorNetoField.Equals(value) != true)) {
+                    this.ValorNetoField = value;
+                    this.RaisePropertyChanged("ValorNeto");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DetallePedidosWCF", Namespace="http://schemas.datacontract.org/2004/07/WCFEntidades")]
+    [System.SerializableAttribute()]
+    public partial class DetallePedidosWCF : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CantidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodigoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_DetallePedidoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_PedidoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ID_ProductoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal ImpuestoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreProductoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal SubTotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal ValorUnitarioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Cantidad {
+            get {
+                return this.CantidadField;
+            }
+            set {
+                if ((this.CantidadField.Equals(value) != true)) {
+                    this.CantidadField = value;
+                    this.RaisePropertyChanged("Cantidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Codigo {
+            get {
+                return this.CodigoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodigoField, value) != true)) {
+                    this.CodigoField = value;
+                    this.RaisePropertyChanged("Codigo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion {
+            get {
+                return this.DescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_DetallePedido {
+            get {
+                return this.ID_DetallePedidoField;
+            }
+            set {
+                if ((this.ID_DetallePedidoField.Equals(value) != true)) {
+                    this.ID_DetallePedidoField = value;
+                    this.RaisePropertyChanged("ID_DetallePedido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_Pedido {
+            get {
+                return this.ID_PedidoField;
+            }
+            set {
+                if ((this.ID_PedidoField.Equals(value) != true)) {
+                    this.ID_PedidoField = value;
+                    this.RaisePropertyChanged("ID_Pedido");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID_Producto {
+            get {
+                return this.ID_ProductoField;
+            }
+            set {
+                if ((this.ID_ProductoField.Equals(value) != true)) {
+                    this.ID_ProductoField = value;
+                    this.RaisePropertyChanged("ID_Producto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Impuesto {
+            get {
+                return this.ImpuestoField;
+            }
+            set {
+                if ((this.ImpuestoField.Equals(value) != true)) {
+                    this.ImpuestoField = value;
+                    this.RaisePropertyChanged("Impuesto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreProducto {
+            get {
+                return this.NombreProductoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreProductoField, value) != true)) {
+                    this.NombreProductoField = value;
+                    this.RaisePropertyChanged("NombreProducto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal SubTotal {
+            get {
+                return this.SubTotalField;
+            }
+            set {
+                if ((this.SubTotalField.Equals(value) != true)) {
+                    this.SubTotalField = value;
+                    this.RaisePropertyChanged("SubTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ValorUnitario {
+            get {
+                return this.ValorUnitarioField;
+            }
+            set {
+                if ((this.ValorUnitarioField.Equals(value) != true)) {
+                    this.ValorUnitarioField = value;
+                    this.RaisePropertyChanged("ValorUnitario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WebService.IWebServiceApi")]
     public interface IWebServiceApi {
@@ -246,23 +576,17 @@ namespace UI.WebService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetProductosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/GetProductosWCFBLResponse")]
         System.Threading.Tasks.Task<UI.WebService.ProductosWCF[]> GetProductosWCFBLAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetStockProductosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetStockProductosWCFBLResponse")]
-        bool SetStockProductosWCFBL();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetStockProductosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetStockProductosWCFBLResponse")]
-        System.Threading.Tasks.Task<bool> SetStockProductosWCFBLAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetPedidosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetPedidosWCFBLResponse")]
+        bool SetPedidosWCFBL(UI.WebService.PedidosWCF[] pedidos);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetPedidosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetPedidosWCFBLResponse")]
-        bool SetPedidosWCFBL();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetPedidosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetPedidosWCFBLResponse")]
-        System.Threading.Tasks.Task<bool> SetPedidosWCFBLAsync();
+        System.Threading.Tasks.Task<bool> SetPedidosWCFBLAsync(UI.WebService.PedidosWCF[] pedidos);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetDetallePedidosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetDetallePedidosWCFBLResponse")]
-        bool SetDetallePedidosWCFBL();
+        bool SetDetallePedidosWCFBL(UI.WebService.DetallePedidosWCF[] detallePedidos);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetDetallePedidosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetDetallePedidosWCFBLResponse")]
-        System.Threading.Tasks.Task<bool> SetDetallePedidosWCFBLAsync();
+        System.Threading.Tasks.Task<bool> SetDetallePedidosWCFBLAsync(UI.WebService.DetallePedidosWCF[] detallePedidos);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -324,28 +648,20 @@ namespace UI.WebService {
             return base.Channel.GetProductosWCFBLAsync();
         }
         
-        public bool SetStockProductosWCFBL() {
-            return base.Channel.SetStockProductosWCFBL();
+        public bool SetPedidosWCFBL(UI.WebService.PedidosWCF[] pedidos) {
+            return base.Channel.SetPedidosWCFBL(pedidos);
         }
         
-        public System.Threading.Tasks.Task<bool> SetStockProductosWCFBLAsync() {
-            return base.Channel.SetStockProductosWCFBLAsync();
+        public System.Threading.Tasks.Task<bool> SetPedidosWCFBLAsync(UI.WebService.PedidosWCF[] pedidos) {
+            return base.Channel.SetPedidosWCFBLAsync(pedidos);
         }
         
-        public bool SetPedidosWCFBL() {
-            return base.Channel.SetPedidosWCFBL();
+        public bool SetDetallePedidosWCFBL(UI.WebService.DetallePedidosWCF[] detallePedidos) {
+            return base.Channel.SetDetallePedidosWCFBL(detallePedidos);
         }
         
-        public System.Threading.Tasks.Task<bool> SetPedidosWCFBLAsync() {
-            return base.Channel.SetPedidosWCFBLAsync();
-        }
-        
-        public bool SetDetallePedidosWCFBL() {
-            return base.Channel.SetDetallePedidosWCFBL();
-        }
-        
-        public System.Threading.Tasks.Task<bool> SetDetallePedidosWCFBLAsync() {
-            return base.Channel.SetDetallePedidosWCFBLAsync();
+        public System.Threading.Tasks.Task<bool> SetDetallePedidosWCFBLAsync(UI.WebService.DetallePedidosWCF[] detallePedidos) {
+            return base.Channel.SetDetallePedidosWCFBLAsync(detallePedidos);
         }
     }
 }
