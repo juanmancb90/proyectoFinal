@@ -22,4 +22,43 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProductosWCF" nillable="true" type="tns:ProductosWCF" />
+  <xs:complexType name="ArrayOfPedidosWCF">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PedidosWCF" nillable="true" type="tns:PedidosWCF" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPedidosWCF" nillable="true" type="tns:ArrayOfPedidosWCF" />
+  <xs:complexType name="PedidosWCF">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Estado" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID_Cliente" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_Pedido" type="xs:int" />
+      <xs:element minOccurs="0" name="Impuesto" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalBruto" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ValorNeto" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PedidosWCF" nillable="true" type="tns:PedidosWCF" />
+  <xs:complexType name="ArrayOfDetallePedidosWCF">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetallePedidosWCF" nillable="true" type="tns:DetallePedidosWCF" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetallePedidosWCF" nillable="true" type="tns:ArrayOfDetallePedidosWCF" />
+  <xs:complexType name="DetallePedidosWCF">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID_DetallePedido" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_Pedido" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_Producto" type="xs:int" />
+      <xs:element minOccurs="0" name="Impuesto" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NombreProducto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubTotal" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ValorUnitario" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetallePedidosWCF" nillable="true" type="tns:DetallePedidosWCF" />
 </xs:schema>

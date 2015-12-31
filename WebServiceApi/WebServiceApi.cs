@@ -38,5 +38,18 @@ namespace WebServiceApi
             List<ProductosWCF> productos = context.ObtenerProductos(cs);
             return productos;
         }
+
+        public bool SetPedidosWCFBL(List<PedidosWCF> pedidos)
+        {
+            bool rst = false;
+            return rst;
+        }
+
+        public bool SetDetallePedidosWCFBL(DetallePedidosWCF[] detallePedidos)
+        {
+            bool rst = false;
+
+            return rst;
+        }
     }
 }

@@ -174,7 +174,7 @@ public partial class DB_AcmeEntities : DbContext
     }
 
 
-    public virtual int InsertarProducto(ObjectParameter iD_Producto, Nullable<int> iD_Categoria, Nullable<int> iD_Promocion, string nombreProducto, string codigo, string descripcion, string fabricante, Nullable<int> stock, Nullable<decimal> impuesto, Nullable<decimal> valorUnitario, Nullable<bool> estado)
+    public virtual int InsertarProducto(Nullable<int> iD_Categoria, Nullable<int> iD_Promocion, string nombreProducto, string codigo, string descripcion, string fabricante, Nullable<int> stock, Nullable<decimal> impuesto, Nullable<decimal> valorUnitario, Nullable<bool> estado)
     {
 
         var iD_CategoriaParameter = iD_Categoria.HasValue ?
@@ -227,7 +227,69 @@ public partial class DB_AcmeEntities : DbContext
             new ObjectParameter("Estado", typeof(bool));
 
 
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarProducto", iD_Producto, iD_CategoriaParameter, iD_PromocionParameter, nombreProductoParameter, codigoParameter, descripcionParameter, fabricanteParameter, stockParameter, impuestoParameter, valorUnitarioParameter, estadoParameter);
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarProducto", iD_CategoriaParameter, iD_PromocionParameter, nombreProductoParameter, codigoParameter, descripcionParameter, fabricanteParameter, stockParameter, impuestoParameter, valorUnitarioParameter, estadoParameter);
+    }
+
+
+    public virtual int ActualizarProducto(Nullable<int> iD_Producto, Nullable<int> iD_Categoria, Nullable<int> iD_Promocion, string nombreProducto, string codigo, string descripcion, string fabricante, Nullable<int> stock, Nullable<decimal> impuesto, Nullable<decimal> valorUnitario, Nullable<bool> estado)
+    {
+
+        var iD_ProductoParameter = iD_Producto.HasValue ?
+            new ObjectParameter("ID_Producto", iD_Producto) :
+            new ObjectParameter("ID_Producto", typeof(int));
+
+
+        var iD_CategoriaParameter = iD_Categoria.HasValue ?
+            new ObjectParameter("ID_Categoria", iD_Categoria) :
+            new ObjectParameter("ID_Categoria", typeof(int));
+
+
+        var iD_PromocionParameter = iD_Promocion.HasValue ?
+            new ObjectParameter("ID_Promocion", iD_Promocion) :
+            new ObjectParameter("ID_Promocion", typeof(int));
+
+
+        var nombreProductoParameter = nombreProducto != null ?
+            new ObjectParameter("NombreProducto", nombreProducto) :
+            new ObjectParameter("NombreProducto", typeof(string));
+
+
+        var codigoParameter = codigo != null ?
+            new ObjectParameter("Codigo", codigo) :
+            new ObjectParameter("Codigo", typeof(string));
+
+
+        var descripcionParameter = descripcion != null ?
+            new ObjectParameter("Descripcion", descripcion) :
+            new ObjectParameter("Descripcion", typeof(string));
+
+
+        var fabricanteParameter = fabricante != null ?
+            new ObjectParameter("Fabricante", fabricante) :
+            new ObjectParameter("Fabricante", typeof(string));
+
+
+        var stockParameter = stock.HasValue ?
+            new ObjectParameter("Stock", stock) :
+            new ObjectParameter("Stock", typeof(int));
+
+
+        var impuestoParameter = impuesto.HasValue ?
+            new ObjectParameter("Impuesto", impuesto) :
+            new ObjectParameter("Impuesto", typeof(decimal));
+
+
+        var valorUnitarioParameter = valorUnitario.HasValue ?
+            new ObjectParameter("ValorUnitario", valorUnitario) :
+            new ObjectParameter("ValorUnitario", typeof(decimal));
+
+
+        var estadoParameter = estado.HasValue ?
+            new ObjectParameter("Estado", estado) :
+            new ObjectParameter("Estado", typeof(bool));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarProducto", iD_ProductoParameter, iD_CategoriaParameter, iD_PromocionParameter, nombreProductoParameter, codigoParameter, descripcionParameter, fabricanteParameter, stockParameter, impuestoParameter, valorUnitarioParameter, estadoParameter);
     }
 
 }

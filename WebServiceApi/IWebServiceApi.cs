@@ -23,6 +23,12 @@ namespace WebServiceApi
 
         [OperationContract]
         List<ProductosWCF> GetProductosWCFBL();
+
+        [OperationContract]
+        bool SetPedidosWCFBL(List<PedidosWCF> pedidos);
+
+        [OperationContract]
+        bool SetDetallePedidosWCFBL(DetallePedidosWCF[] detallePedidos);
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

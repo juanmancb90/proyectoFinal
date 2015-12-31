@@ -151,7 +151,6 @@ namespace UI
                 foreach (var producto in productosWCFBL)
                 {
                     Console.WriteLine("Producto: ID = {0} -- Stock = {1}", producto.ID_Producto, producto.Stock);
-                    Console.WriteLine("Test BL send data from web service list"+contexto.actualizarProdcuto(producto.ID_Producto));
                 }
 
                 

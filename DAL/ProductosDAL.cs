@@ -60,40 +60,49 @@ namespace DAL
             return (productos);
         }
 
-        /* 
-         * Metodo
-         * Descripcion: Mapea los atributos de un producto
-         * Entrada: TB_Producto
-         * Salida: Productos
-         */
-        private Productos MapearProducto(TB_Producto item)
-        {
-            Productos producto = new Productos();
-
-            producto.ID_Producto = item.ID_Producto;
-            producto.ID_Categoria = item.ID_Categoria;
-            producto.ID_Promocion = item.ID_Promocion;
-            producto.NombreProducto = item.NombreProducto;
-            producto.Codigo = item.Codigo;
-            producto.Descripcion = item.Descripcion;
-            producto.Fabricante = item.Fabricante;
-            producto.Stock = item.Stock;
-            producto.Impuesto = item.Impuesto;
-            producto.ValorUnitario = item.ValorUnitario;
-            producto.Estado = item.Estado;
-
-            return (producto);
-        }
+      
 
         //procedimiento almacenado
-        public void insertarProducto(Productos producto)
+        public void insertarProductos(Productos producto)
         {
             using (DB_AcmeEntities contexto = new DB_AcmeEntities())
             {
                 TB_Producto Producto = mapearProducto(producto);
-                ObjectParameter id = new ObjectParameter("ID_Producto", 1);
-                contexto.InsertarProducto(id, Producto.ID_Categoria, Producto.ID_Promocion, Producto.NombreProducto, Producto.Codigo, Producto.Descripcion, Producto.Fabricante, Producto.Stock, Producto.Impuesto, Producto.ValorUnitario, Producto.Estado);
+                contexto.InsertarProducto(
+                    Producto.ID_Categoria, 
+                    Producto.ID_Promocion, 
+                    Producto.NombreProducto, 
+                    Producto.Codigo, 
+                    Producto.Descripcion, 
+                    Producto.Fabricante, 
+                    Producto.Stock, 
+                    Producto.Impuesto, 
+                    Producto.ValorUnitario, 
+                    Producto.Estado
+                );
                 contexto.SaveChanges();
+            }
+        }
+
+        //procedimiento almacenado
+        public void actualizarProductos(Productos producto)
+        {
+            using (DB_AcmeEntities contexto = new DB_AcmeEntities())
+            {
+                TB_Producto Producto = mapearProducto(producto);
+                contexto.ActualizarProducto(
+                    Producto.ID_Producto, 
+                    Producto.ID_Categoria,
+                    Producto.ID_Promocion,
+                    Producto.NombreProducto,
+                    Producto.Codigo,
+                    Producto.Descripcion,
+                    Producto.Fabricante,
+                    Producto.Stock,
+                    Producto.Impuesto,
+                    Producto.ValorUnitario,
+                    Producto.Estado
+                );
             }
         }
 
@@ -112,6 +121,31 @@ namespace DAL
             Producto.ValorUnitario = item.ValorUnitario;
             Producto.Estado = item.Estado;
             return Producto;
+        }
+
+        /* 
+       * Metodo
+       * Descripcion: Mapea los atributos de un producto
+       * Entrada: TB_Producto
+       * Salida: Productos
+       */
+        private Productos MapearProducto(TB_Producto item)
+        {
+            Productos producto = new Productos();
+
+            producto.ID_Producto = item.ID_Producto;
+            producto.ID_Categoria = item.ID_Categoria;
+            producto.ID_Promocion = item.ID_Promocion;
+            producto.NombreProducto = item.NombreProducto;
+            producto.Codigo = item.Codigo;
+            producto.Descripcion = item.Descripcion;
+            producto.Fabricante = item.Fabricante;
+            producto.Stock = item.Stock;
+            producto.Impuesto = item.Impuesto;
+            producto.ValorUnitario = item.ValorUnitario;
+            producto.Estado = item.Estado;
+
+            return (producto);
         }
     }
 }

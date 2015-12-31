@@ -53,4 +53,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SetPedidosWCFBL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFEntidades" minOccurs="0" name="pedidos" nillable="true" type="q2:ArrayOfPedidosWCF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetPedidosWCFBLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetPedidosWCFBLResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDetallePedidosWCFBL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFEntidades" minOccurs="0" name="detallePedidos" nillable="true" type="q3:ArrayOfDetallePedidosWCF" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDetallePedidosWCFBLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetDetallePedidosWCFBLResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
