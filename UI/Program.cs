@@ -134,7 +134,7 @@ namespace UI
             Console.WriteLine("=======================================================");
             Console.WriteLine("");
             
-            try
+            /*try
             {
                 WebServiceApiClient proxy = new WebServiceApiClient("WSHttpBinding_IWebServiceApi");
                 ProductosBL contexto = new ProductosBL();
@@ -160,7 +160,7 @@ namespace UI
             {
                 Console.WriteLine(e.ToString());
                 throw;
-            }
+            }*/
             
 
             //DetallePedidosBL contexto3 = new DetallePedidosBL();

@@ -62,5 +62,51 @@ namespace WCFDAL
 
             return (pedido);
         }
+
+        public void actualizarPedidos(PedidosWCF pedido)
+        {
+            using(DB_Acme_DevEntities contexto = new DB_Acme_DevEntities())
+            {
+                TB_Pedido Pedido = MapearPedido(pedido);
+                contexto.ActualizarPedido(
+                    Pedido.ID_Pedido,
+                    Pedido.ID_Cliente,
+                    Pedido.FechaRegistro,
+                    Pedido.TotalBruto,
+                    Pedido.Impuesto,
+                    Pedido.ValorNeto,
+                    Pedido.Estado
+                );
+            }
+        }
+
+        private TB_Pedido MapearPedido(PedidosWCF pedido)
+        {
+            TB_Pedido Pedido = new TB_Pedido();
+            Pedido.ID_Pedido = pedido.ID_Pedido;
+            Pedido.ID_Cliente = pedido.ID_Cliente;
+            Pedido.FechaRegistro = pedido.FechaRegistro;
+            Pedido.TotalBruto = pedido.TotalBruto;
+            Pedido.Impuesto = pedido.Impuesto;
+            Pedido.ValorNeto = pedido.ValorNeto;
+            Pedido.Estado = pedido.Estado;
+
+            return Pedido;
+        }
+
+        public void insertarPedidos(PedidosWCF pedido)
+        {
+            using(DB_Acme_DevEntities contexto = new DB_Acme_DevEntities()){
+                TB_Pedido Pedido = MapearPedido(pedido);
+                contexto.InsertarPedido(
+                    Pedido.ID_Cliente,
+                    Pedido.TotalBruto,
+                    Pedido.Impuesto,
+                    Pedido.ValorNeto
+                );
+                contexto.SaveChanges();
+            }
+            
+        }
     }
 }

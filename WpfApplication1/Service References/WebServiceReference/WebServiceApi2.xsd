@@ -1,46 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:52289/WebServiceApi.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFEntidades" />
-  <xs:element name="GetData">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="value" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetDataResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetHelloWorld">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetHelloWorldResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetHelloWorldResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetDataBL">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetDataBLResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetDataBLResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetProductosWCFBL">
     <xs:complexType>
       <xs:sequence />
@@ -49,14 +8,14 @@
   <xs:element name="GetProductosWCFBLResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCFEntidades" minOccurs="0" name="GetProductosWCFBLResult" nillable="true" type="q1:ArrayOfProductosWCF" />
+        <xs:element minOccurs="0" name="GetProductosWCFBLResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SetPedidosWCFBL">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFEntidades" minOccurs="0" name="pedidos" nillable="true" type="q2:ArrayOfPedidosWCF" />
+        <xs:element minOccurs="0" name="pedidos" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -70,7 +29,7 @@
   <xs:element name="SetDetallePedidosWCFBL">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFEntidades" minOccurs="0" name="detallePedidos" nillable="true" type="q3:ArrayOfDetallePedidosWCF" />
+        <xs:element minOccurs="0" name="detallePedidos" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

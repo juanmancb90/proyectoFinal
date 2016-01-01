@@ -56,14 +56,8 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WebService\UI.WebService.ProductosWCF.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\WebService\WebServiceApi.wsdl" />
     <None Include="Service References\WebService\WebServiceApi.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WebService\WebServiceApi1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\WebService\WebServiceApi2.xsd">
