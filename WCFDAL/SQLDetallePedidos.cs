@@ -79,5 +79,57 @@ namespace WCFDAL
 
             return (detallePedido);
         }
+
+        public void actualizarDetallePedidos(DetallePedidosWCF detallePedido)
+        {
+            using(DB_Acme_DevEntities contexto = new DB_Acme_DevEntities())
+            {
+                TB_DetallePedido DetallePedido = mapearDetallePedidos(detallePedido);
+                contexto.ActualizarDetallePedido(
+                    DetallePedido.ID_DetallePedido,
+                    DetallePedido.ID_Pedido,
+                    DetallePedido.ID_Producto,
+                    DetallePedido.Codigo,
+                    DetallePedido.NombreProducto,
+                    DetallePedido.Descripcion,
+                    DetallePedido.Cantidad,
+                    DetallePedido.ValorUnitario,
+                    DetallePedido.Impuesto,
+                    DetallePedido.SubTotal
+                );
+            }
+        }
+
+        public void insertarDetallePedidos(DetallePedidosWCF detallePedido)
+        {
+            using (DB_Acme_DevEntities contexto = new DB_Acme_DevEntities())
+            {
+                TB_DetallePedido DetallePedido = mapearDetallePedidos(detallePedido);
+                contexto.InsertarDetallePedido(
+                    DetallePedido.ID_Pedido,
+                    DetallePedido.ID_Producto,
+                    DetallePedido.Cantidad
+                );
+                contexto.SaveChanges();
+            }
+        }
+
+        private TB_DetallePedido mapearDetallePedidos(DetallePedidosWCF detallePedido)
+        {
+ 	        TB_DetallePedido DetallePedidos = new TB_DetallePedido();
+            DetallePedidos.ID_DetallePedido = detallePedido.ID_DetallePedido;
+            DetallePedidos.ID_Pedido = detallePedido.ID_Pedido;
+            DetallePedidos.ID_Producto = detallePedido.ID_Producto;
+            DetallePedidos.Codigo = detallePedido.Codigo;
+            DetallePedidos.NombreProducto = detallePedido.NombreProducto;
+            DetallePedidos.Descripcion = detallePedido.Descripcion;
+            DetallePedidos.Cantidad = detallePedido.Cantidad;
+            DetallePedidos.ValorUnitario = detallePedido.ValorUnitario;
+            DetallePedidos.Impuesto = detallePedido.Impuesto;
+            DetallePedidos.SubTotal = detallePedido.SubTotal;
+
+            return DetallePedidos;
+        } 
+        
     }
 }

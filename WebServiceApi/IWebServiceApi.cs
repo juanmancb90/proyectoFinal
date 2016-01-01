@@ -13,22 +13,14 @@ namespace WebServiceApi
     public interface IWebServiceApi
     {
         [OperationContract]
-        string GetData(int value);
-   
-        [OperationContract]
-        string GetHelloWorld(string name);
+        string GetProductosWCFBL();
 
         [OperationContract]
-        string GetDataBL();
+        bool SetPedidosWCFBL(string pedidos);
 
         [OperationContract]
-        List<ProductosWCF> GetProductosWCFBL();
+        bool SetDetallePedidosWCFBL(string detallePedidos);
 
-        [OperationContract]
-        bool SetPedidosWCFBL(PedidosWCF[] pedidos);
-
-        [OperationContract]
-        bool SetDetallePedidosWCFBL(DetallePedidosWCF[] detallePedidos);
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.

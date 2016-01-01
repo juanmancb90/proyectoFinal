@@ -22,5 +22,20 @@ namespace WCFBL
             List<DetallePedidosWCF> detallePedidos = contexto.ObtenerDetallePedido();
             return (detallePedidos);
         }
+
+        public void SincronizarDetallePedidos(string cs, DetallePedidosWCF detallePedido)
+        {
+            SQLDetallePedidos contexto = new SQLDetallePedidos(cs);
+            List<DetallePedidosWCF> detallePedidosDAL = contexto.ObtenerDetallePedido();
+
+            if (detallePedidosDAL.Exists(x => x.ID_DetallePedido == detallePedido.ID_Pedido))
+            {
+                contexto.actualizarDetallePedidos(detallePedido);
+            }
+            else if (detallePedidosDAL.Exists(x => x.ID_Pedido == detallePedido.ID_Pedido) == false)
+            {
+                contexto.insertarDetallePedidos(detallePedido);
+            }
+        }
     }
 }

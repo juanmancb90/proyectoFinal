@@ -23,9 +23,19 @@ namespace WCFBL
             return (pedidos);
         }
 
-        public string TestBLWcf()
+        public void SincronizarPedidos(string cs, PedidosWCF pedido)
         {
-            return "Test BL WCF";
+            SQLPedidos contexto = new SQLPedidos(cs);
+            List<PedidosWCF> pedidosDAL = contexto.ObtenerPedido();
+
+            if (pedidosDAL.Exists(x => x.ID_Pedido == pedido.ID_Pedido))
+            {
+                contexto.actualizarPedidos(pedido);
+            }
+            else if (pedidosDAL.Exists(x => x.ID_Pedido == pedido.ID_Pedido) == false)
+            {
+                contexto.insertarPedidos(pedido);
+            }
         }
     }
 }

@@ -175,6 +175,105 @@ public partial class DB_Acme_DevEntities : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarUsuario", nombreCompletoParameter, numeroDocumentoParameter, nombreUsuarioParameter, contraseniaParameter);
     }
 
+
+    public virtual int ActualizarDetallePedido(Nullable<int> iD_DetallePedido, Nullable<int> iD_Pedido, Nullable<int> iD_Producto, string codigo, string nombreProduto, string descripcion, Nullable<int> cantidad, Nullable<decimal> valorUnitario, Nullable<decimal> impuesto, Nullable<decimal> subTotal)
+    {
+
+        var iD_DetallePedidoParameter = iD_DetallePedido.HasValue ?
+            new ObjectParameter("ID_DetallePedido", iD_DetallePedido) :
+            new ObjectParameter("ID_DetallePedido", typeof(int));
+
+
+        var iD_PedidoParameter = iD_Pedido.HasValue ?
+            new ObjectParameter("ID_Pedido", iD_Pedido) :
+            new ObjectParameter("ID_Pedido", typeof(int));
+
+
+        var iD_ProductoParameter = iD_Producto.HasValue ?
+            new ObjectParameter("ID_Producto", iD_Producto) :
+            new ObjectParameter("ID_Producto", typeof(int));
+
+
+        var codigoParameter = codigo != null ?
+            new ObjectParameter("Codigo", codigo) :
+            new ObjectParameter("Codigo", typeof(string));
+
+
+        var nombreProdutoParameter = nombreProduto != null ?
+            new ObjectParameter("NombreProduto", nombreProduto) :
+            new ObjectParameter("NombreProduto", typeof(string));
+
+
+        var descripcionParameter = descripcion != null ?
+            new ObjectParameter("Descripcion", descripcion) :
+            new ObjectParameter("Descripcion", typeof(string));
+
+
+        var cantidadParameter = cantidad.HasValue ?
+            new ObjectParameter("Cantidad", cantidad) :
+            new ObjectParameter("Cantidad", typeof(int));
+
+
+        var valorUnitarioParameter = valorUnitario.HasValue ?
+            new ObjectParameter("ValorUnitario", valorUnitario) :
+            new ObjectParameter("ValorUnitario", typeof(decimal));
+
+
+        var impuestoParameter = impuesto.HasValue ?
+            new ObjectParameter("Impuesto", impuesto) :
+            new ObjectParameter("Impuesto", typeof(decimal));
+
+
+        var subTotalParameter = subTotal.HasValue ?
+            new ObjectParameter("SubTotal", subTotal) :
+            new ObjectParameter("SubTotal", typeof(decimal));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarDetallePedido", iD_DetallePedidoParameter, iD_PedidoParameter, iD_ProductoParameter, codigoParameter, nombreProdutoParameter, descripcionParameter, cantidadParameter, valorUnitarioParameter, impuestoParameter, subTotalParameter);
+    }
+
+
+    public virtual int ActualizarPedido(Nullable<int> iD_Pedido, Nullable<int> iD_Cliente, Nullable<System.DateTime> fechaRegistro, Nullable<decimal> totalBruto, Nullable<decimal> impuestos, Nullable<decimal> valorNeto, Nullable<bool> estado)
+    {
+
+        var iD_PedidoParameter = iD_Pedido.HasValue ?
+            new ObjectParameter("ID_Pedido", iD_Pedido) :
+            new ObjectParameter("ID_Pedido", typeof(int));
+
+
+        var iD_ClienteParameter = iD_Cliente.HasValue ?
+            new ObjectParameter("ID_Cliente", iD_Cliente) :
+            new ObjectParameter("ID_Cliente", typeof(int));
+
+
+        var fechaRegistroParameter = fechaRegistro.HasValue ?
+            new ObjectParameter("FechaRegistro", fechaRegistro) :
+            new ObjectParameter("FechaRegistro", typeof(System.DateTime));
+
+
+        var totalBrutoParameter = totalBruto.HasValue ?
+            new ObjectParameter("TotalBruto", totalBruto) :
+            new ObjectParameter("TotalBruto", typeof(decimal));
+
+
+        var impuestosParameter = impuestos.HasValue ?
+            new ObjectParameter("Impuestos", impuestos) :
+            new ObjectParameter("Impuestos", typeof(decimal));
+
+
+        var valorNetoParameter = valorNeto.HasValue ?
+            new ObjectParameter("ValorNeto", valorNeto) :
+            new ObjectParameter("ValorNeto", typeof(decimal));
+
+
+        var estadoParameter = estado.HasValue ?
+            new ObjectParameter("Estado", estado) :
+            new ObjectParameter("Estado", typeof(bool));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarPedido", iD_PedidoParameter, iD_ClienteParameter, fechaRegistroParameter, totalBrutoParameter, impuestosParameter, valorNetoParameter, estadoParameter);
+    }
+
 }
 
 }

@@ -97,90 +97,120 @@ namespace WpfApplication1.ViewModels
 
         private void PedidosWebServiceExecute()
         {
-            this.proxy = new WebServiceApiClient("WSHttpBinding_IWebServiceApi");
-            MessageBoxResult result = MessageBox.Show("¿Desea sincronizar los pedidos con el Sistema Central?", "Alerta Actualización", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            try
             {
-                
-                PedidosBL contexto = new PedidosBL();
-                DetallePedidosBL context = new DetallePedidosBL();
-                List<Pedidos> pedidosBL = contexto.ObtenerPedidos(cs);
-                List<DetallePedidos> detallePedidosBL = context.ObtenerDetallePedidos(cs);
-                if (pedidosBL != null && detallePedidosBL != null)
+                this.proxy = new WebServiceApiClient("WSHttpBinding_IWebServiceApi");
+                MessageBoxResult result = MessageBox.Show("¿Desea sincronizar los pedidos con el Sistema Central?", "Alerta Actualización", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
                 {
-                    var pedidosWS = TransformarDatosPedidos(pedidosBL).ToArray();
-                    var detallePedidosWS = TransformarDatosDetallePedidos(detallePedidosBL).ToArray(); 
-                    bool rst1 = proxy.SetPedidosWCFBL(pedidosWS);
-                    bool rst2 = proxy.SetDetallePedidosWCFBL(detallePedidosWS);
-                    MessageBox.Show("Se ha sincronizado los pedidos con el sistema Central" + rst2 + "--" + rst1, "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    PedidosBL contexto = new PedidosBL();
+                    DetallePedidosBL context = new DetallePedidosBL();
+                    List<Pedidos> pedidosBL = contexto.ObtenerPedidos(cs);
+                    List<DetallePedidos> detallePedidosBL = context.ObtenerDetallePedidos(cs);
+                    if (pedidosBL != null && detallePedidosBL != null)
+                    {
+                        var pedidosWS = EncriptarDatosPedidos(pedidosBL);
+                        var detallePedidosWS = EncriptarDatosDetallePedidos(detallePedidosBL);
+                        bool rst1 = proxy.SetPedidosWCFBL(pedidosWS);
+                        bool rst2 = proxy.SetDetallePedidosWCFBL(detallePedidosWS);
+                        if (rst1 == true && rst2 == true) 
+                        {
+                            MessageBox.Show("Se ha sincronizado los pedidos con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se ha podido sincronizar los pedidos con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se ha podido sincronizar los pedidos con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString(),"Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+                
+        }
+
+        private string EncriptarDatosDetallePedidos(List<DetallePedidos> detallePedidosBL)
+        {
+            bool primerDetallePedido = true;
+            var cadena = new StringBuilder();
+            foreach (var item in detallePedidosBL)
+            {
+                if (primerDetallePedido)
+                {
+                    primerDetallePedido = false;
+                    cadena.Append(item.ID_DetallePedido.ToString());
+                    cadena.Append(string.Format("¿{0}", item.ID_Pedido.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.ID_Producto.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.Codigo.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.NombreProducto.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.Descripcion.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.Cantidad.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.ValorUnitario.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.Impuesto.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.SubTotal.ToString()));
                 }
                 else
                 {
-                    MessageBox.Show("No se ha podido sincronizar los pedidos con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    cadena.Append(string.Format(":{0}", item.ID_DetallePedido.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.ID_Pedido.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.ID_Producto.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.NombreProducto.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.Codigo.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.Descripcion.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.Cantidad.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.ValorUnitario.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.Impuesto.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.SubTotal.ToString()));
                 }
-
-            }
-        }
-
-        private List<DetallePedidosWCF> TransformarDatosDetallePedidos(List<DetallePedidos> detallePedidosBL)
-        {
-            List<DetallePedidosWCF> DetallePedidos = new List<DetallePedidosWCF>();
-            foreach (var item in detallePedidosBL)
-            {
-                DetallePedidosWCF detallePedidoActual = MapearDetallePedidos(item);
-                DetallePedidos.Add(detallePedidoActual);
             }
 
-            return DetallePedidos;
+            byte[] encripted = Encoding.Unicode.GetBytes(cadena.ToString());
+            string salida = Convert.ToBase64String(encripted);
+
+            return salida;
         }
 
-        private List<PedidosWCF> TransformarDatosPedidos(List<Pedidos> pedidosBL)
+        private string EncriptarDatosPedidos(List<Pedidos> pedidosBL)
         {
-            List<PedidosWCF> pedidos = new List<PedidosWCF>();
+            bool Pedido = true;
+            var cadena = new StringBuilder();
             foreach (var item in pedidosBL)
             {
-                PedidosWCF pedidoActual = MapearPedido(item);
-                pedidos.Add(pedidoActual);
+                if (Pedido)
+                {
+                    Pedido = false;
+                    cadena.Append(item.ID_Pedido.ToString());
+                    cadena.Append(string.Format("¿{0}", item.ID_Cliente.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.FechaRegistro.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.TotalBruto.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.Impuesto.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.ValorNeto.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.Estado.ToString()));
+                }
+                else
+                {
+                    cadena.Append(string.Format(":{0}", item.ID_Pedido.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.FechaRegistro.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.TotalBruto.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.Impuesto.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.ValorNeto.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.Estado.ToString()));
+                }
             }
 
-            return pedidos;
+            byte[] encripted = Encoding.Unicode.GetBytes(cadena.ToString());
+            string salida = Convert.ToBase64String(encripted);
+
+            return salida;
         }
-
-
-        private DetallePedidosWCF MapearDetallePedidos(DetallePedidos item)
-        {
-            DetallePedidosWCF detallePedido = new DetallePedidosWCF();
-            detallePedido.ID_DetallePedido = item.ID_DetallePedido;
-            detallePedido.ID_Pedido = item.ID_Pedido;
-            detallePedido.ID_Producto = item.ID_Producto;
-            detallePedido.Codigo = item.Codigo;
-            detallePedido.NombreProducto = item.NombreProducto;
-            detallePedido.Descripcion = item.Descripcion;
-            detallePedido.Cantidad = item.Cantidad;
-            detallePedido.ValorUnitario = item.ValorUnitario;
-            detallePedido.Impuesto = item.Impuesto;
-            detallePedido.SubTotal = item.SubTotal;
-
-            return detallePedido;
-        }
-
-
-        private PedidosWCF MapearPedido(Pedidos item)
-        {
-            
-            PedidosWCF pedido = new PedidosWCF();
-            pedido.ID_Pedido = item.ID_Pedido;
-            pedido.ID_Cliente = item.ID_Cliente;
-            pedido.FechaRegistro = item.FechaRegistro;
-            pedido.TotalBruto = item.TotalBruto;
-            pedido.Impuesto = item.Impuesto;
-            pedido.ValorNeto = item.ValorNeto;
-            pedido.Estado = item.Estado;
-
-            return pedido;
-        }
-
-        
 
         /* 
          * Metodo
@@ -190,39 +220,60 @@ namespace WpfApplication1.ViewModels
          */
         private void ProductWebServiceExecute()
         {
-            this.proxy = new WebServiceApiClient("BasicHttpBinding_IWebServiceApi");
-            
-            MessageBoxResult result = MessageBox.Show("¿Desea sincronizar el inventario de productos mediante el Sistema Central?", "Alerta Actualización", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            try
             {
-                var data = proxy.GetProductosWCFBL();
-                ProductosBL contexto = new ProductosBL();
-                ProductoViewModel productoActual = new ProductoViewModel();
-                if (data != null)
+                this.proxy = new WebServiceApiClient("WSHttpBinding_IWebServiceApi");
+                MessageBoxResult result = MessageBox.Show("¿Desea sincronizar el inventario de productos mediante el Sistema Central?", "Alerta Actualización", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
                 {
-                    foreach (var item in data)
+                    var data = proxy.GetProductosWCFBL();
+                    ProductosBL contexto = new ProductosBL();
+                    if (data != null)
                     {
-                        productoActual.ID_Producto = item.ID_Producto;
-                        productoActual.ID_Categoria = item.ID_Categoria;
-                        productoActual.ID_Promocion = item.ID_Promocion;
-                        productoActual.NombreProducto = item.NombreProducto;
-                        productoActual.Codigo = item.Codigo;
-                        productoActual.Descripcion = item.Descripcion;
-                        productoActual.Fabricante = item.Fabricante;
-                        productoActual.Stock = item.Stock;
-                        productoActual.Impuesto = item.Impuesto;
-                        productoActual.ValorUnitario = item.ValorUnitario;
-                        productoActual.Estado = item.Estado;
-                        contexto.SincronizarProductosBL(cs, productoActual.ObtenerEntidad());
+                        var productos = Desencriptar(data);
+                        foreach (var item in productos)
+                        {
+                            contexto.SincronizarProductosBL(cs, item);
+                        }
+                        MessageBox.Show("Se ha sincronizado los prodcutos del inventario con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
-                    MessageBox.Show("Se ha sincronizado los prodcutos del inventario con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    else
+                    {
+                        MessageBox.Show("No se ha podido sincronizar los prodcutos del inventario con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+
                 }
-                else
-                {
-                    MessageBox.Show("No se ha podido sincronizar los prodcutos del inventario con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-                
             }
+            catch (Exception e)
+            {
+                MessageBox.Show("error detectado:\n" + e.ToString(), "Error en Sincronizacion", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private List<Productos> Desencriptar(string data)
+        {
+            List<Productos> Productos = new List<Entidades.Productos>();
+            byte[] decripter = Convert.FromBase64String(data);
+            string cadena = Encoding.Unicode.GetString(decripter);
+            string[] productos = cadena.Split(':');
+            for (int i = 0; i < productos.Length; i++)
+            {
+                string[] producto = productos[i].Split('¿');
+                Productos Producto = new Productos();
+                Producto.ID_Producto = Convert.ToInt32(producto[0]);
+                Producto.ID_Categoria = Convert.ToInt32(producto[1]);
+                Producto.ID_Promocion = Convert.ToInt32(producto[2]);
+                Producto.NombreProducto = producto[3];
+                Producto.Codigo = producto[4];
+                Producto.Descripcion = producto[5];
+                Producto.Fabricante = producto[6];
+                Producto.Stock = Convert.ToInt32(producto[7]);
+                Producto.Impuesto = Convert.ToDecimal(producto[8]);
+                Producto.ValorUnitario = Convert.ToDecimal(producto[9]);
+                Producto.Estado = Convert.ToBoolean(producto[10]);
+                Productos.Add(Producto);
+            }
+            return Productos;
         }
 
         /* 
