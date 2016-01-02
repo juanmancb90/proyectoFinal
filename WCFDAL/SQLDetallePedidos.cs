@@ -86,7 +86,7 @@ namespace WCFDAL
             using (DB_Acme_DevEntities contexto = new DB_Acme_DevEntities())
             {
                 TB_DetallePedido DetallePedido = mapearDetallePedidos(detallePedido);
-                contexto.InsertarDetallePedido(
+                contexto.InsertarDetallePedidoOffline(
                     DetallePedido.ID_Pedido,
                     DetallePedido.ID_Producto,
                     DetallePedido.Cantidad
