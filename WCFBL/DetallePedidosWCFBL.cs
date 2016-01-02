@@ -28,13 +28,9 @@ namespace WCFBL
             SQLDetallePedidos contexto = new SQLDetallePedidos(cs);
             List<DetallePedidosWCF> detallePedidosDAL = contexto.ObtenerDetallePedido();
 
-            if (detallePedidosDAL.Exists(x => x.ID_DetallePedido == detallePedido.ID_Pedido))
+            if (detallePedido != null)
             {
-                contexto.actualizarDetallePedidos(detallePedido);
-            }
-            else if (detallePedidosDAL.Exists(x => x.ID_Pedido == detallePedido.ID_Pedido) == false)
-            {
-                contexto.insertarDetallePedidos(detallePedido);
+                contexto.InsertarDetallePedidos(detallePedido);
             }
         }
     }

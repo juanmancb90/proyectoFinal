@@ -49,6 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientesDAL.cs" />
+    <Compile Include="ConsultarDetallePedido_Result.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarPedidoFecha_Result.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
     <Compile Include="DetallePedidosDAL.cs" />
     <Compile Include="Model_DB_ACME.Context.cs">
       <AutoGen>True</AutoGen>

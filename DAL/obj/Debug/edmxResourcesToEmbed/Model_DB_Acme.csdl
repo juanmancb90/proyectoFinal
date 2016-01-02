@@ -320,5 +320,35 @@
       <Parameter Name="ValorUnitario" Mode="In" Type="Decimal" />
       <Parameter Name="Estado" Mode="In" Type="Boolean" />
     </FunctionImport>
+    <FunctionImport Name="ConsultarPedidoFecha" ReturnType="Collection(DB_AcmeModel.ConsultarPedidoFecha_Result)">
+      <Parameter Name="Fecha" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ConsultarDetallePedido" ReturnType="Collection(DB_AcmeModel.ConsultarDetallePedido_Result)">
+      <Parameter Name="ID_Pedido" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ActualizarPedidoSincronizado">
+      <Parameter Name="ID_Pedido" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="ConsultarPedidoFecha_Result">
+    <Property Type="Int32" Name="ID_Pedido" Nullable="false" />
+    <Property Type="Int32" Name="ID_Cliente" Nullable="false" />
+    <Property Type="DateTime" Name="FechaRegistro" Nullable="false" Precision="23" />
+    <Property Type="Decimal" Name="TotalBruto" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Impuesto" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="ValorNeto" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Boolean" Name="Estado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ConsultarDetallePedido_Result">
+    <Property Type="Int32" Name="ID_DetallePedido" Nullable="false" />
+    <Property Type="Int32" Name="ID_Pedido" Nullable="false" />
+    <Property Type="Int32" Name="ID_Producto" Nullable="false" />
+    <Property Type="String" Name="Codigo" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="NombreProducto" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="250" />
+    <Property Type="Int32" Name="Cantidad" Nullable="false" />
+    <Property Type="Decimal" Name="ValorUnitario" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Impuesto" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="SubTotal" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
 </Schema>

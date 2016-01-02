@@ -74,5 +74,19 @@ namespace BL
             ObservableCollection<DetallePedidos> detallePedidos = contexto.ObtenerDetallePedido(iD_Producto, codigo, nombreProducto, descripcion, cantidadProducto, valorUnitario, impuesto, subTotal);
             return (detallePedidos);
         }
+
+        public List<DetallePedidos> ObtenerDetallePedidosId(string cs, List<Pedidos> pedidosBL)
+        {
+            DetallePedidosDAL contexto = new DetallePedidosDAL(cs);
+            List<DetallePedidos> detallePedidos = new List<DetallePedidos>();
+
+            foreach (var item in pedidosBL)
+            {
+                DetallePedidos detallepedidoActual = new DetallePedidos();
+                detallepedidoActual = contexto.ObtenerDetallePedidoId(item.ID_Pedido);
+                detallePedidos.Add(detallepedidoActual);
+            }
+            return (detallePedidos);
+        }
     }
 }

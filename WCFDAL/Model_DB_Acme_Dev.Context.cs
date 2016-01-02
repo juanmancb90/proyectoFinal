@@ -122,12 +122,17 @@ public partial class DB_Acme_DevEntities : DbContext
     }
 
 
-    public virtual int InsertarPedido(Nullable<int> iD_Cliente, Nullable<decimal> totalBruto, Nullable<decimal> impuesto, Nullable<decimal> valorNeto)
+    public virtual int InsertarPedido(Nullable<int> iD_Cliente, Nullable<System.DateTime> fechaRegistro, Nullable<decimal> totalBruto, Nullable<decimal> impuesto, Nullable<decimal> valorNeto)
     {
 
         var iD_ClienteParameter = iD_Cliente.HasValue ?
             new ObjectParameter("ID_Cliente", iD_Cliente) :
             new ObjectParameter("ID_Cliente", typeof(int));
+
+
+        var fechaRegistroParameter = fechaRegistro.HasValue ?
+            new ObjectParameter("FechaRegistro", fechaRegistro) :
+            new ObjectParameter("FechaRegistro", typeof(System.DateTime));
 
 
         var totalBrutoParameter = totalBruto.HasValue ?
@@ -145,7 +150,7 @@ public partial class DB_Acme_DevEntities : DbContext
             new ObjectParameter("ValorNeto", typeof(decimal));
 
 
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarPedido", iD_ClienteParameter, totalBrutoParameter, impuestoParameter, valorNetoParameter);
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarPedido", iD_ClienteParameter, fechaRegistroParameter, totalBrutoParameter, impuestoParameter, valorNetoParameter);
     }
 
 

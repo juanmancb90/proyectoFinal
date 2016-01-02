@@ -313,6 +313,7 @@
     </FunctionImport>
     <FunctionImport Name="InsertarPedido">
       <Parameter Name="ID_Cliente" Mode="In" Type="Int32" />
+      <Parameter Name="FechaRegistro" Mode="In" Type="DateTime" />
       <Parameter Name="TotalBruto" Mode="In" Type="Decimal" />
       <Parameter Name="Impuesto" Mode="In" Type="Decimal" />
       <Parameter Name="ValorNeto" Mode="In" Type="Decimal" />

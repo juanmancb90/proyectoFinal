@@ -130,5 +130,35 @@
     <FunctionImportMapping FunctionImportName="InsertarPedido" FunctionName="DB_AcmeModel.Store.InsertarPedido" />
     <FunctionImportMapping FunctionImportName="InsertarProducto" FunctionName="DB_AcmeModel.Store.InsertarProducto" />
     <FunctionImportMapping FunctionImportName="ActualizarProducto" FunctionName="DB_AcmeModel.Store.ActualizarProducto" />
+    <FunctionImportMapping FunctionImportName="ConsultarPedidoFecha" FunctionName="DB_AcmeModel.Store.ConsultarPedidoFecha">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_AcmeModel.ConsultarPedidoFecha_Result">
+          <ScalarProperty Name="ID_Pedido" ColumnName="ID_Pedido" />
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="TotalBruto" ColumnName="TotalBruto" />
+          <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+          <ScalarProperty Name="ValorNeto" ColumnName="ValorNeto" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ConsultarDetallePedido" FunctionName="DB_AcmeModel.Store.ConsultarDetallePedido">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_AcmeModel.ConsultarDetallePedido_Result">
+          <ScalarProperty Name="ID_DetallePedido" ColumnName="ID_DetallePedido" />
+          <ScalarProperty Name="ID_Pedido" ColumnName="ID_Pedido" />
+          <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="ValorUnitario" ColumnName="ValorUnitario" />
+          <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ActualizarPedidoSincronizado" FunctionName="DB_AcmeModel.Store.ActualizarPedidoSincronizado" />
   </EntityContainerMapping>
 </Mapping>

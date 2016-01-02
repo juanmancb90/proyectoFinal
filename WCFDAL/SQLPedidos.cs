@@ -63,23 +63,6 @@ namespace WCFDAL
             return (pedido);
         }
 
-        public void actualizarPedidos(PedidosWCF pedido)
-        {
-            using(DB_Acme_DevEntities contexto = new DB_Acme_DevEntities())
-            {
-                TB_Pedido Pedido = MapearPedido(pedido);
-                contexto.ActualizarPedido(
-                    Pedido.ID_Pedido,
-                    Pedido.ID_Cliente,
-                    Pedido.FechaRegistro,
-                    Pedido.TotalBruto,
-                    Pedido.Impuesto,
-                    Pedido.ValorNeto,
-                    Pedido.Estado
-                );
-            }
-        }
-
         private TB_Pedido MapearPedido(PedidosWCF pedido)
         {
             TB_Pedido Pedido = new TB_Pedido();
@@ -94,12 +77,13 @@ namespace WCFDAL
             return Pedido;
         }
 
-        public void insertarPedidos(PedidosWCF pedido)
+        public void InsertarPedidos(PedidosWCF pedido)
         {
             using(DB_Acme_DevEntities contexto = new DB_Acme_DevEntities()){
                 TB_Pedido Pedido = MapearPedido(pedido);
                 contexto.InsertarPedido(
                     Pedido.ID_Cliente,
+                    Pedido.FechaRegistro,
                     Pedido.TotalBruto,
                     Pedido.Impuesto,
                     Pedido.ValorNeto

@@ -80,27 +80,8 @@ namespace WCFDAL
             return (detallePedido);
         }
 
-        public void actualizarDetallePedidos(DetallePedidosWCF detallePedido)
-        {
-            using(DB_Acme_DevEntities contexto = new DB_Acme_DevEntities())
-            {
-                TB_DetallePedido DetallePedido = mapearDetallePedidos(detallePedido);
-                contexto.ActualizarDetallePedido(
-                    DetallePedido.ID_DetallePedido,
-                    DetallePedido.ID_Pedido,
-                    DetallePedido.ID_Producto,
-                    DetallePedido.Codigo,
-                    DetallePedido.NombreProducto,
-                    DetallePedido.Descripcion,
-                    DetallePedido.Cantidad,
-                    DetallePedido.ValorUnitario,
-                    DetallePedido.Impuesto,
-                    DetallePedido.SubTotal
-                );
-            }
-        }
 
-        public void insertarDetallePedidos(DetallePedidosWCF detallePedido)
+        public void InsertarDetallePedidos(DetallePedidosWCF detallePedido)
         {
             using (DB_Acme_DevEntities contexto = new DB_Acme_DevEntities())
             {

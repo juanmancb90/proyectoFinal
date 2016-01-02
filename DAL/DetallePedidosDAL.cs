@@ -145,5 +145,40 @@ namespace DAL
 
             return (detallePedido);
         }
+
+        public DetallePedidos ObtenerDetallePedidoId(int p)
+        {
+
+            DetallePedidos detallePedidoActual = new DetallePedidos();
+            using (DB_AcmeEntities contexto = new DB_AcmeEntities())
+            {
+                var SQLPedido = contexto.ConsultarDetallePedido(p);
+
+                foreach (var item in SQLPedido)
+                {
+                    detallePedidoActual = MapearDetallePedido(item);
+                }
+            }
+
+            return detallePedidoActual;
+        }
+
+        private DetallePedidos MapearDetallePedido(ConsultarDetallePedido_Result item)
+        {
+            DetallePedidos detallePedido = new DetallePedidos();
+
+            detallePedido.ID_DetallePedido = item.ID_DetallePedido;
+            detallePedido.ID_Pedido = item.ID_Pedido;
+            detallePedido.ID_Producto = item.ID_Producto;
+            detallePedido.Codigo = item.Codigo;
+            detallePedido.NombreProducto = item.NombreProducto;
+            detallePedido.Descripcion = item.Descripcion;
+            detallePedido.Cantidad = item.Cantidad;
+            detallePedido.ValorUnitario = item.ValorUnitario;
+            detallePedido.Impuesto = item.Impuesto;
+            detallePedido.SubTotal = item.SubTotal;
+
+            return (detallePedido);
+        }
     }
 }
