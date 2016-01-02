@@ -60,5 +60,22 @@ namespace BL
             PedidosDAL contexto = new PedidosDAL();
             contexto.InsertarPedido(iD_Cliente, totalBruto, impuesto, valorNeto);
         }
+
+        public List<Pedidos> ObtenerPedidosPorFecha(string cs, string fechaActual)
+        {
+            PedidosDAL contexto = new PedidosDAL(cs);
+            List<Pedidos> pedidos = contexto.ObtenerPedidoFecha(fechaActual);
+            return pedidos;
+        }
+
+        public void ActualizarEstadoPedido(string cs, List<Pedidos> pedidosBL)
+        {
+            PedidosDAL contexto = new PedidosDAL(cs);
+
+            foreach (var item in pedidosBL)
+            {
+               contexto.ActualizarEstadoPedidos(item.ID_Pedido);
+            }
+        }
     }
 }

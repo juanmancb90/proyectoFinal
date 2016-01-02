@@ -124,5 +124,45 @@ namespace DAL
 
             return (pedido);
         }
+
+        public List<Pedidos> ObtenerPedidoFecha(string fechaActual)
+        {
+            List<Pedidos> pedidos = new List<Pedidos>();
+
+            using (DB_AcmeEntities contexto = new DB_AcmeEntities())
+            {
+                var SQLPedido = contexto.ConsultarPedidoFecha(fechaActual);
+
+                foreach (var item in SQLPedido)
+                {
+                    Pedidos pedidoActual = MapearPedido(item);
+                    pedidos.Add(pedidoActual);
+                }
+            }
+
+            return pedidos;
+        }
+
+        private Pedidos MapearPedido(ConsultarPedidoFecha_Result item)
+        {
+            Pedidos pedido = new Pedidos();
+            pedido.ID_Pedido = item.ID_Pedido;
+            pedido.ID_Cliente = item.ID_Cliente;
+            pedido.FechaRegistro = item.FechaRegistro;
+            pedido.TotalBruto = item.TotalBruto;
+            pedido.Impuesto = item.Impuesto;
+            pedido.ValorNeto = item.ValorNeto;
+            pedido.Estado = item.Estado;
+
+            return pedido;
+        }
+
+        public void ActualizarEstadoPedidos(int p)
+        {
+            using (DB_AcmeEntities contexto = new DB_AcmeEntities())
+            {
+                contexto.ActualizarPedidoSincronizado(p);
+            }
+        }
     }
 }

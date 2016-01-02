@@ -106,8 +106,9 @@ namespace WpfApplication1.ViewModels
 
                     PedidosBL contexto = new PedidosBL();
                     DetallePedidosBL context = new DetallePedidosBL();
-                    List<Pedidos> pedidosBL = contexto.ObtenerPedidos(cs);
-                    List<DetallePedidos> detallePedidosBL = context.ObtenerDetallePedidos(cs);
+                    var fechaActual = DateTime.Today.ToString("yyyy-MM-dd");
+                    List<Pedidos> pedidosBL = contexto.ObtenerPedidosPorFecha(cs, fechaActual);
+                    List<DetallePedidos> detallePedidosBL = context.ObtenerDetallePedidosId(cs, pedidosBL);
                     if (pedidosBL != null && detallePedidosBL != null)
                     {
                         var pedidosWS = EncriptarDatosPedidos(pedidosBL);
@@ -116,6 +117,7 @@ namespace WpfApplication1.ViewModels
                         bool rst2 = proxy.SetDetallePedidosWCFBL(detallePedidosWS);
                         if (rst1 == true && rst2 == true) 
                         {
+                            contexto.ActualizarEstadoPedido(cs, pedidosBL);
                             MessageBox.Show("Se ha sincronizado los pedidos con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
@@ -162,8 +164,8 @@ namespace WpfApplication1.ViewModels
                     cadena.Append(string.Format(":{0}", item.ID_DetallePedido.ToString()));
                     cadena.Append(string.Format("¿{0}", item.ID_Pedido.ToString()));
                     cadena.Append(string.Format("¿{0}", item.ID_Producto.ToString()));
-                    cadena.Append(string.Format("¿{0}", item.NombreProducto.ToString()));
                     cadena.Append(string.Format("¿{0}", item.Codigo.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.NombreProducto.ToString()));
                     cadena.Append(string.Format("¿{0}", item.Descripcion.ToString()));
                     cadena.Append(string.Format("¿{0}", item.Cantidad.ToString()));
                     cadena.Append(string.Format("¿{0}", item.ValorUnitario.ToString()));
@@ -197,7 +199,8 @@ namespace WpfApplication1.ViewModels
                 }
                 else
                 {
-                    cadena.Append(string.Format(":{0}", item.ID_Pedido.ToString()));
+                    cadena.Append(string.Format("#{0}", item.ID_Pedido.ToString()));
+                    cadena.Append(string.Format("¿{0}", item.ID_Cliente.ToString()));
                     cadena.Append(string.Format("¿{0}", item.FechaRegistro.ToString()));
                     cadena.Append(string.Format("¿{0}", item.TotalBruto.ToString()));
                     cadena.Append(string.Format("¿{0}", item.Impuesto.ToString()));

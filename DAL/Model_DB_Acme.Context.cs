@@ -292,6 +292,42 @@ public partial class DB_AcmeEntities : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarProducto", iD_ProductoParameter, iD_CategoriaParameter, iD_PromocionParameter, nombreProductoParameter, codigoParameter, descripcionParameter, fabricanteParameter, stockParameter, impuestoParameter, valorUnitarioParameter, estadoParameter);
     }
 
+
+    public virtual ObjectResult<ConsultarPedidoFecha_Result> ConsultarPedidoFecha(string fecha)
+    {
+
+        var fechaParameter = fecha != null ?
+            new ObjectParameter("Fecha", fecha) :
+            new ObjectParameter("Fecha", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarPedidoFecha_Result>("ConsultarPedidoFecha", fechaParameter);
+    }
+
+
+    public virtual ObjectResult<ConsultarDetallePedido_Result> ConsultarDetallePedido(Nullable<int> iD_Pedido)
+    {
+
+        var iD_PedidoParameter = iD_Pedido.HasValue ?
+            new ObjectParameter("ID_Pedido", iD_Pedido) :
+            new ObjectParameter("ID_Pedido", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarDetallePedido_Result>("ConsultarDetallePedido", iD_PedidoParameter);
+    }
+
+
+    public virtual int ActualizarPedidoSincronizado(Nullable<int> iD_Pedido)
+    {
+
+        var iD_PedidoParameter = iD_Pedido.HasValue ?
+            new ObjectParameter("ID_Pedido", iD_Pedido) :
+            new ObjectParameter("ID_Pedido", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarPedidoSincronizado", iD_PedidoParameter);
+    }
+
 }
 
 }

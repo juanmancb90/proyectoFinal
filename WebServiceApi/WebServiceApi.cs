@@ -35,6 +35,7 @@ namespace WebServiceApi
                 {
                     contexto.SincronizarPedidos(cs, item);
                 }
+
                 rst = true;
             }
             else
@@ -55,9 +56,11 @@ namespace WebServiceApi
                 {
                     contexto.SincronizarDetallePedidos(cs, item);
                 }
+
                 rst = true;
             }
-            else {
+            else 
+            {
                 rst = false;
             }
 
@@ -69,7 +72,7 @@ namespace WebServiceApi
             List<PedidosWCF> Pedidos = new List<PedidosWCF>();
             byte[] decripter = Convert.FromBase64String(data);
             string cadena = Encoding.Unicode.GetString(decripter);
-            string[] pedidos = cadena.Split(':');
+            string[] pedidos = cadena.Split('#');
             for (int i = 0; i < pedidos.Length; i++)
             {
                 string[] pedido = pedidos[i].Split('¿');
@@ -83,6 +86,7 @@ namespace WebServiceApi
                 Pedido.Estado = Convert.ToBoolean(pedido[6]);
                 Pedidos.Add(Pedido);
             }
+
             return Pedidos;
         }
 
@@ -108,6 +112,7 @@ namespace WebServiceApi
                 DetallePedido.SubTotal = Convert.ToDecimal(detallepedido[9]);
                 DetallePedidos.Add(DetallePedido);
             }
+
             return DetallePedidos;
         }
 
@@ -150,6 +155,7 @@ namespace WebServiceApi
 
             byte[] encripted = Encoding.Unicode.GetBytes(cadena.ToString());
             string salida = Convert.ToBase64String(encripted);
+
             return salida;
         }
     }
