@@ -70,6 +70,14 @@
           <Property Name="ID_Documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TipoDocumento" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <EntityType Name="TB_LoginAuditoria">
+          <Key>
+            <PropertyRef Name="ID_Login" />
+          </Key>
+          <Property Name="ID_Login" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreUsuario" Type="nchar" MaxLength="250" Nullable="false" />
+          <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="TB_Pedido">
           <Key>
             <PropertyRef Name="ID_Pedido" />
@@ -269,6 +277,9 @@
           <Parameter Name="ValorUnitario" Type="decimal" Mode="In" />
           <Parameter Name="Estado" Type="bit" Mode="In" />
         </Function>
+        <Function Name="InsertarUsuarioLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="InsertarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NombreCompleto" Type="nvarchar" Mode="In" />
           <Parameter Name="NumeroDocumento" Type="nvarchar" Mode="In" />
@@ -282,6 +293,7 @@
           <EntitySet Name="TB_Cliente" EntityType="Self.TB_Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_DetallePedido" EntityType="Self.TB_DetallePedido" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_Documento" EntityType="Self.TB_Documento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_LoginAuditoria" EntityType="Self.TB_LoginAuditoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_Pedido" EntityType="Self.TB_Pedido" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" Schema="dbo" store:Type="Tables" />
@@ -650,7 +662,11 @@
           <Parameter Name="ID_Pedido" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ActualizarPedidoSincronizado">
-            <Parameter Name="ID_Pedido" Mode="In" Type="Int32" />
+          <Parameter Name="ID_Pedido" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="TB_LoginAuditoria" EntityType="DB_AcmeModel.TB_LoginAuditoria" />
+          <FunctionImport Name="InsertarUsuarioLogin">
+          <Parameter Name="NombreUsuario" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="ConsultarPedidoFecha_Result">
@@ -674,6 +690,14 @@
           <Property Type="Decimal" Name="Impuesto" Nullable="false" Precision="10" Scale="2" />
           <Property Type="Decimal" Name="SubTotal" Nullable="false" Precision="10" Scale="2" />
         </ComplexType>
+        <EntityType Name="TB_LoginAuditoria">
+          <Key>
+            <PropertyRef Name="ID_Login" />
+          </Key>
+          <Property Name="ID_Login" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreUsuario" Type="String" Nullable="false" MaxLength="250" FixedLength="true" Unicode="true" />
+          <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -839,6 +863,16 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ActualizarPedidoSincronizado" FunctionName="DB_AcmeModel.Store.ActualizarPedidoSincronizado" />
+          <EntitySetMapping Name="TB_LoginAuditoria">
+            <EntityTypeMapping TypeName="DB_AcmeModel.TB_LoginAuditoria">
+              <MappingFragment StoreEntitySet="TB_LoginAuditoria">
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="ID_Login" ColumnName="ID_Login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="InsertarUsuarioLogin" FunctionName="DB_AcmeModel.Store.InsertarUsuarioLogin" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

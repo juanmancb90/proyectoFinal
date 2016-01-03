@@ -56,6 +56,7 @@
       <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
     <Compile Include="DetallePedidosDAL.cs" />
+    <Compile Include="LoginAuditoriaDAL.cs" />
     <Compile Include="Model_DB_ACME.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +90,9 @@
       <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
     <Compile Include="TB_Documento.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_LoginAuditoria.cs">
       <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
     <Compile Include="TB_Pedido.cs">

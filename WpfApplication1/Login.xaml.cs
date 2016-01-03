@@ -27,6 +27,7 @@ namespace WpfApplication1
 
         private void autenticarVendedores(object sender, RoutedEventArgs e)
         {
+            string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
             VendedoresBL contexto = new VendedoresBL();
 
             string nombreUsuario = txtNombreUsuario.Text;
@@ -37,6 +38,8 @@ namespace WpfApplication1
         
             if (resultado)
             {
+                LoginAuditoriaBL context = new LoginAuditoriaBL();
+                context.RegistrarUsuario(cs, nombreUsuario);
                 MainWindow mainWindow = new MainWindow();
                 this.Hide();
                 mainWindow.Show();

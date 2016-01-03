@@ -65,6 +65,14 @@
     <Property Name="ID_Documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TipoDocumento" Type="nvarchar" MaxLength="10" Nullable="false" />
   </EntityType>
+  <EntityType Name="TB_LoginAuditoria">
+    <Key>
+      <PropertyRef Name="ID_Login" />
+    </Key>
+    <Property Name="ID_Login" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreUsuario" Type="nchar" MaxLength="250" Nullable="false" />
+    <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="TB_Pedido">
     <Key>
       <PropertyRef Name="ID_Pedido" />
@@ -264,6 +272,9 @@
     <Parameter Name="ValorUnitario" Type="decimal" Mode="In" />
     <Parameter Name="Estado" Type="bit" Mode="In" />
   </Function>
+  <Function Name="InsertarUsuarioLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NombreUsuario" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="InsertarVendedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="NombreCompleto" Type="nvarchar" Mode="In" />
     <Parameter Name="NumeroDocumento" Type="nvarchar" Mode="In" />
@@ -277,6 +288,7 @@
     <EntitySet Name="TB_Cliente" EntityType="Self.TB_Cliente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_DetallePedido" EntityType="Self.TB_DetallePedido" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Documento" EntityType="Self.TB_Documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_LoginAuditoria" EntityType="Self.TB_LoginAuditoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Pedido" EntityType="Self.TB_Pedido" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Producto" EntityType="Self.TB_Producto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Promocion" EntityType="Self.TB_Promocion" Schema="dbo" store:Type="Tables" />

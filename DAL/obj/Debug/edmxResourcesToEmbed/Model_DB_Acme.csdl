@@ -329,6 +329,10 @@
     <FunctionImport Name="ActualizarPedidoSincronizado">
       <Parameter Name="ID_Pedido" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="TB_LoginAuditoria" EntityType="DB_AcmeModel.TB_LoginAuditoria" />
+    <FunctionImport Name="InsertarUsuarioLogin">
+      <Parameter Name="NombreUsuario" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="ConsultarPedidoFecha_Result">
     <Property Type="Int32" Name="ID_Pedido" Nullable="false" />
@@ -351,4 +355,12 @@
     <Property Type="Decimal" Name="Impuesto" Nullable="false" Precision="10" Scale="2" />
     <Property Type="Decimal" Name="SubTotal" Nullable="false" Precision="10" Scale="2" />
   </ComplexType>
+  <EntityType Name="TB_LoginAuditoria">
+    <Key>
+      <PropertyRef Name="ID_Login" />
+    </Key>
+    <Property Name="ID_Login" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreUsuario" Type="String" Nullable="false" MaxLength="250" FixedLength="true" Unicode="true" />
+    <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
 </Schema>

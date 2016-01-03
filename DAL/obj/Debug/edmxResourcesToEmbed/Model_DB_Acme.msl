@@ -160,5 +160,15 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="ActualizarPedidoSincronizado" FunctionName="DB_AcmeModel.Store.ActualizarPedidoSincronizado" />
+    <EntitySetMapping Name="TB_LoginAuditoria">
+      <EntityTypeMapping TypeName="DB_AcmeModel.TB_LoginAuditoria">
+        <MappingFragment StoreEntitySet="TB_LoginAuditoria">
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="ID_Login" ColumnName="ID_Login" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="InsertarUsuarioLogin" FunctionName="DB_AcmeModel.Store.InsertarUsuarioLogin" />
   </EntityContainerMapping>
 </Mapping>

@@ -56,6 +56,8 @@ public partial class DB_AcmeEntities : DbContext
 
     public DbSet<TB_Vendedor> TB_Vendedor { get; set; }
 
+    public DbSet<TB_LoginAuditoria> TB_LoginAuditoria { get; set; }
+
 
     public virtual int AutenticarVendedor(string nombreUsuario, string contrasenia, ObjectParameter resultado)
     {
@@ -326,6 +328,18 @@ public partial class DB_AcmeEntities : DbContext
 
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarPedidoSincronizado", iD_PedidoParameter);
+    }
+
+
+    public virtual int InsertarUsuarioLogin(string nombreUsuario)
+    {
+
+        var nombreUsuarioParameter = nombreUsuario != null ?
+            new ObjectParameter("NombreUsuario", nombreUsuario) :
+            new ObjectParameter("NombreUsuario", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarUsuarioLogin", nombreUsuarioParameter);
     }
 
 }
