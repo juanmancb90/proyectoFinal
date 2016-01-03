@@ -23,6 +23,7 @@
         <AssociationConnector Association="DB_AcmeModel.FK_TB_DetallePedido_TB_Pedido" ManuallyRouted="false" />
         <AssociationConnector Association="DB_AcmeModel.FK_TB_DetallePedido_TB_Producto" ManuallyRouted="false" />
         <AssociationConnector Association="DB_AcmeModel.FK_TB_Producto_TB_Promocion" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_AcmeModel.TB_LoginAuditoria" Width="1.5" PointX="7.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
