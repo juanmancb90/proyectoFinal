@@ -1,5 +1,5 @@
 ﻿/*
- * Nombre de la Clase: SQLProductos
+ * Nombre de la Clase: ProductosDAL
  * Descripcion: Establecer una conexión a la base de datos
  * Autor: Equipo Makross - Grupo de Desarrollo
  * Fecha: 14/12/2015
@@ -7,8 +7,11 @@
 
 /*
  * Listado de Metodos:
- * >> SQLProductos(string cs)
+ * >> ProductosDAL(string cs)
  * >> List<Productos> ObtenerProducto()
+ * >> void insertarProductos(Productos producto)
+ * >> void actualizarProductos(Productos producto)
+ * >> TB_Producto mapearProducto(Productos item)
  * >> Productos MapearProducto(TB_Producto item)
  */
 
@@ -60,9 +63,12 @@ namespace DAL
             return (productos);
         }
 
-      
-
-        //procedimiento almacenado
+        /* 
+         * Metodo
+         * Descripcion: Inserta un producto que proviene del Web Service
+         * Entrada: Productos Producto
+         * Salida: void
+         */
         public void insertarProductos(Productos producto)
         {
             using (DB_AcmeEntities contexto = new DB_AcmeEntities())
@@ -84,7 +90,12 @@ namespace DAL
             }
         }
 
-        //procedimiento almacenado
+        /* 
+          * Metodo
+          * Descripcion: Actualiza los productos con la informacion del inventario de Productos del Web Service
+          * Entrada: Productos producto
+          * Salida: void
+        */
         public void actualizarProductos(Productos producto)
         {
             using (DB_AcmeEntities contexto = new DB_AcmeEntities())
@@ -106,6 +117,12 @@ namespace DAL
             }
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Mapea los atributos de un producto
+         * Entrada: Productos
+         * Salida: Productos de entidad TB_Producto
+         */
         private TB_Producto mapearProducto(Productos item)
         {
             TB_Producto Producto = new TB_Producto();

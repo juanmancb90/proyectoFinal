@@ -1,5 +1,5 @@
 ﻿/*
- * Nombre de la Clase: SQLVendedores
+ * Nombre de la Clase: VendedoresDAL
  * Descripcion: Establecer una conexión a la base de datos
  * Autor: Equipo Makross - Grupo de Desarrollo
  * Fecha: 14/12/2015
@@ -7,8 +7,8 @@
 
 /*
  * Listado de Metodos:
- * >> SQLVendedores()
- * >> SQLVendedores(string cs)
+ * >> VendedoresDAL()
+ * >> VendedoresDAL(string cs)
  * >> List<Vendedores> ObtenerVendedor()
  * >> bool AutenticarVendedor(string nombreUsuario, string contrasenia)
  * >> Vendedores MapearVendedor(TB_Vendedor item)

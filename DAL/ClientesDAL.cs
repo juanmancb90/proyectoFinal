@@ -1,5 +1,5 @@
 ﻿/*
- * Nombre de la Clase: SQLClientes
+ * Nombre de la Clase: ClientesDAL
  * Descripcion: Establecer una conexión a la base de datos
  * Autor: Equipo Makross - Grupo de Desarrollo
  * Fecha: 14/12/2015
@@ -7,9 +7,9 @@
 
 /*
  * Listado de Metodos:
- * >> Counter getNumberClassMethods(string className)
- * >> Counter getNumberClassLines(string className, int classNumber)
- * >> Counter getNumberProgramLines()
+ * >> ClientesDAL(string cs)
+ * >> List<Clientes> ObtenerCliente()
+ * >> Clientes MapearCliente(TB_Cliente item)
  */
 
 using Entidades;

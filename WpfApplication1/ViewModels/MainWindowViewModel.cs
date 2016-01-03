@@ -9,6 +9,16 @@
  * Listado de Metodos:
  * >> ObservableCollection<BaseViewModel> Pantallas
  * >> MainWindowViewModel()
+ * >> ICommand ProductWebServiceCommand
+ * >> ICommand PedidosWebServiceCommand
+ * >> void PedidosWebServiceExecute()
+ * >> string EncriptarDatosDetallePedidos(List<DetallePedidos> detallePedidosBL)
+ * >> string EncriptarDatosPedidos(List<Pedidos> pedidosBL)
+ * >> void ProductWebServiceExecute()
+ * >> List<Productos> Desencriptar(string data)
+ * >> bool ProductWebService
+ * >> bool PedidoWebService 
+ * >>
  */
 
 using System;
@@ -33,6 +43,7 @@ namespace WpfApplication1.ViewModels
         private string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
         ObservableCollection<BaseViewModel> _viewModels;
         private WebServiceApiClient proxy = null;
+
         /* 
          * Metodo
          * Descripcion: Metodo descriptor de acceso que declara una propiedad de tipo ObservableCollection<BaseViewModel> - Propiedad que entiende nuestro negocio
@@ -68,7 +79,7 @@ namespace WpfApplication1.ViewModels
 
         /* 
          * Metodo
-         * Descripcion: Expone un comando de nombre BuscarProductoCommand y lo relaciona con el data binding del view
+         * Descripcion: Expone un comando de nombre ProductWebServiceCommand y lo relaciona con el data binding del view
          * Entrada: void
          * Salida: ICommand
          */
@@ -83,7 +94,12 @@ namespace WpfApplication1.ViewModels
             }
         }
 
-
+        /* 
+         * Metodo
+         * Descripcion: Expone un comando de nombre PedidosWebServiceCommand y lo relaciona con el data binding del view
+         * Entrada: void
+         * Salida: ICommand
+         */
         RelayCommand _PedidosWebServiceCommand;
         public ICommand PedidosWebServiceCommand
         {
@@ -95,6 +111,12 @@ namespace WpfApplication1.ViewModels
             }
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Especifica que se puede ejecutar el comando PedidosWebServiceCommand
+         * Entrada: void
+         * Salida: bool
+         */
         private void PedidosWebServiceExecute()
         {
             try
@@ -139,6 +161,12 @@ namespace WpfApplication1.ViewModels
                 
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Encripta el listado de detalle de pedidos en cadena string
+         * Entrada: List<DetallePedidos> detallePedidosBL
+         * Salida: string
+         */
         private string EncriptarDatosDetallePedidos(List<DetallePedidos> detallePedidosBL)
         {
             bool primerDetallePedido = true;
@@ -180,6 +208,12 @@ namespace WpfApplication1.ViewModels
             return salida;
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Encripta el listado de pedidos a sincronizar
+         * Entrada: List<Pedidos> pedidosBL
+         * Salida: string
+         */
         private string EncriptarDatosPedidos(List<Pedidos> pedidosBL)
         {
             bool Pedido = true;
@@ -217,7 +251,7 @@ namespace WpfApplication1.ViewModels
 
         /* 
          * Metodo
-         * Descripcion: Especifica la implementacion del comando BuscarProductoCommand - Busca un producto en particular
+         * Descripcion: Especifica la implementacion del comando ProductWebServiceCommand
          * Entrada: void
          * Salida: void
          */
@@ -253,6 +287,12 @@ namespace WpfApplication1.ViewModels
             }
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Desencripta la cadena de string correspondiente a los productos del web service
+         * Entrada: string data
+         * Salida: List<Productos>
+         */
         private List<Productos> Desencriptar(string data)
         {
             List<Productos> Productos = new List<Entidades.Productos>();
@@ -292,7 +332,13 @@ namespace WpfApplication1.ViewModels
                 return (true);
             }
         }
-    
+
+        /* 
+         * Metodo
+         * Descripcion: Especifica que se puede ejecutar el comando PedidosWebServiceCommand
+         * Entrada: void
+         * Salida: bool
+         */
         public bool PedidoWebService 
         {
             get

@@ -8,6 +8,7 @@
 /*
  * Listado de Metodos:
  * >> List<Productos> ObtenerProductos(string cs)
+ * >> void SincronizarProductosBL(String cs, Productos producto = null)
  */
 
 using DAL;
@@ -34,10 +35,15 @@ namespace BL
             return (productos);
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Sincronizar los productos con el modelo del web service
+         * Entrada: String cs, Productos producto = null
+         * Salida: void
+         */
         public void SincronizarProductosBL(String cs, Productos producto = null)
         {
             ProductosDAL contexto = new ProductosDAL(cs);
-            //bool rst = false;
             if (producto == null)
             {
                 producto = new Productos();

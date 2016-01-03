@@ -1,4 +1,20 @@
-﻿using System;
+﻿/*
+ * Nombre de la Clase: WebServiceApi
+ * Descripcion: Clase que implementa los metodos del interfaz del Web Service
+ * Autor: Equipo Makross - Grupo de Desarrollo
+ * Fecha: 28/12/2015
+ */
+
+/*
+ * Listado de Metodos:
+ * >> string GetProductosWCFBL()
+ * >> bool SetPedidosWCFBL(string pedidos)
+ * >> bool SetDetallePedidosWCFBL(string detallePedidos)
+ * >> List<PedidosWCF> DesencriptarPedidos(string data)
+ * >> List<DetallePedidosWCF> DesencriptarDetallePedidos(string data)
+ * >> String EncriptarProductos(List<ProductosWCF> productos)
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -15,6 +31,12 @@ namespace WebServiceApi
     {
         private string cs = ConfigurationManager.ConnectionStrings[0].ConnectionString;
 
+        /* 
+         * Metodo
+         * Descripcion: Retornar un listado de producto que van a ser sincronizados
+         * Entrada: void
+         * Salida: string
+         */
         public string GetProductosWCFBL()
         {
             ProductosWCFBL context = new ProductosWCFBL();
@@ -24,6 +46,12 @@ namespace WebServiceApi
             return productosEncriptados;
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Sinconizar un listado de pedidos encriptados
+         * Entrada: string pedidos
+         * Salida: bool
+         */
         public bool SetPedidosWCFBL(string pedidos)
         {
             bool rst;
@@ -46,6 +74,12 @@ namespace WebServiceApi
             return rst;
         }
 
+        /* 
+         * Metodo
+         * Descripcion: sincroniza un listado de detalles de pedidos sincronizados
+         * Entrada: string detallePedidos
+         * Salida: bool
+         */
         public bool SetDetallePedidosWCFBL(string detallePedidos)
         {
             bool rst;
@@ -67,6 +101,12 @@ namespace WebServiceApi
             return rst;
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Desencripta la cadena de string correspondiente al listado de pedidos
+         * Entrada: string data
+         * Salida: List<PedidosWCF>
+         */
         private List<PedidosWCF> DesencriptarPedidos(string data)
         {
             List<PedidosWCF> Pedidos = new List<PedidosWCF>();
@@ -90,6 +130,12 @@ namespace WebServiceApi
             return Pedidos;
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Desencripta la cadena de string correspondiente al listado de detalle de pedidos
+         * Entrada: string data
+         * Salida: List<DetallePedidosWCF>
+         */
         private List<DetallePedidosWCF> DesencriptarDetallePedidos(string data)
         {
             List<DetallePedidosWCF> DetallePedidos = new List<DetallePedidosWCF>();
@@ -116,6 +162,12 @@ namespace WebServiceApi
             return DetallePedidos;
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Encripta un listado de producto que van a ser sincronizados
+         * Entrada: List<ProductosWCF> productos
+         * Salida: String
+         */
         private String EncriptarProductos(List<ProductosWCF> productos)
         {
             bool primerProducto = true;

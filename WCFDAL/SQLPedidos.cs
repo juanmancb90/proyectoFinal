@@ -1,4 +1,20 @@
-﻿using System;
+﻿/*
+ * Nombre de la Clase: SQLPedidos
+ * Descripcion: Establecer una conexión a la base de datos
+ * Autor: Equipo Makross - Grupo de Desarrollo
+ * Fecha: 28/12/2015
+ */
+
+/*
+ * Listado de Metodos:
+ * >> SQLPedidos(string cs)
+ * >> SQLPedidos()
+ * >> List<PedidosWCF> ObtenerPedido()
+ * >> PedidosWCF MapearPedido(TB_Pedido item)
+ * >> TB_Pedido MapearPedido(PedidosWCF pedido)
+ * >> void InsertarPedidos(PedidosWCF pedido)
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +27,23 @@ namespace WCFDAL
     {
         private string cn;
 
+        /* 
+         * Metodo
+         * Descripcion: Metodo constructor que recibe un parametro string
+         * Entrada: string
+         * Salida: void
+         */
         public SQLPedidos(string cs)
         {
             this.cn = cs;
         }
 
+        /* 
+        * Metodo
+        * Descripcion: Metodo constructor
+        * Entrada: void
+        * Salida: void
+        */
         public SQLPedidos() { }
 
         /* 
@@ -63,6 +91,12 @@ namespace WCFDAL
             return (pedido);
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Mapea los atributos de un pedido
+         * Entrada: PedidosWCF
+         * Salida: TB_Pedido
+         */
         private TB_Pedido MapearPedido(PedidosWCF pedido)
         {
             TB_Pedido Pedido = new TB_Pedido();
@@ -77,6 +111,12 @@ namespace WCFDAL
             return Pedido;
         }
 
+        /* 
+        * Metodo
+        * Descripcion: Insertar los pedidos que provienen del desconectado
+        * Entrada: PedidosWCF
+        * Salida: void
+        */
         public void InsertarPedidos(PedidosWCF pedido)
         {
             using(DB_Acme_DevEntities contexto = new DB_Acme_DevEntities()){

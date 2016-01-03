@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * Nombre de la Clase: ProductosWCFBL
+ * Descripcion: Toma el objeto de tipo SQLProductos creado desde la capa Data_Access_Layer y lo pasa a la capa User_Interface
+ * Autor: Equipo Makross - Grupo de Desarrollo
+ * Fecha: 14/12/2015
+ */
+
+/*
+ * Listado de Metodos:
+ * >> List<ProductosWCF> ObtenerProductos(string cs)
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
