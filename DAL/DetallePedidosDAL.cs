@@ -1,5 +1,5 @@
 ﻿/*
- * Nombre de la Clase: SQLDetallePedidos
+ * Nombre de la Clase: DetallePedidosDAL
  * Descripcion: Establecer una conexión a la base de datos
  * Autor: Equipo Makross - Grupo de Desarrollo
  * Fecha: 14/12/2015
@@ -7,9 +7,13 @@
 
 /*
  * Listado de Metodos:
- * >> Counter getNumberClassMethods(string className)
- * >> Counter getNumberClassLines(string className, int classNumber)
- * >> Counter getNumberProgramLines()
+ * >> DetallePedidosDAL()
+ * >> DetallePedidosDAL(string cs)
+ * >> List<DetallePedidos> ObtenerDetallePedido()
+ * >> void ActualizarStockProducto(int iD_Producto, int cantidad)
+ * >> void InsertarDetallePedido(int iD_Pedido, int iD_Producto, int cantidad)
+ * >> ObservableCollection<DetallePedidos> ObtenerDetallePedido(int iD_Producto, string codigo, string nombreProducto, string descripcion, int cantidadProducto, decimal valorUnitario, decimal impuesto, decimal subTotal)
+ * >> DetallePedidos MapearDetallePedido(TB_DetallePedido item)
  */
 
 using Entidades;
@@ -146,6 +150,12 @@ namespace DAL
             return (detallePedido);
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Obtiene el detalle de un pedido a partir de su ID
+         * Entrada: int p
+         * Salida: DetallePedidos
+         */
         public DetallePedidos ObtenerDetallePedidoId(int p)
         {
 
@@ -163,6 +173,12 @@ namespace DAL
             return detallePedidoActual;
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Mapea los atributos de un detalle de pedido
+         * Entrada: ConsultarDetallePedido_Result
+         * Salida: DetallePedidos
+         */
         private DetallePedidos MapearDetallePedido(ConsultarDetallePedido_Result item)
         {
             DetallePedidos detallePedido = new DetallePedidos();

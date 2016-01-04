@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="clr-namespace:WpfApplication1.ViewModels"
              xmlns:view="clr-namespace:WpfApplication1.Views"
-             StartupUri="MainWindow.xaml">
+             StartupUri="Login.xaml">
     <Application.Resources>
         <DataTemplate DataType="{x:Type vm:PedidosViewModel}">
             <view:PedidosView></view:PedidosView>

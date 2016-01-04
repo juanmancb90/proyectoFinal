@@ -1,4 +1,20 @@
-﻿using System;
+﻿/*
+ * Nombre de la Clase: SQLDetallePedidos
+ * Descripcion: Establecer una conexión a la base de datos
+ * Autor: Equipo Makross - Grupo de Desarrollo
+ * Fecha: 28/12/2015
+ */
+
+/*
+ * Listado de Metodos:
+ * >> SQLDetallePedidos()
+ * >> SQLDetallePedidos(string cs)
+ * >> List<DetallePedidosWCF> ObtenerDetallePedido()
+ * >> DetallePedidosWCF MapearDetallePedido(TB_DetallePedido item)
+ * >> void InsertarDetallePedidos(DetallePedidosWCF detallePedido)
+ * >> TB_DetallePedido mapearDetallePedidos(DetallePedidosWCF detallePedido)
+ */
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -80,7 +96,12 @@ namespace WCFDAL
             return (detallePedido);
         }
 
-
+        /* 
+         * Metodo
+         * Descripcion: Inserta los detalle de pedidos del desconectado
+         * Entrada: DetallePedidosWCF
+         * Salida: void
+         */
         public void InsertarDetallePedidos(DetallePedidosWCF detallePedido)
         {
             using (DB_Acme_DevEntities contexto = new DB_Acme_DevEntities())
@@ -95,6 +116,12 @@ namespace WCFDAL
             }
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Mapea los atributos de un detalle de pedido
+         * Entrada: DetallePedidosWCF
+         * Salida: TB_DetallePedido
+         */
         private TB_DetallePedido mapearDetallePedidos(DetallePedidosWCF detallePedido)
         {
  	        TB_DetallePedido DetallePedidos = new TB_DetallePedido();

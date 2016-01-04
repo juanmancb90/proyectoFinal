@@ -140,5 +140,8 @@
     <FunctionImportMapping FunctionImportName="InsertarPedidoOffline" FunctionName="DB_Acme_DevModel.Store.InsertarPedidoOffline" />
     <FunctionImportMapping FunctionImportName="InsertarDetallePedido1" FunctionName="DB_Acme_DevModel.Store.InsertarDetallePedido" />
     <FunctionImportMapping FunctionImportName="InsertarPedido1" FunctionName="DB_Acme_DevModel.Store.InsertarPedido" />
+    <FunctionImportMapping FunctionImportName="ActualizarCliente" FunctionName="DB_Acme_DevModel.Store.ActualizarCliente" />
+    <FunctionImportMapping FunctionImportName="EliminarCliente" FunctionName="DB_Acme_DevModel.Store.EliminarCliente" />
+    <FunctionImportMapping FunctionImportName="InsertarCliente" FunctionName="DB_Acme_DevModel.Store.InsertarCliente" />
   </EntityContainerMapping>
 </Mapping>

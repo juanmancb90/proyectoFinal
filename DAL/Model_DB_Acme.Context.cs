@@ -342,6 +342,139 @@ public partial class DB_AcmeEntities : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarUsuarioLogin", nombreUsuarioParameter);
     }
 
+
+    public virtual ObjectResult<ConsultarUsuarioLogin_Result> ConsultarUsuarioLogin(string fechaActual)
+    {
+
+        var fechaActualParameter = fechaActual != null ?
+            new ObjectParameter("FechaActual", fechaActual) :
+            new ObjectParameter("FechaActual", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarUsuarioLogin_Result>("ConsultarUsuarioLogin", fechaActualParameter);
+    }
+
+
+    public virtual ObjectResult<ConsultarVendedor_Result> ConsultarVendedor(string nombreUsuario)
+    {
+
+        var nombreUsuarioParameter = nombreUsuario != null ?
+            new ObjectParameter("NombreUsuario", nombreUsuario) :
+            new ObjectParameter("NombreUsuario", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarVendedor_Result>("ConsultarVendedor", nombreUsuarioParameter);
+    }
+
+
+    public virtual int SincronizarCliente(ObjectParameter iD_Cliente, Nullable<int> iD_Vendedor, Nullable<int> iD_Ciudad, Nullable<int> iD_Documento, string nombreCompleto, string numeroDocumento, string telefono, string celuar, string email, string direccion)
+    {
+
+        var iD_VendedorParameter = iD_Vendedor.HasValue ?
+            new ObjectParameter("ID_Vendedor", iD_Vendedor) :
+            new ObjectParameter("ID_Vendedor", typeof(int));
+
+
+        var iD_CiudadParameter = iD_Ciudad.HasValue ?
+            new ObjectParameter("ID_Ciudad", iD_Ciudad) :
+            new ObjectParameter("ID_Ciudad", typeof(int));
+
+
+        var iD_DocumentoParameter = iD_Documento.HasValue ?
+            new ObjectParameter("ID_Documento", iD_Documento) :
+            new ObjectParameter("ID_Documento", typeof(int));
+
+
+        var nombreCompletoParameter = nombreCompleto != null ?
+            new ObjectParameter("NombreCompleto", nombreCompleto) :
+            new ObjectParameter("NombreCompleto", typeof(string));
+
+
+        var numeroDocumentoParameter = numeroDocumento != null ?
+            new ObjectParameter("NumeroDocumento", numeroDocumento) :
+            new ObjectParameter("NumeroDocumento", typeof(string));
+
+
+        var telefonoParameter = telefono != null ?
+            new ObjectParameter("Telefono", telefono) :
+            new ObjectParameter("Telefono", typeof(string));
+
+
+        var celuarParameter = celuar != null ?
+            new ObjectParameter("Celuar", celuar) :
+            new ObjectParameter("Celuar", typeof(string));
+
+
+        var emailParameter = email != null ?
+            new ObjectParameter("Email", email) :
+            new ObjectParameter("Email", typeof(string));
+
+
+        var direccionParameter = direccion != null ?
+            new ObjectParameter("Direccion", direccion) :
+            new ObjectParameter("Direccion", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SincronizarCliente", iD_Cliente, iD_VendedorParameter, iD_CiudadParameter, iD_DocumentoParameter, nombreCompletoParameter, numeroDocumentoParameter, telefonoParameter, celuarParameter, emailParameter, direccionParameter);
+    }
+
+
+    public virtual int SincronizarProducto(ObjectParameter iD_Producto, Nullable<int> iD_Categoria, Nullable<int> iD_Promocion, string nombreProducto, string codigo, string descripcion, string fabricante, Nullable<int> stock, Nullable<decimal> impuesto, Nullable<decimal> valorUnitario, Nullable<bool> estado)
+    {
+
+        var iD_CategoriaParameter = iD_Categoria.HasValue ?
+            new ObjectParameter("ID_Categoria", iD_Categoria) :
+            new ObjectParameter("ID_Categoria", typeof(int));
+
+
+        var iD_PromocionParameter = iD_Promocion.HasValue ?
+            new ObjectParameter("ID_Promocion", iD_Promocion) :
+            new ObjectParameter("ID_Promocion", typeof(int));
+
+
+        var nombreProductoParameter = nombreProducto != null ?
+            new ObjectParameter("NombreProducto", nombreProducto) :
+            new ObjectParameter("NombreProducto", typeof(string));
+
+
+        var codigoParameter = codigo != null ?
+            new ObjectParameter("Codigo", codigo) :
+            new ObjectParameter("Codigo", typeof(string));
+
+
+        var descripcionParameter = descripcion != null ?
+            new ObjectParameter("Descripcion", descripcion) :
+            new ObjectParameter("Descripcion", typeof(string));
+
+
+        var fabricanteParameter = fabricante != null ?
+            new ObjectParameter("Fabricante", fabricante) :
+            new ObjectParameter("Fabricante", typeof(string));
+
+
+        var stockParameter = stock.HasValue ?
+            new ObjectParameter("Stock", stock) :
+            new ObjectParameter("Stock", typeof(int));
+
+
+        var impuestoParameter = impuesto.HasValue ?
+            new ObjectParameter("Impuesto", impuesto) :
+            new ObjectParameter("Impuesto", typeof(decimal));
+
+
+        var valorUnitarioParameter = valorUnitario.HasValue ?
+            new ObjectParameter("ValorUnitario", valorUnitario) :
+            new ObjectParameter("ValorUnitario", typeof(decimal));
+
+
+        var estadoParameter = estado.HasValue ?
+            new ObjectParameter("Estado", estado) :
+            new ObjectParameter("Estado", typeof(bool));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SincronizarProducto", iD_Producto, iD_CategoriaParameter, iD_PromocionParameter, nombreProductoParameter, codigoParameter, descripcionParameter, fabricanteParameter, stockParameter, impuestoParameter, valorUnitarioParameter, estadoParameter);
+    }
+
 }
 
 }

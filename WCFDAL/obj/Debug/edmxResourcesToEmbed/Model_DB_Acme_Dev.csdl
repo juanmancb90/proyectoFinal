@@ -368,5 +368,32 @@
       <Parameter Name="Impuesto" Mode="In" Type="Decimal" />
       <Parameter Name="ValorNeto" Mode="In" Type="Decimal" />
     </FunctionImport>
+    <FunctionImport Name="ActualizarCliente">
+      <Parameter Name="ID_Cliente" Mode="InOut" Type="Int32" />
+      <Parameter Name="ID_Vendedor" Mode="In" Type="Int32" />
+      <Parameter Name="ID_Ciudad" Mode="In" Type="Int32" />
+      <Parameter Name="ID_Documento" Mode="In" Type="Int32" />
+      <Parameter Name="NombreCompleto" Mode="In" Type="String" />
+      <Parameter Name="NumeroDocumento" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Celuar" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="EliminarCliente">
+      <Parameter Name="ID_Cliente" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarCliente">
+      <Parameter Name="ID_Cliente" Mode="InOut" Type="Int32" />
+      <Parameter Name="ID_Vendedor" Mode="In" Type="Int32" />
+      <Parameter Name="ID_Ciudad" Mode="In" Type="Int32" />
+      <Parameter Name="ID_Documento" Mode="In" Type="Int32" />
+      <Parameter Name="NombreCompleto" Mode="In" Type="String" />
+      <Parameter Name="NumeroDocumento" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Celuar" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

@@ -382,6 +382,122 @@ public partial class DB_Acme_DevEntities : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarPedido1", iD_ClienteParameter, totalBrutoParameter, impuestoParameter, valorNetoParameter);
     }
 
+
+    public virtual int ActualizarCliente(ObjectParameter iD_Cliente, Nullable<int> iD_Vendedor, Nullable<int> iD_Ciudad, Nullable<int> iD_Documento, string nombreCompleto, string numeroDocumento, string telefono, string celuar, string email, string direccion)
+    {
+
+        var iD_VendedorParameter = iD_Vendedor.HasValue ?
+            new ObjectParameter("ID_Vendedor", iD_Vendedor) :
+            new ObjectParameter("ID_Vendedor", typeof(int));
+
+
+        var iD_CiudadParameter = iD_Ciudad.HasValue ?
+            new ObjectParameter("ID_Ciudad", iD_Ciudad) :
+            new ObjectParameter("ID_Ciudad", typeof(int));
+
+
+        var iD_DocumentoParameter = iD_Documento.HasValue ?
+            new ObjectParameter("ID_Documento", iD_Documento) :
+            new ObjectParameter("ID_Documento", typeof(int));
+
+
+        var nombreCompletoParameter = nombreCompleto != null ?
+            new ObjectParameter("NombreCompleto", nombreCompleto) :
+            new ObjectParameter("NombreCompleto", typeof(string));
+
+
+        var numeroDocumentoParameter = numeroDocumento != null ?
+            new ObjectParameter("NumeroDocumento", numeroDocumento) :
+            new ObjectParameter("NumeroDocumento", typeof(string));
+
+
+        var telefonoParameter = telefono != null ?
+            new ObjectParameter("Telefono", telefono) :
+            new ObjectParameter("Telefono", typeof(string));
+
+
+        var celuarParameter = celuar != null ?
+            new ObjectParameter("Celuar", celuar) :
+            new ObjectParameter("Celuar", typeof(string));
+
+
+        var emailParameter = email != null ?
+            new ObjectParameter("Email", email) :
+            new ObjectParameter("Email", typeof(string));
+
+
+        var direccionParameter = direccion != null ?
+            new ObjectParameter("Direccion", direccion) :
+            new ObjectParameter("Direccion", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ActualizarCliente", iD_Cliente, iD_VendedorParameter, iD_CiudadParameter, iD_DocumentoParameter, nombreCompletoParameter, numeroDocumentoParameter, telefonoParameter, celuarParameter, emailParameter, direccionParameter);
+    }
+
+
+    public virtual int EliminarCliente(Nullable<int> iD_Cliente)
+    {
+
+        var iD_ClienteParameter = iD_Cliente.HasValue ?
+            new ObjectParameter("ID_Cliente", iD_Cliente) :
+            new ObjectParameter("ID_Cliente", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EliminarCliente", iD_ClienteParameter);
+    }
+
+
+    public virtual int InsertarCliente(ObjectParameter iD_Cliente, Nullable<int> iD_Vendedor, Nullable<int> iD_Ciudad, Nullable<int> iD_Documento, string nombreCompleto, string numeroDocumento, string telefono, string celuar, string email, string direccion)
+    {
+
+        var iD_VendedorParameter = iD_Vendedor.HasValue ?
+            new ObjectParameter("ID_Vendedor", iD_Vendedor) :
+            new ObjectParameter("ID_Vendedor", typeof(int));
+
+
+        var iD_CiudadParameter = iD_Ciudad.HasValue ?
+            new ObjectParameter("ID_Ciudad", iD_Ciudad) :
+            new ObjectParameter("ID_Ciudad", typeof(int));
+
+
+        var iD_DocumentoParameter = iD_Documento.HasValue ?
+            new ObjectParameter("ID_Documento", iD_Documento) :
+            new ObjectParameter("ID_Documento", typeof(int));
+
+
+        var nombreCompletoParameter = nombreCompleto != null ?
+            new ObjectParameter("NombreCompleto", nombreCompleto) :
+            new ObjectParameter("NombreCompleto", typeof(string));
+
+
+        var numeroDocumentoParameter = numeroDocumento != null ?
+            new ObjectParameter("NumeroDocumento", numeroDocumento) :
+            new ObjectParameter("NumeroDocumento", typeof(string));
+
+
+        var telefonoParameter = telefono != null ?
+            new ObjectParameter("Telefono", telefono) :
+            new ObjectParameter("Telefono", typeof(string));
+
+
+        var celuarParameter = celuar != null ?
+            new ObjectParameter("Celuar", celuar) :
+            new ObjectParameter("Celuar", typeof(string));
+
+
+        var emailParameter = email != null ?
+            new ObjectParameter("Email", email) :
+            new ObjectParameter("Email", typeof(string));
+
+
+        var direccionParameter = direccion != null ?
+            new ObjectParameter("Direccion", direccion) :
+            new ObjectParameter("Direccion", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertarCliente", iD_Cliente, iD_VendedorParameter, iD_CiudadParameter, iD_DocumentoParameter, nombreCompletoParameter, numeroDocumentoParameter, telefonoParameter, celuarParameter, emailParameter, direccionParameter);
+    }
+
 }
 
 }

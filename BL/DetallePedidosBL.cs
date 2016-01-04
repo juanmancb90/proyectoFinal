@@ -11,6 +11,7 @@
  * >> void ActualizarStockProductos(int iD_Producto, int cantidad)
  * >> void InsertarDetallePedidos(int iD_Pedido, int iD_Producto, int cantidad)
  * >> ObservableCollection<DetallePedidos> ObtenerDetallePedidos(int iD_Producto, string codigo, string nombreProducto, string descripcion, int cantidadProducto, decimal valorUnitario, decimal impuesto, decimal subTotal)
+ * >> List<DetallePedidos> ObtenerDetallePedidosId(string cs, List<Pedidos> pedidosBL)
  */
 
 using DAL;
@@ -75,6 +76,12 @@ namespace BL
             return (detallePedidos);
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Retorna un listado de los detalles de pedidos a sincronizar con el web service
+         * Entrada: string cs, List<Pedidos> pedidosB
+         * Salida: List<DetallePedidos>
+         */
         public List<DetallePedidos> ObtenerDetallePedidosId(string cs, List<Pedidos> pedidosBL)
         {
             DetallePedidosDAL contexto = new DetallePedidosDAL(cs);

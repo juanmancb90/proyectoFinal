@@ -1,4 +1,18 @@
-﻿using System;
+﻿/*
+ * Nombre de la Clase: IWebServiceApi
+ * Descripcion: Interface que define los ServiceContract y OperationContract que expondra el servicio web
+ * Autor: Equipo Makross - Grupo de Desarrollo
+ * Fecha: 28/12/2015
+ */
+
+/*
+ * Listado de Metodos:
+ * >> string GetProductosWCFBL();
+ * >> bool SetPedidosWCFBL(string pedidos);
+ * >> bool SetDetallePedidosWCFBL(string detallePedidos);
+ * >> string GetClientesWCFBL();
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,12 +26,39 @@ namespace WebServiceApi
     [ServiceContract]
     public interface IWebServiceApi
     {
+        /* 
+         * Metodo
+         * Descripcion: Metodo para obtener los Productos del inventario central
+         * Entrada: void
+         * Salida: string
+         */
         [OperationContract]
         string GetProductosWCFBL();
 
+        /* 
+         * Metodo
+         * Descripcion: Metodo para obtener los Productos del inventario central
+         * Entrada: void
+         * Salida: string
+         */
+        [OperationContract]
+        string GetClientesWCFBL();
+
+        /* 
+         * Metodo
+         * Descripcion: Metodo sincronizar los pedidos del desconectado al sistema central
+         * Entrada: string pedidos
+         * Salida: bool
+         */
         [OperationContract]
         bool SetPedidosWCFBL(string pedidos);
 
+        /* 
+         * Metodo
+         * Descripcion: Metodo sincronizar los detalles de pedidos del desconectado al sistema central
+         * Entrada: string detallePedidos
+         * Salida: bool
+         */
         [OperationContract]
         bool SetDetallePedidosWCFBL(string detallePedidos);
 

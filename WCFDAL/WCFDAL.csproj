@@ -62,6 +62,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model_DB_Acme_Dev.edmx</DependentUpon>
     </Compile>
+    <Compile Include="SQLClientes.cs" />
     <Compile Include="SQLDetallePedidos.cs" />
     <Compile Include="SQLPedidos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

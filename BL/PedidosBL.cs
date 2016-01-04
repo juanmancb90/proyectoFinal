@@ -10,6 +10,8 @@
  * >> List<Pedidos> ObtenerPedidos(string cs)
  * >> int ConsultarIdentificadorPedidos()
  * >> void InsertarPedidos(int iD_Cliente, decimal totalBruto, decimal impuesto, decimal valorNeto)
+ * >> List<Pedidos> ObtenerPedidosPorFecha(string cs, string fechaActual)
+ * >> void ActualizarEstadoPedido(string cs, List<Pedidos> pedidosBL)
  */
 
 using DAL;
@@ -61,6 +63,12 @@ namespace BL
             contexto.InsertarPedido(iD_Cliente, totalBruto, impuesto, valorNeto);
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Retorna un listado de pedidos por fecha actual del sistema
+         * Entrada: string cs, string fechaActual
+         * Salida: List<Pedidos>
+         */
         public List<Pedidos> ObtenerPedidosPorFecha(string cs, string fechaActual)
         {
             PedidosDAL contexto = new PedidosDAL(cs);
@@ -68,6 +76,12 @@ namespace BL
             return pedidos;
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Actualiza el estado de sincronizacion de los pedidos
+         * Entrada: string cs, List<Pedidos> pedidosBL
+         * Salida: void
+         */
         public void ActualizarEstadoPedido(string cs, List<Pedidos> pedidosBL)
         {
             PedidosDAL contexto = new PedidosDAL(cs);

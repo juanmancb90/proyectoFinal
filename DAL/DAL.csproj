@@ -55,6 +55,12 @@
     <Compile Include="ConsultarPedidoFecha_Result.cs">
       <DependentUpon>Model_DB_ACME.tt</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarUsuarioLogin_Result.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarVendedor_Result.cs">
+      <DependentUpon>Model_DB_ACME.tt</DependentUpon>
+    </Compile>
     <Compile Include="DetallePedidosDAL.cs" />
     <Compile Include="LoginAuditoriaDAL.cs" />
     <Compile Include="Model_DB_ACME.Context.cs">

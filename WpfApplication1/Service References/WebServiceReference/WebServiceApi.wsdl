@@ -134,6 +134,44 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWebServiceApi_GetClientesWCFBL_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWebServiceApi_GetClientesWCFBL_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IWebServiceApi_SetPedidosWCFBL_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -222,6 +260,12 @@
   <wsdl:message name="IWebServiceApi_GetProductosWCFBL_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProductosWCFBLResponse" />
   </wsdl:message>
+  <wsdl:message name="IWebServiceApi_GetClientesWCFBL_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientesWCFBL" />
+  </wsdl:message>
+  <wsdl:message name="IWebServiceApi_GetClientesWCFBL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientesWCFBLResponse" />
+  </wsdl:message>
   <wsdl:message name="IWebServiceApi_SetPedidosWCFBL_InputMessage">
     <wsdl:part name="parameters" element="tns:SetPedidosWCFBL" />
   </wsdl:message>
@@ -238,6 +282,10 @@
     <wsdl:operation name="GetProductosWCFBL">
       <wsdl:input wsaw:Action="http://tempuri.org/IWebServiceApi/GetProductosWCFBL" message="tns:IWebServiceApi_GetProductosWCFBL_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWebServiceApi/GetProductosWCFBLResponse" message="tns:IWebServiceApi_GetProductosWCFBL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientesWCFBL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebServiceApi/GetClientesWCFBL" message="tns:IWebServiceApi_GetClientesWCFBL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebServiceApi/GetClientesWCFBLResponse" message="tns:IWebServiceApi_GetClientesWCFBL_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SetPedidosWCFBL">
       <wsdl:input wsaw:Action="http://tempuri.org/IWebServiceApi/SetPedidosWCFBL" message="tns:IWebServiceApi_SetPedidosWCFBL_InputMessage" />
@@ -259,6 +307,17 @@
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#WSHttpBinding_IWebServiceApi_GetProductosWCFBL_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientesWCFBL">
+      <soap12:operation soapAction="http://tempuri.org/IWebServiceApi/GetClientesWCFBL" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWebServiceApi_GetClientesWCFBL_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWebServiceApi_GetClientesWCFBL_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
@@ -289,6 +348,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetProductosWCFBL">
       <soap:operation soapAction="http://tempuri.org/IWebServiceApi/GetProductosWCFBL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientesWCFBL">
+      <soap:operation soapAction="http://tempuri.org/IWebServiceApi/GetClientesWCFBL" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

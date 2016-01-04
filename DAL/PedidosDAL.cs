@@ -13,6 +13,9 @@
  * >> int ConsultarIdentificadorPedido()
  * >> void InsertarPedido(int iD_Cliente, decimal totalBruto, decimal impuesto, decimal valorNeto)
  * >> Pedidos MapearPedido(TB_Pedido item)
+ * >> List<Pedidos> ObtenerPedidoFecha(string fechaActual)
+ * >> Pedidos MapearPedido(ConsultarPedidoFecha_Result item)
+ * >> void ActualizarEstadoPedidos(int p)
  */
 
 using Entidades;
@@ -125,6 +128,12 @@ namespace DAL
             return (pedido);
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Obtiene una listado de pedidos por fecha
+         * Entrada: string fechaActual
+         * Salida: List<Pedidos>
+         */
         public List<Pedidos> ObtenerPedidoFecha(string fechaActual)
         {
             List<Pedidos> pedidos = new List<Pedidos>();
@@ -143,6 +152,13 @@ namespace DAL
             return pedidos;
         }
 
+
+        /* 
+         * Metodo
+         * Descripcion: Mapea los atributos de un pedido
+         * Entrada: ConsultarPedidoFecha_Result
+         * Salida: Pedidos
+         */
         private Pedidos MapearPedido(ConsultarPedidoFecha_Result item)
         {
             Pedidos pedido = new Pedidos();
@@ -157,6 +173,12 @@ namespace DAL
             return pedido;
         }
 
+        /* 
+         * Metodo
+         * Descripcion: Actualiza el estado de Sincronizacion de los pedidos
+         * Entrada: int p
+         * Salida: void
+         */
         public void ActualizarEstadoPedidos(int p)
         {
             using (DB_AcmeEntities contexto = new DB_AcmeEntities())

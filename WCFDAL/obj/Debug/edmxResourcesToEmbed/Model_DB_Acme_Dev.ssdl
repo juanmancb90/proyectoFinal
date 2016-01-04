@@ -228,6 +228,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="ActualizarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Cliente" Type="int" Mode="InOut" />
+    <Parameter Name="ID_Vendedor" Type="int" Mode="In" />
+    <Parameter Name="ID_Ciudad" Type="int" Mode="In" />
+    <Parameter Name="ID_Documento" Type="int" Mode="In" />
+    <Parameter Name="NombreCompleto" Type="nvarchar" Mode="In" />
+    <Parameter Name="NumeroDocumento" Type="nvarchar" Mode="In" />
+    <Parameter Name="Telefono" Type="nvarchar" Mode="In" />
+    <Parameter Name="Celuar" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Direccion" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="ActualizarStockProducto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID_Producto" Type="int" Mode="In" />
     <Parameter Name="Cantidad" Type="int" Mode="In" />
@@ -239,6 +251,21 @@
   </Function>
   <Function Name="ConsultarIdentificadorPedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID_Pedido" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="EliminarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Cliente" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_Cliente" Type="int" Mode="InOut" />
+    <Parameter Name="ID_Vendedor" Type="int" Mode="In" />
+    <Parameter Name="ID_Ciudad" Type="int" Mode="In" />
+    <Parameter Name="ID_Documento" Type="int" Mode="In" />
+    <Parameter Name="NombreCompleto" Type="nvarchar" Mode="In" />
+    <Parameter Name="NumeroDocumento" Type="nvarchar" Mode="In" />
+    <Parameter Name="Telefono" Type="nvarchar" Mode="In" />
+    <Parameter Name="Celuar" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Direccion" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="InsertarDetallePedido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID_Pedido" Type="int" Mode="In" />

@@ -1,5 +1,5 @@
 ﻿/*
- * Nombre de la Clase: SQLProductos
+ * Nombre de la Clase: ProductosDAL
  * Descripcion: Establecer una conexión a la base de datos
  * Autor: Equipo Makross - Grupo de Desarrollo
  * Fecha: 14/12/2015
@@ -7,8 +7,10 @@
 
 /*
  * Listado de Metodos:
- * >> SQLProductos(string cs)
+ * >> ProductosDAL(string cs)
  * >> List<Productos> ObtenerProducto()
+ * >> void sincronizarProducto(Productos producto)
+ * >> TB_Producto mapearProducto(Productos item)
  * >> Productos MapearProducto(TB_Producto item)
  */
 
@@ -60,52 +62,36 @@ namespace DAL
             return (productos);
         }
 
-      
-
-        //procedimiento almacenado
-        public void insertarProductos(Productos producto)
+        /* 
+         * Metodo
+         * Descripcion: sincronizar un producto que proviene del Web Service
+         * Entrada: Productos Producto
+         * Salida: void
+         */
+        public void sincronizarProducto(Productos producto)
         {
             using (DB_AcmeEntities contexto = new DB_AcmeEntities())
             {
-                TB_Producto Producto = mapearProducto(producto);
-                contexto.InsertarProducto(
-                    Producto.ID_Categoria, 
-                    Producto.ID_Promocion, 
-                    Producto.NombreProducto, 
-                    Producto.Codigo, 
-                    Producto.Descripcion, 
-                    Producto.Fabricante, 
-                    Producto.Stock, 
-                    Producto.Impuesto, 
-                    Producto.ValorUnitario, 
-                    Producto.Estado
-                );
-                contexto.SaveChanges();
+                try
+                {
+                    TB_Producto Producto = mapearProducto(producto);
+                    ObjectParameter id = new ObjectParameter("ID_Producto", typeof(int));
+                    contexto.SincronizarProducto(id, Producto.ID_Categoria, Producto.ID_Promocion, Producto.NombreProducto, Producto.Codigo, Producto.Descripcion, Producto.Fabricante, Producto.Stock, Producto.Impuesto, Producto.ValorUnitario, Producto.Estado);
+                    contexto.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    e.ToString();
+                }
             }
         }
 
-        //procedimiento almacenado
-        public void actualizarProductos(Productos producto)
-        {
-            using (DB_AcmeEntities contexto = new DB_AcmeEntities())
-            {
-                TB_Producto Producto = mapearProducto(producto);
-                contexto.ActualizarProducto(
-                    Producto.ID_Producto, 
-                    Producto.ID_Categoria,
-                    Producto.ID_Promocion,
-                    Producto.NombreProducto,
-                    Producto.Codigo,
-                    Producto.Descripcion,
-                    Producto.Fabricante,
-                    Producto.Stock,
-                    Producto.Impuesto,
-                    Producto.ValorUnitario,
-                    Producto.Estado
-                );
-            }
-        }
-
+        /* 
+         * Metodo
+         * Descripcion: Mapea los atributos de un producto
+         * Entrada: Productos
+         * Salida: Productos de entidad TB_Producto
+         */
         private TB_Producto mapearProducto(Productos item)
         {
             TB_Producto Producto = new TB_Producto();
