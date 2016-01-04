@@ -114,6 +114,7 @@
     <EntitySetMapping Name="TB_Vendedor">
       <EntityTypeMapping TypeName="DB_AcmeModel.TB_Vendedor">
         <MappingFragment StoreEntitySet="TB_Vendedor">
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="ID_Vendedor" ColumnName="ID_Vendedor" />
           <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
           <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
@@ -128,8 +129,6 @@
     <FunctionImportMapping FunctionImportName="ConsultarIdentificadorPedido" FunctionName="DB_AcmeModel.Store.ConsultarIdentificadorPedido" />
     <FunctionImportMapping FunctionImportName="InsertarDetallePedido" FunctionName="DB_AcmeModel.Store.InsertarDetallePedido" />
     <FunctionImportMapping FunctionImportName="InsertarPedido" FunctionName="DB_AcmeModel.Store.InsertarPedido" />
-    <FunctionImportMapping FunctionImportName="InsertarProducto" FunctionName="DB_AcmeModel.Store.InsertarProducto" />
-    <FunctionImportMapping FunctionImportName="ActualizarProducto" FunctionName="DB_AcmeModel.Store.ActualizarProducto" />
     <FunctionImportMapping FunctionImportName="ConsultarPedidoFecha" FunctionName="DB_AcmeModel.Store.ConsultarPedidoFecha">
       <ResultMapping>
         <ComplexTypeMapping TypeName="DB_AcmeModel.ConsultarPedidoFecha_Result">
@@ -170,5 +169,28 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="InsertarUsuarioLogin" FunctionName="DB_AcmeModel.Store.InsertarUsuarioLogin" />
+    <FunctionImportMapping FunctionImportName="ConsultarUsuarioLogin" FunctionName="DB_AcmeModel.Store.ConsultarUsuarioLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_AcmeModel.ConsultarUsuarioLogin_Result">
+          <ScalarProperty Name="ID_Login" ColumnName="ID_Login" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ConsultarVendedor" FunctionName="DB_AcmeModel.Store.ConsultarVendedor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_AcmeModel.ConsultarVendedor_Result">
+          <ScalarProperty Name="ID_Vendedor" ColumnName="ID_Vendedor" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SincronizarCliente" FunctionName="DB_AcmeModel.Store.SincronizarCliente" />
+    <FunctionImportMapping FunctionImportName="SincronizarProducto" FunctionName="DB_AcmeModel.Store.SincronizarProducto" />
   </EntityContainerMapping>
 </Mapping>

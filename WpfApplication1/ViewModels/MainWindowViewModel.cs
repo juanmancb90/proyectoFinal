@@ -16,6 +16,7 @@
  * >> string EncriptarDatosPedidos(List<Pedidos> pedidosBL)
  * >> void ProductWebServiceExecute()
  * >> List<Productos> Desencriptar(string data)
+ * >> List<Clientes> DesencriptarClientes(string data)
  * >> bool ProductWebService
  * >> bool PedidoWebService 
  * >>
@@ -260,23 +261,30 @@ namespace WpfApplication1.ViewModels
             try
             {
                 this.proxy = new WebServiceApiClient("WSHttpBinding_IWebServiceApi");
-                MessageBoxResult result = MessageBox.Show("¿Desea sincronizar el inventario de productos mediante el Sistema Central?", "Alerta Actualización", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                MessageBoxResult result = MessageBox.Show("¿Desea sincronizar el inventario de Productos y Clientes mediante el Sistema Central?", "Alerta Actualización", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    var data = proxy.GetProductosWCFBL();
-                    ProductosBL contexto = new ProductosBL();
-                    if (data != null)
+                    var productosWCF = proxy.GetProductosWCFBL();
+                    var clientesWCF = proxy.GetClientesWCFBL();
+                    ProductosBL contextoProducto = new ProductosBL();
+                    ClientesBL contextoCliente = new ClientesBL();
+                    if (productosWCF != null && clientesWCF != null)
                     {
-                        var productos = Desencriptar(data);
+                        var productos = DesencriptarProductos(productosWCF);
                         foreach (var item in productos)
                         {
-                            contexto.SincronizarProductosBL(cs, item);
+                            contextoProducto.SincronizarProductosBL(cs, item);
                         }
-                        MessageBox.Show("Se ha sincronizado los prodcutos del inventario con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                        var clientes = DesencriptarClientes(clientesWCF);
+                        foreach (var item in clientes)
+                        {
+                            contextoCliente.SincronizarClientesBL(cs, item);
+                        }
+                        MessageBox.Show("Se ha sincronizado los Prodcutos y los Clientes del inventario con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
-                        MessageBox.Show("No se ha podido sincronizar los prodcutos del inventario con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show("No se ha podido sincronizar los Prodcutos y Clienetes del inventario con el sistema Central", "Información", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
 
                 }
@@ -293,9 +301,9 @@ namespace WpfApplication1.ViewModels
          * Entrada: string data
          * Salida: List<Productos>
          */
-        private List<Productos> Desencriptar(string data)
+        private List<Productos> DesencriptarProductos(string data)
         {
-            List<Productos> Productos = new List<Entidades.Productos>();
+            List<Productos> Productos = new List<Productos>();
             byte[] decripter = Convert.FromBase64String(data);
             string cadena = Encoding.Unicode.GetString(decripter);
             string[] productos = cadena.Split(':');
@@ -317,6 +325,37 @@ namespace WpfApplication1.ViewModels
                 Productos.Add(Producto);
             }
             return Productos;
+        }
+
+        /* 
+         * Metodo
+         * Descripcion: Desencripta la cadena de string correspondiente a los clientes del web service
+         * Entrada: string data
+         * Salida: List<Clientes>
+         */
+        private List<Clientes> DesencriptarClientes(string data)
+        {
+            List<Clientes> Clientes = new List<Clientes>();
+            byte[] decripter = Convert.FromBase64String(data);
+            string cadena = Encoding.Unicode.GetString(decripter);
+            string[] clientes = cadena.Split(':');
+            for (int i = 0; i < clientes.Length; i++)
+            {
+                string[] cliente = clientes[i].Split('¿');
+                Clientes Cliente = new Clientes();
+                Cliente.ID_Cliente = Convert.ToInt32(cliente[0]);
+                Cliente.ID_Vendedor = Convert.ToInt32(cliente[1]);
+                Cliente.ID_Ciudad = Convert.ToInt32(cliente[2]);
+                Cliente.ID_Documento = Convert.ToInt32(cliente[3]);
+                Cliente.NombreCompleto = cliente[4];
+                Cliente.NumeroDocumento = cliente[5];
+                Cliente.Telefono = cliente[6];
+                Cliente.Celular = cliente[7];
+                Cliente.Email = cliente[8];
+                Cliente.Direccion = cliente[9];
+                Clientes.Add(Cliente);
+            }
+            return Clientes;
         }
 
         /* 

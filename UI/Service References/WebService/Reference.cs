@@ -21,6 +21,12 @@ namespace UI.WebService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetProductosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/GetProductosWCFBLResponse")]
         System.Threading.Tasks.Task<string> GetProductosWCFBLAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetClientesWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/GetClientesWCFBLResponse")]
+        string GetClientesWCFBL();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/GetClientesWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/GetClientesWCFBLResponse")]
+        System.Threading.Tasks.Task<string> GetClientesWCFBLAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebServiceApi/SetPedidosWCFBL", ReplyAction="http://tempuri.org/IWebServiceApi/SetPedidosWCFBLResponse")]
         bool SetPedidosWCFBL(string pedidos);
         
@@ -67,6 +73,14 @@ namespace UI.WebService {
         
         public System.Threading.Tasks.Task<string> GetProductosWCFBLAsync() {
             return base.Channel.GetProductosWCFBLAsync();
+        }
+        
+        public string GetClientesWCFBL() {
+            return base.Channel.GetClientesWCFBL();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetClientesWCFBLAsync() {
+            return base.Channel.GetClientesWCFBLAsync();
         }
         
         public bool SetPedidosWCFBL(string pedidos) {

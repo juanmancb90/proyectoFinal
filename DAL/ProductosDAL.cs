@@ -9,8 +9,7 @@
  * Listado de Metodos:
  * >> ProductosDAL(string cs)
  * >> List<Productos> ObtenerProducto()
- * >> void insertarProductos(Productos producto)
- * >> void actualizarProductos(Productos producto)
+ * >> void sincronizarProducto(Productos producto)
  * >> TB_Producto mapearProducto(Productos item)
  * >> Productos MapearProducto(TB_Producto item)
  */
@@ -65,55 +64,25 @@ namespace DAL
 
         /* 
          * Metodo
-         * Descripcion: Inserta un producto que proviene del Web Service
+         * Descripcion: sincronizar un producto que proviene del Web Service
          * Entrada: Productos Producto
          * Salida: void
          */
-        public void insertarProductos(Productos producto)
+        public void sincronizarProducto(Productos producto)
         {
             using (DB_AcmeEntities contexto = new DB_AcmeEntities())
             {
-                TB_Producto Producto = mapearProducto(producto);
-                contexto.InsertarProducto(
-                    Producto.ID_Categoria, 
-                    Producto.ID_Promocion, 
-                    Producto.NombreProducto, 
-                    Producto.Codigo, 
-                    Producto.Descripcion, 
-                    Producto.Fabricante, 
-                    Producto.Stock, 
-                    Producto.Impuesto, 
-                    Producto.ValorUnitario, 
-                    Producto.Estado
-                );
-                contexto.SaveChanges();
-            }
-        }
-
-        /* 
-          * Metodo
-          * Descripcion: Actualiza los productos con la informacion del inventario de Productos del Web Service
-          * Entrada: Productos producto
-          * Salida: void
-        */
-        public void actualizarProductos(Productos producto)
-        {
-            using (DB_AcmeEntities contexto = new DB_AcmeEntities())
-            {
-                TB_Producto Producto = mapearProducto(producto);
-                contexto.ActualizarProducto(
-                    Producto.ID_Producto, 
-                    Producto.ID_Categoria,
-                    Producto.ID_Promocion,
-                    Producto.NombreProducto,
-                    Producto.Codigo,
-                    Producto.Descripcion,
-                    Producto.Fabricante,
-                    Producto.Stock,
-                    Producto.Impuesto,
-                    Producto.ValorUnitario,
-                    Producto.Estado
-                );
+                try
+                {
+                    TB_Producto Producto = mapearProducto(producto);
+                    ObjectParameter id = new ObjectParameter("ID_Producto", typeof(int));
+                    contexto.SincronizarProducto(id, Producto.ID_Categoria, Producto.ID_Promocion, Producto.NombreProducto, Producto.Codigo, Producto.Descripcion, Producto.Fabricante, Producto.Stock, Producto.Impuesto, Producto.ValorUnitario, Producto.Estado);
+                    contexto.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    e.ToString();
+                }
             }
         }
 

@@ -10,6 +10,7 @@
  * >> string GetProductosWCFBL();
  * >> bool SetPedidosWCFBL(string pedidos);
  * >> bool SetDetallePedidosWCFBL(string detallePedidos);
+ * >> string GetClientesWCFBL();
  */
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,15 @@ namespace WebServiceApi
          */
         [OperationContract]
         string GetProductosWCFBL();
+
+        /* 
+         * Metodo
+         * Descripcion: Metodo para obtener los Productos del inventario central
+         * Entrada: void
+         * Salida: string
+         */
+        [OperationContract]
+        string GetClientesWCFBL();
 
         /* 
          * Metodo

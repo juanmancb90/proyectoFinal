@@ -14,7 +14,6 @@
  * >> List<DetallePedidosWCF> DesencriptarDetallePedidos(string data)
  * >> String EncriptarProductos(List<ProductosWCF> productos)
  * >> string GetClientesWCFBL()
- * >> String EncriptarClientes(List<ClientesWCF> clientes)
  */
 using System;
 using System.Collections.Generic;

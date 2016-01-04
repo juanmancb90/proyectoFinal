@@ -13,18 +13,9 @@ namespace DAL
 {
 
 using System;
-    using System.Collections.Generic;
     
-public partial class TB_Vendedor
+public partial class ConsultarVendedor_Result
 {
-
-    public TB_Vendedor()
-    {
-
-        this.TB_Cliente = new HashSet<TB_Cliente>();
-
-    }
-
 
     public int ID_Vendedor { get; set; }
 
@@ -37,10 +28,6 @@ public partial class TB_Vendedor
     public string Contrasenia { get; set; }
 
     public string Email { get; set; }
-
-
-
-    public virtual ICollection<TB_Cliente> TB_Cliente { get; set; }
 
 }
 

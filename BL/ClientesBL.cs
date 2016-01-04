@@ -8,6 +8,7 @@
 /*
  * Listado de Metodos:
  * >> List<Clientes> ObtenerClientes(string cs)
+ * >> void SincronizarClientesBL(String cs, Clientes cliente = null)
  */
 
 using DAL;
@@ -32,6 +33,21 @@ namespace BL
             ClientesDAL contexto = new ClientesDAL(cs);
             List<Clientes> clientes = contexto.ObtenerCliente();
             return (clientes);
+        }
+
+        /* 
+         * Metodo
+         * Descripcion: sincroniza un listado de clientes
+         * Entrada: String cs, Clientes cliente = null
+         * Salida: void
+         */
+        public void SincronizarClientesBL(String cs, Clientes cliente = null)
+        {
+            ClientesDAL contexto = new ClientesDAL(cs);
+            if (cliente != null)
+            {
+                contexto.sincronizarCliente(cliente);
+            }
         }
     }
 }

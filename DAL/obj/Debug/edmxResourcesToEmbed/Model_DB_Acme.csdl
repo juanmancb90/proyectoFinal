@@ -126,6 +126,7 @@
     <Property Name="NombreUsuario" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Contrasenia" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="TB_Cliente" Relationship="Self.FK_TB_Cliente_TB_Vendedor" FromRole="TB_Vendedor" ToRole="TB_Cliente" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
   </EntityType>
   <Association Name="FK_TB_Producto_TB_Categoria">
     <End Role="TB_Categoria" Type="Self.TB_Categoria" Multiplicity="1" />
@@ -333,6 +334,37 @@
     <FunctionImport Name="InsertarUsuarioLogin">
       <Parameter Name="NombreUsuario" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="ConsultarUsuarioLogin" ReturnType="Collection(DB_AcmeModel.ConsultarUsuarioLogin_Result)">
+      <Parameter Name="FechaActual" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ConsultarVendedor" ReturnType="Collection(DB_AcmeModel.ConsultarVendedor_Result)">
+      <Parameter Name="NombreUsuario" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SincronizarCliente">
+      <Parameter Name="ID_Cliente" Mode="InOut" Type="Int32" />
+      <Parameter Name="ID_Vendedor" Mode="In" Type="Int32" />
+      <Parameter Name="ID_Ciudad" Mode="In" Type="Int32" />
+      <Parameter Name="ID_Documento" Mode="In" Type="Int32" />
+      <Parameter Name="NombreCompleto" Mode="In" Type="String" />
+      <Parameter Name="NumeroDocumento" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Celuar" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SincronizarProducto">
+      <Parameter Name="ID_Producto" Mode="InOut" Type="Int32" />
+      <Parameter Name="ID_Categoria" Mode="In" Type="Int32" />
+      <Parameter Name="ID_Promocion" Mode="In" Type="Int32" />
+      <Parameter Name="NombreProducto" Mode="In" Type="String" />
+      <Parameter Name="Codigo" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Fabricante" Mode="In" Type="String" />
+      <Parameter Name="Stock" Mode="In" Type="Int32" />
+      <Parameter Name="Impuesto" Mode="In" Type="Decimal" />
+      <Parameter Name="ValorUnitario" Mode="In" Type="Decimal" />
+      <Parameter Name="Estado" Mode="In" Type="Boolean" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="ConsultarPedidoFecha_Result">
     <Property Type="Int32" Name="ID_Pedido" Nullable="false" />
@@ -363,4 +395,17 @@
     <Property Name="NombreUsuario" Type="String" Nullable="false" MaxLength="250" FixedLength="true" Unicode="true" />
     <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
+  <ComplexType Name="ConsultarUsuarioLogin_Result">
+    <Property Type="Int32" Name="ID_Login" Nullable="false" />
+    <Property Type="String" Name="NombreUsuario" Nullable="false" MaxLength="250" />
+    <Property Type="DateTime" Name="FechaIngreso" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="ConsultarVendedor_Result">
+    <Property Type="Int32" Name="ID_Vendedor" Nullable="false" />
+    <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="NumeroDocumento" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="NombreUsuario" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="Contrasenia" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+  </ComplexType>
 </Schema>

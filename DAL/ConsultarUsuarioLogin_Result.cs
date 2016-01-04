@@ -13,34 +13,15 @@ namespace DAL
 {
 
 using System;
-    using System.Collections.Generic;
     
-public partial class TB_Vendedor
+public partial class ConsultarUsuarioLogin_Result
 {
 
-    public TB_Vendedor()
-    {
-
-        this.TB_Cliente = new HashSet<TB_Cliente>();
-
-    }
-
-
-    public int ID_Vendedor { get; set; }
-
-    public string NombreCompleto { get; set; }
-
-    public string NumeroDocumento { get; set; }
+    public int ID_Login { get; set; }
 
     public string NombreUsuario { get; set; }
 
-    public string Contrasenia { get; set; }
-
-    public string Email { get; set; }
-
-
-
-    public virtual ICollection<TB_Cliente> TB_Cliente { get; set; }
+    public System.DateTime FechaIngreso { get; set; }
 
 }
 
